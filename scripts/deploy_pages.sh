@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Build the site for GitHub Pages and push it to the gh-pages branch.
+#
+# The built site (app/dist) includes the card scans (~120 MB webp), which are kept out of
+# the main branch on purpose; gh-pages is the only place they are committed.
+#
+# Usage: scripts/deploy_pages.sh            (from the repo root; needs git + node + a pushable origin)
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+REMOTE=$(git remote get-url origin)
+REPO_NAME=$(basename -s .git "$REMOTE")
+BASE="/${REPO_NAME}/"
+
+echo "== building with BASE_PATH=${BASE}"
+(cd app && BASE_PATH="$BASE" npm run build)
+
+echo "== publishing app/dist to gh-pages of $REMOTE"
+cd app/dist
+touch .nojekyll
+rm -rf .git
+git init -q -b gh-pages
+git add -A
+git -c core.safecrlf=false commit -q -m "Deploy site $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+git push -f "$REMOTE" gh-pages
+rm -rf .git
+echo "== done: https://$(echo "$REMOTE" | sed -E 's#.*github.com[:/]([^/]+)/.*#\1#').github.io${BASE}"

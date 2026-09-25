@@ -143,13 +143,18 @@ npm run dev        # http://localhost:5173
 npm run build      # tsc + vite build → app/dist
 ```
 
-Для GitHub Pages сайт собирается с базовым путём репозитория:
+### GitHub Pages
+
+Сайт живёт на <https://exe-cut3.github.io/jime-cards-ru/>. Деплой одной командой:
 
 ```bash
-BASE_PATH=/<имя-репозитория>/ npm run build
+bash scripts/deploy_pages.sh
 ```
 
-Содержимое `app/dist` (включая картинки) публикуется целиком, например через ветку `gh-pages`.
+Скрипт собирает `app/dist` с базовым путём `/jime-cards-ru/`, добавляет `.nojekyll` и
+пушит содержимое (включая картинки) в ветку `gh-pages`. В `main` сканов нет, они только
+в `gh-pages`. Перед деплоем должны быть готовы `app/public/img` и `app/public/data`
+(`scripts/prepare_app.py`).
 
 ### Docker
 
