@@ -267,6 +267,53 @@ export function expectedSuccesses(stat: number, s: DeckStats): number {
   return s.inDeck ? (stat * s.successInDeck) / s.inDeck : 0;
 }
 
+/**
+ * Exact distribution of the number of success icons when n cards are drawn from the deck
+ * without replacement (cards carry 0, 1 or 2 icons). dist[t] = probability of exactly t icons.
+ */
+export function successDistribution(deck: Card[], n: number): number[] {
+  const D = deck.length;
+  n = Math.min(Math.max(0, Math.floor(n)), D);
+  if (n === 0 || D === 0) return [1];
+  const maxT = deck.reduce((s, c) => s + (c.icons?.success ?? 0), 0);
+  // ways[k][t] = number of k-card subsets with t icons in total
+  const ways: number[][] = Array.from({ length: n + 1 }, () => new Array<number>(maxT + 1).fill(0));
+  ways[0][0] = 1;
+  for (const c of deck) {
+    const s = c.icons?.success ?? 0;
+    for (let k = n; k >= 1; k--) for (let t = maxT; t >= s; t--) ways[k][t] += ways[k - 1][t - s];
+  }
+  const total = ways[n].reduce((a, b) => a + b, 0);
+  return ways[n].map((w) => w / total);
+}
+
+export function chanceAtLeast(dist: number[], m: number): number {
+  let p = 0;
+  for (let t = m; t < dist.length; t++) p += dist[t];
+  return p;
+}
+
+const TIER_ORDER = ['I', 'II', 'III', 'IV'];
+
+export function tierIndex(c: Card): number {
+  return TIER_ORDER.indexOf(c.tier ?? '');
+}
+
+/** Other cards of the same upgrade line (reprints collapsed by name), lowest rank first. */
+export function familyOptions(item: Card, cards: Card[]): Card[] {
+  if (!item.family) return [];
+  const seen = new Set<string>([item.name_en ?? item.id]);
+  const out: Card[] = [];
+  for (const c of cards) {
+    if (c.kind !== 'item' || c.family !== item.family || c.id === item.id) continue;
+    const key = c.name_en ?? c.id;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(c);
+  }
+  return out.sort((a, b) => tierIndex(a) - tierIndex(b) || (a.name_ru ?? a.name_en ?? '').localeCompare(b.name_ru ?? b.name_en ?? ''));
+}
+
 // ---- equipment limits (§37.4; mounts: Spreading War rules)
 
 export interface GearCheck {

@@ -19,8 +19,13 @@ import {
   toggleIn,
   withHero,
   xpByRole,
+  chanceAtLeast,
+  familyOptions,
+  successDistribution,
+  tierIndex,
   type RoleXp,
 } from '../../deck';
+import { CardText } from '../CardText';
 import { EXPANSION_SHORT, STAT_KEYS, STAT_LABEL, STAT_LABEL_EN, SUBTYPE_LABEL, TRAIT_LABEL } from '../../i18n';
 import type { Card, StatKey } from '../../types';
 import { CostChip, IconRow, OwnerBadge, TierChip, TypeBadge, typeClass } from '../Badges';
@@ -53,6 +58,9 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
   const [shopRole, setShopRole] = useState<string | null>(null);
   const activeShop = shopRole ?? build.role ?? roles[0] ?? null;
   const [copied, setCopied] = useState<'link' | 'text' | null>(null);
+  const [upgradeAt, setUpgradeAt] = useState<number | null>(null);
+  const deckCards = all.filter((c) => !preparedSet.has(c.id));
+  const withSuccess = deckCards.filter((c) => (c.icons?.success ?? 0) > 0).length;
 
   const touch = (b: Build): Build => ({ ...b, updated: Date.now() });
   const set = (patch: Partial<Build>) => onChange((b) => touch({ ...b, ...patch }));
@@ -361,9 +369,42 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           </div>
         ))}
         <div className="drows">
-          {gear.map((c, i) => (
-            <ItemRow key={`${c.id}-${i}`} card={c} onOpen={onOpen} onRemove={() => set({ gear: build.gear.filter((_, j) => j !== i) })} />
-          ))}
+          {gear.map((c, i) => {
+            const options = familyOptions(c, cards);
+            const better = options.filter((o) => tierIndex(o) > tierIndex(c)).length;
+            const open = upgradeAt === i;
+            return (
+              <div key={`${c.id}-${i}`} className="gear-item">
+                <ItemRow card={c} onOpen={onOpen}>
+                  {options.length > 0 && (
+                    <button className={`btn btn-sm ${open ? 'is-on' : ''}`} onClick={() => setUpgradeAt(open ? null : i)} aria-expanded={open}>
+                      Улучшить{better > 0 && ` · ${better}`}
+                    </button>
+                  )}
+                  <button
+                    className="btn btn-sm"
+                    onClick={() => {
+                      setUpgradeAt(null);
+                      set({ gear: build.gear.filter((_, j) => j !== i) });
+                    }}
+                  >
+                    Снять
+                  </button>
+                </ItemRow>
+                {open && (
+                  <UpgradeList
+                    current={c}
+                    options={options}
+                    onOpen={onOpen}
+                    onPick={(id) => {
+                      setUpgradeAt(null);
+                      set({ gear: build.gear.map((g, j) => (j === i ? id : g)) });
+                    }}
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
         <div className="row-actions">
           <AddSelect
@@ -379,8 +420,8 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           )}
         </div>
         <p className="hint">
-          Герой может быть экипирован не более чем одной бронёй, снаряжением не более чем на две руки и одной вещью (37.4); верховое животное — одно, после экипировки вещами («Ветер войны»). Всё стартовое снаряжение имеет ранг I,
-          улучшения открываются по показателю сведений отряда.
+          Герой может быть экипирован не более чем одной бронёй, снаряжением не более чем на две руки и одной вещью (37.4); верховое животное — одно, после экипировки вещами («Ветер войны»). Всё стартовое снаряжение имеет ранг I.
+          «Улучшить» показывает карты той же линейки: приложение предлагает их на выбор, когда показатель сведений отряда достигает числа на карте.
         </p>
       </section>
 
@@ -397,32 +438,48 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
             <CardIcon name="fate" /> <b>{stats.fateInDeck}</b> судьбы
           </span>
           <span>
-            в среднем <b>{stats.inDeck ? (stats.successInDeck / stats.inDeck).toFixed(2) : '—'}</b> успеха на карту
+            карт с успехом <b>{withSuccess}</b> из {stats.inDeck} ({stats.inDeck ? pct(withSuccess / stats.inDeck) : '—'})
           </span>
         </div>
         {hero && hero.stats && (
-          <table className="stats-table">
-            <thead>
-              <tr>
-                <th>Характеристика</th>
-                <th>Значение</th>
-                <th>Ожидаемо успехов за проверку</th>
-              </tr>
-            </thead>
-            <tbody>
-              {STAT_KEYS.map((k: StatKey) => (
-                <tr key={k}>
-                  <td>
-                    <StatIcon stat={k} size={16} title={STAT_LABEL[k]} /> {STAT_LABEL[k]}
-                  </td>
-                  <td>{hero.stats![k]}</td>
-                  <td>
-                    <b>{expectedSuccesses(hero.stats![k], stats).toFixed(1)}</b>
-                  </td>
+          <div className="stats-wrap">
+            <table className="stats-table">
+              <thead>
+                <tr>
+                  <th>Характеристика</th>
+                  <th title="Столько карт берётся при проверке">Карт</th>
+                  <th>Хотя бы 1 успех</th>
+                  <th>Хотя бы 2</th>
+                  <th>Ожидаемо</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {STAT_KEYS.map((k: StatKey) => {
+                  const n = hero.stats![k];
+                  const dist = successDistribution(deckCards, n);
+                  const p1 = chanceAtLeast(dist, 1);
+                  const p2 = chanceAtLeast(dist, 2);
+                  return (
+                    <tr key={k}>
+                      <td>
+                        <StatIcon stat={k} size={16} title={STAT_LABEL[k]} /> {STAT_LABEL[k]}
+                      </td>
+                      <td>{n}</td>
+                      <td>
+                        <b>{pct(p1)}</b>
+                        <Bar p={p1} />
+                      </td>
+                      <td>
+                        <b>{pct(p2)}</b>
+                        <Bar p={p2} />
+                      </td>
+                      <td>{expectedSuccesses(n, stats).toFixed(1)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         )}
         {stats.traits.length > 0 && (
           <div className="chips">
@@ -434,7 +491,7 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           </div>
         )}
         <p className="hint">
-          При проверке герой берёт с верха колоды столько карт, сколько у него значение характеристики, и считает символы успеха. Подготовленные карты лежат под планшетом и в колоде не участвуют; их символы игнорируются (57.6).
+          При проверке герой берёт с верха колоды столько карт, сколько у него значение характеристики, и считает символы успеха. Проценты — вероятность набрать столько успехов с одной попытки, без учёта эффектов карт. Подготовленные карты лежат под планшетом и в колоде не участвуют; их символы игнорируются (57.6).
         </p>
       </section>
     </div>
@@ -528,12 +585,12 @@ function SkillRow({ card, onOpen, prepared, status, children }: { card: Card; on
   );
 }
 
-function ItemRow({ card, onOpen, onRemove }: { card: Card; onOpen: (id: string) => void; onRemove: () => void }) {
+function ItemRow({ card, onOpen, text, children }: { card: Card; onOpen: (id: string) => void; text?: boolean; children?: React.ReactNode }) {
   const { main, sub } = displayName(card);
   const hands = handsOf(card);
   const test = card.test ?? [];
   return (
-    <div className={`drow ${typeClass(card)}`}>
+    <div className={`drow ${typeClass(card)} ${text ? 'has-text' : ''}`}>
       <span className="drow-n">
         <TierChip c={card} />
       </span>
@@ -554,13 +611,55 @@ function ItemRow({ card, onOpen, onRemove }: { card: Card; onOpen: (id: string) 
           </span>
         )}
       </span>
-      <span className="drow-actions">
-        <button className="btn btn-sm" onClick={onRemove}>
-          Снять
-        </button>
-      </span>
+      <span className="drow-actions">{children}</span>
+      {text && (card.text_ru || card.text_en) && (
+        <div className="drow-text">
+          {card.traits_ru && <div className="drow-traits">{card.traits_ru}</div>}
+          <CardText text={card.text_ru ?? card.text_en} className="small" />
+        </div>
+      )}
     </div>
   );
+}
+
+/** Other cards of an item's upgrade line, with the lore thresholds the app uses to offer them. */
+function UpgradeList({ current, options, onOpen, onPick }: { current: Card; options: Card[]; onOpen: (id: string) => void; onPick: (id: string) => void }) {
+  const base = current.tier === 'I' ? current : options.find((o) => o.tier === 'I') ?? current;
+  const lore = TIERS.map((t) => {
+    const o = [current, ...options].find((x) => x.tier === t && x.number != null);
+    return o ? `${t} — ${o.number}` : null;
+  }).filter(Boolean);
+  return (
+    <div className="upgrade">
+      <div className="upgrade-head">
+        Линейка «{displayName(base).main}»{lore.length > 0 && <> · показатель сведений: {lore.join(', ')}</>}
+      </div>
+      <div className="drows">
+        {options.map((o) => {
+          const d = tierIndex(o) - tierIndex(current);
+          return (
+            <ItemRow key={o.id} card={o} onOpen={onOpen} text>
+              <button className={`btn btn-sm ${d > 0 ? 'is-buy' : ''}`} onClick={() => onPick(o.id)}>
+                {d > 0 ? 'Улучшить' : d === 0 ? 'Заменить' : 'Вернуть'}
+              </button>
+            </ItemRow>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function Bar({ p }: { p: number }) {
+  return (
+    <span className="pbar" aria-hidden="true">
+      <i style={{ width: `${Math.round(p * 100)}%` }} />
+    </span>
+  );
+}
+
+function pct(p: number): string {
+  return `${Math.round(p * 100)}%`;
 }
 
 function AddSelect({

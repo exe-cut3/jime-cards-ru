@@ -5,7 +5,7 @@ import { FiltersPanel } from './components/Filters';
 import { BookmarkIcon, CardsIcon, DeckIcon, FilterIcon } from './components/Icons';
 import { DeckMain } from './components/deck/DeckMain';
 import { DeckSetup } from './components/deck/DeckSetup';
-import { applyFilters, buildFacets, countByKind, loadDb, loadFavs, saveFavs } from './data';
+import { applyFilters, buildFacets, countByKind, displayName, loadDb, loadFavs, saveFavs } from './data';
 import { type Build, allRoles, decodeBuild, loadBuilds, loadCurrentId, newBuild, playableHeroes, saveBuilds, saveCurrentId, uid } from './deck';
 import { UI } from './i18n';
 import { buildIndex, searchIds } from './search';
@@ -174,6 +174,11 @@ export default function App() {
   const related = useMemo(() => (current ? relatedCards(current, cards) : []), [current, cards]);
   const dirty = !isEmptyFilters(filters);
   const isDeck = view === 'deck';
+
+  useEffect(() => {
+    const site = UI.title;
+    document.title = current ? `${displayName(current).main} — ${site}` : isDeck && build ? `${build.name} · ${UI.viewDeck} — ${site}` : `${site} — ${UI.subtitle}`;
+  }, [current, isDeck, build]);
 
   return (
     <div className="app">
