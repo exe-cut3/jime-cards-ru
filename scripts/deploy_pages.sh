@@ -6,6 +6,10 @@
 #
 # Usage: scripts/deploy_pages.sh            (from the repo root; needs git + node + a pushable origin)
 set -euo pipefail
+# Git Bash on Windows rewrites "/jime-cards-ru/" into "C:/Program Files/Git/jime-cards-ru/"
+# when it is passed to a native program — turn that conversion off.
+export MSYS_NO_PATHCONV=1
+export MSYS2_ARG_CONV_EXCL="*"
 
 cd "$(dirname "$0")/.."
 REMOTE=$(git remote get-url origin)
