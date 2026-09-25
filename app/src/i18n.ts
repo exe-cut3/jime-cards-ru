@@ -23,7 +23,7 @@ export const SUBTYPE_LABEL: Record<string, string> = {
   Support: 'В руки',
   Trinket: 'Вещь',
   Armor: 'Броня',
-  Mount: 'Скакун',
+  Mount: 'Верховое животное',
   boon: 'Преимущество',
   bane: 'Напасть',
 };
@@ -106,6 +106,8 @@ export const UI = {
   filters: 'Фильтры',
   reset: 'Сбросить',
   bookmarks: 'Закладки',
+  viewCards: 'Карты',
+  viewDeck: 'Колода',
   all: 'Все',
   section: 'Раздел',
   skillType: 'Тип навыка',

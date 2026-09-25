@@ -1,5 +1,8 @@
 // Filters live in the URL query string so a view can be shared as a link.
+// ?view=deck opens the deck planner; ?view=deck&b=… imports a shared build.
 import { EMPTY_FILTERS, type Filters, type Kind } from './types';
+
+export type View = 'cards' | 'deck';
 
 const LIST_KEYS = ['sub', 'owner', 'exp', 'cost', 'icon', 'trait', 'tier', 'test'] as const;
 
@@ -20,12 +23,24 @@ export function readCardId(search = window.location.search): string | null {
   return new URLSearchParams(search).get('card');
 }
 
-export function writeUrl(f: Filters, cardId: string | null, replace = false): void {
+export function readView(search = window.location.search): View {
+  return new URLSearchParams(search).get('view') === 'deck' ? 'deck' : 'cards';
+}
+
+export function readSharedBuild(search = window.location.search): string | null {
+  return new URLSearchParams(search).get('b');
+}
+
+export function writeUrl(f: Filters, cardId: string | null, replace = false, view: View = 'cards'): void {
   const p = new URLSearchParams();
-  if (f.q) p.set('q', f.q);
-  if (f.kind) p.set('kind', f.kind);
-  for (const k of LIST_KEYS) if (f[k].length) p.set(k, f[k].join(','));
-  if (f.fav) p.set('fav', '1');
+  if (view === 'deck') {
+    p.set('view', 'deck');
+  } else {
+    if (f.q) p.set('q', f.q);
+    if (f.kind) p.set('kind', f.kind);
+    for (const k of LIST_KEYS) if (f[k].length) p.set(k, f[k].join(','));
+    if (f.fav) p.set('fav', '1');
+  }
   if (cardId) p.set('card', cardId);
   const qs = p.toString();
   const url = `${window.location.pathname}${qs ? '?' + qs : ''}`;
