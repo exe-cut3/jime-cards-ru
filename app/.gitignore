@@ -1,0 +1,5 @@
+# Card scans are (c) FFG — generated locally by scripts/prepare_app.py, never committed
+public/img/
+public/data/
+node_modules/
+dist/

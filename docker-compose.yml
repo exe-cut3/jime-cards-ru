@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: ./app
+      args:
+        BASE_PATH: /
+    image: jime-cards-ru
+    container_name: jime-cards
+    ports:
+      - "8080:80"
+    restart: unless-stopped

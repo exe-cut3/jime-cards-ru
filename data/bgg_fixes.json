@@ -1,0 +1,41 @@
+{
+  "_comment": "Corrections applied to the BGG spreadsheet while parsing (scripts/parse_bgg.py). Each fix says why; the source scan is the authority.",
+  "fixes": [
+    {
+      "bucket": "items",
+      "match": {"name": "Cloud-Caser"},
+      "set": {"name": "Cloud-Chaser"},
+      "reason": "Typo in the sheet; the card (items/hands/hands-69.png) reads Cloud-Chaser."
+    },
+    {
+      "bucket": "items",
+      "match": {"name": "Meadow Hart"},
+      "set": {"name": "Meadow Heart"},
+      "reason": "The card (items/mounts/mounts-03.png) reads Meadow Heart."
+    },
+    {
+      "bucket": "items",
+      "match": {"name": "Great Hunting Bow"},
+      "set": {"name": "Hunting Great Bow"},
+      "reason": "Word order on the card (items/hands/hands-72.png) is Hunting Great Bow."
+    },
+    {
+      "bucket": "skills",
+      "match": {"owner": "Beast-Friend", "name": "Iron Hills Goat"},
+      "set": {"number": 6},
+      "reason": "Card footer (roles/beast-friend/beast-friend-06.png) reads Beast-Friend 6; the sheet had 5 and 6 swapped."
+    },
+    {
+      "bucket": "skills",
+      "match": {"owner": "Beast-Friend", "name": "Lómë"},
+      "set": {"number": 5},
+      "reason": "Card footer (roles/beast-friend/beast-friend-05.png) reads Beast-Friend 5."
+    },
+    {
+      "bucket": "skills",
+      "match": {"owner": "Guardian", "number": 1},
+      "set": {"collection": "core"},
+      "reason": "The sheet marks Guardian 1 'You Cannot Pass' as Custom, but it is a core-set card (scan roles/guardian/guardian-01.png)."
+    }
+  ]
+}

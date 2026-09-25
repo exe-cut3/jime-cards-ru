@@ -1,0 +1,18 @@
+# Card scans and raw page dumps are (c) Fantasy Flight Games — kept locally, never committed.
+data/raw/**
+!data/raw/manifest.json
+!data/raw/.gitkeep
+
+# BGG spreadsheet (downloaded manually)
+data/raw/bgg.xlsx
+
+# Build / tooling
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# nested app ignores handled in app/.gitignore

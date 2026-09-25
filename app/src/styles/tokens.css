@@ -1,0 +1,65 @@
+/* Design tokens: a dark, restrained Middle-earth palette — warm charcoal, parchment text,
+   dull gold accent. Card types get their own hue; stats follow the game's own colours. */
+:root {
+  color-scheme: dark;
+
+  --font-serif: 'Alegreya', 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Alegreya Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --bg: #14120f;
+  --bg-1: #1b1814;
+  --bg-2: #232019;
+  --bg-3: #2c2821;
+  --line: #3a352c;
+  --line-2: #4a4437;
+  --text: #e8e0cd;
+  --text-2: #b3a992;
+  --text-3: #7f7766;
+  --accent: #c9a45c;
+  --accent-2: #8fb3a3;
+  --danger: #c5453e;
+
+  /* card types */
+  --t-hero: #d4a656;
+  --t-skill-hero: #e0b46a;
+  --t-skill-role: #7fb0a1;
+  --t-skill-basic: #9aa4b0;
+  --t-skill-title: #c7c2b4;
+  --t-skill-weakness: #a0685f;
+  --t-item-weapon: #c96a4a;
+  --t-item-support: #8faa62;
+  --t-item-trinket: #a586c4;
+  --t-item-armor: #6f93b8;
+  --t-item-mount: #c48e52;
+  --t-terrain: #7f9a63;
+  --t-damage: #c5453e;
+  --t-fear: #7d63b5;
+  --t-boon: #6fae7b;
+  --t-bane: #9b5aa8;
+  --t-condition: #9b5aa8;
+
+  /* stats and icons (as on the cards) */
+  --c-might: #d0453f;
+  --c-wisdom: #9a6fc4;
+  --c-agility: #c9c23c;
+  --c-spirit: #5a9bd0;
+  --c-wit: #63b062;
+  --c-success: #e9dfa6;
+  --c-fate: #b9b2a0;
+  --c-fear: #a98ad6;
+  --c-damage: #d0453f;
+  --c-inspiration: #d8d4c0;
+
+  /* expansions */
+  --e-core: #8c8271;
+  --e-sp: #6f8fa8;
+  --e-sw: #b0674f;
+  --e-did: #7d6c9c;
+  --e-voe: #6f9c7a;
+  --e-sotw: #a08a4c;
+
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --gutter: 16px;
+}

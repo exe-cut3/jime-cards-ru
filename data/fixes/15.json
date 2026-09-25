@@ -1,0 +1,13 @@
+{
+  "_comment": "Batch 15: cards whose OCR came back empty — read from the scans by eye; Captured has no RU scan (unofficial translation, flagged).",
+  "item-sword-core": {"text_ru": "1 {success}: 2 попадания\n2 {success}: 5 попаданий"},
+  "item-sword-sp": {"text_ru": "1 {success}: 2 попадания\n2 {success}: 5 попаданий"},
+  "item-sword-sw": {"text_ru": "1 {success}: 2 попадания\n2 {success}: 5 попаданий"},
+  "skill-dwalin-4": {"name_ru": "Мглистых гор хребет", "traits_ru": "Песня", "text_ru": "Когда вы разыгрываете разведку, вы можете раскрыть на 1 карту меньше, чтобы получить 1 воодушевление."},
+  "skill-gandalf-4": {"name_ru": "Высшая сила", "traits_ru": "Знания", "text_ru": "Удар 2\nРывок 2\nЗащита 2\nОтдых 2\nУкрытие"},
+  "skill-lorekeeper-5": {"text_ru": "Увеличьте свою {wisdom} на 1.\nЗащита 2"},
+  "skill-lorekeeper-6": {"text_ru": "Увеличьте свою {wit} на 1.\nЗащита 2"},
+  "skill-provisioner-4": {"text_ru": "Во время своего хода вы можете сбросить эту карту, чтобы поместить 1 жетон расходования на каждую экипированную {trinket}.\nОтдых 2"},
+  "skill-traveller-8": {"name_ru": "Нечего опасаться", "traits_ru": "Доблесть", "text_ru": "Вы не провоцируете атаки.\nЗащита 2"},
+  "bane-captured": {"text_ru": "Уберите свою фигурку с поля. На вас не действуют другие игровые эффекты, и вы не можете совершать другие действия.\nКогда вы должны сбросить эту карту напасти, вместо этого переверните её.\n{action} Вы пытаетесь сбежать. Переверните эту карту напасти.", "_by": "llm-unofficial", "_note": "НЕОФИЦИАЛЬНЫЙ перевод по EN и глоссарию: лицевая сторона «Неволи» в моде не отсканирована"}
+}
