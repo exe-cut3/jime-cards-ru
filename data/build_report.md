@@ -73,7 +73,7 @@
 - roles/traveller/traveller-09.png | footer unreadable; number by page order -> 9 | 0
 - roles/trickster/trickster-01.png | footer unreadable; number by page order -> 1 | 0
 
-## Notes (16)
+## Notes (17)
 
 - items/armors/armors-12.png: OCR number 94 != sheet number 99 for Glory-Mantle
 - items/armors/armors-19.png: OCR number 66 != sheet number 99 for Iron-Soul
@@ -91,10 +91,9 @@
 - item-sword-sp: no own scan, reprint of item-sword-core -> shares its image
 - item-sword-sw: no own scan, reprint of item-sword-core -> shares its image
 - translations applied to 649 cards from translations.json
+- English fixes applied to 18 cards from fixes_en.json
 
 ## TODO counts
 
-- verify_ru: 629
+- verify_ru: 649
 - expansion: 47
-- proofread_ru: 20
-- proofread_background_ocr: 18

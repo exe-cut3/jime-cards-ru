@@ -1,0 +1,2099 @@
+{
+ "_comment": "Batch 17: every non-hero card compared with its Russian scan (contact sheets, read by Claude sub-agents, spot-checked by hand). Fields present are corrected to the printed text; '_by': 'scan' marks the card as checked against the scan. Printed misprints are kept as printed (e.g. «на этой карта», «добавляте»).",
+ "_why": {
+  "bane-escape-spirit": "отваги → смелости as printed",
+  "bane-escape-wisdom": "ясного → продуманного as printed",
+  "bane-escape-wit": "хитрости и смекалки → коварства и уговоров as printed; card prints no «Получите 1 {fear} взакрытую. Затем»",
+  "boon-emboldened": "printed «добавляте» (typo on card)",
+  "item-dancer-on-the-wind": "Попадания capitalised as printed",
+  "item-dunedain-banner": "«Дунэдайндское» → «Дунэдайнское», как напечатано",
+  "item-eredain-short-sword": "capital М in Меч as printed; Попадания capitalised as printed",
+  "item-ever-bloom": "порядок слов: «получить взакрытую {damage}», как напечатано",
+  "item-fang-pendant": "«Пробой», «После того, как Вы … Вы можете» as printed",
+  "item-foe-blood": "«Если вы это сделали,» → «В этом случае» as printed",
+  "item-giantsbane": "Великая → Великанья as printed",
+  "item-gondorian-horn": "«Гондолинский» → «Гондорский», как напечатано (текст карты совпадает)",
+  "item-hrinanbenn": "«подготовить 1 карту» → «подготовить карту», как напечатано",
+  "item-iron-hills-battle-axe": "холмов lowercase as printed",
+  "item-iron-hills-plate": "«холмов» напечатано со строчной",
+  "item-lassemaica": "comma after атакой as printed; printed «карта» (typo on card)",
+  "item-lindish-knife": "comma «Перед атакой,» and printed misprint «на этой карта» as printed",
+  "item-long-spear": "копьё with ё as printed",
+  "item-northern-blade": "«клинок» lowercase in printed title",
+  "item-old-scepter": "«У Вас» capitalised as printed",
+  "item-reinforced-shield": "«щит» напечатано со строчной",
+  "item-revenant": "no comma after trinket glyph as printed; Попадания capitalised as printed",
+  "item-scour": "«Попадания»/«Попаданий» capitalised in attack lines as printed",
+  "item-short-sword": "title «Короткий Меч» and «Попадания» capitalised as printed",
+  "item-silver-scepter": "«У Вас» capitalised as printed",
+  "item-the-crown-of-shadows": "missing word: «сколько у вас жетонов порчи» as printed",
+  "item-the-silent-scepter": "«У Вас», «чтобы Вы или ближайший Герой» capitalised as printed",
+  "item-traveller-s-horse": "добавлено «от вас» дважды; «только 1 раз за раунд» → «только раз в раунд», как напечатано",
+  "item-vengeance-s-bite": "«Пробой», «После того, как Вы … Вы можете», quotes “…” as printed",
+  "item-warg-fang-pendant": "«Пробой», «После того, как Вы … Вы можете» as printed",
+  "item-westmarch-garb": "«пределов» напечатано со строчной",
+  "item-wrath-s-end": "заглавная Я в названии, как напечатано",
+  "skill-beast-friend-1": "title prints capital М: Мышь",
+  "skill-beast-friend-2": "Strike reminder printed as «Сбросьте эту карту при атаке, чтобы добавить 2 попадания»",
+  "skill-beast-friend-3": "title prints capital К: Кролик; comma after «Перед отдыхом» as printed",
+  "skill-beast-friend-4": "title prints capital Б: Белок",
+  "skill-beast-friend-5": "printed text has no «. Если он это делает,» — reads «…в вашей игровой зоне, вы сбрасываете эту карту.»",
+  "skill-beast-friend-6": "comma after «с этой карты» as printed",
+  "skill-beorn-4": "свой → свои as printed (print typo reproduced)",
+  "skill-beorn-5": "свой → свои as printed (print typo reproduced)",
+  "skill-bilbo-5": "title prints вперед (е), not вперёд",
+  "skill-burglar-11": "второе предложение напечатано отдельным абзацем",
+  "skill-captain-2": "также атаковал → также совершил атаку as printed",
+  "skill-captain-3": "также атаковал → также совершил атаку as printed",
+  "skill-guardian-7": "comma after «Голос» as printed in title",
+  "skill-guide-10": "printed wording differs: «Герои … не сбрасывают … и подготовленные карты» (not «Героев … нельзя заставить сбросить … или»)",
+  "skill-herbalist-1": "missing «Любопытство» after «эту карту»",
+  "skill-hunter-1": "второе предложение напечатано отдельным абзацем",
+  "skill-hunter-10": "второе предложение напечатано отдельным абзацем",
+  "skill-hunter-4": "второе предложение напечатано отдельным абзацем",
+  "skill-lorekeeper-5": "Годам → годам (lowercase in printed title)",
+  "skill-meddler-6": "нацелены на → воздействуют на as printed",
+  "skill-musician-7": "printed as two paragraphs: new paragraph before «Когда вы должны получить»",
+  "skill-pathfinder-11": "printed «сбросить эту карту «Неудержимый»» — card name missing",
+  "skill-provisioner-9": "printed «сбросьте карту «Приятная компания»», not «сбросьте эту карту»",
+  "skill-shieldmaiden-1": "this printed copy has only «Удар 2», no reminder text in parentheses",
+  "skill-smith-4": "printed «на 2 (если эта карта…» with no full stop/capital letter and «сверх обычного предела)» instead of «сверх предела воодушевления.)»",
+  "skill-title-10": "title printed with capital «Огонь»",
+  "skill-title-11": "title printed with capital «Бури»",
+  "skill-title-14": "заглавная Э в названии, как напечатано",
+  "skill-title-15": "заглавная Л в названии, как напечатано",
+  "skill-title-17": "заглавная Б в названии, как напечатано",
+  "skill-title-18": "заглавная П в названии, как напечатано",
+  "skill-title-19": "заглавная О в названии, как напечатано",
+  "skill-title-2": "title printed with capital «Камнями»",
+  "skill-title-20": "заглавная У в названии, как напечатано",
+  "skill-title-21": "заглавная Б в названии, как напечатано",
+  "skill-title-22": "кавычки «» → “” как напечатано",
+  "skill-title-23": "запятая после «Перед проверкой» и кавычки “” как напечатано",
+  "skill-title-24": "второе предложение напечатано отдельным абзацем",
+  "skill-title-25": "заглавная С в названии, как напечатано",
+  "skill-title-27": "заглавная З в названии; добавлена напечатанная подпись «Две крепости»",
+  "skill-title-28": "запятая после «на стойкость», как напечатано",
+  "skill-title-29": "запятая после «До проведения проверки», как напечатано",
+  "skill-title-3": "title printed with capital «Стае»",
+  "skill-title-30": "запятая после «Во время вашего хода», как напечатано",
+  "skill-title-33": "заглавная З в названии, как напечатано",
+  "skill-title-4": "title printed with capital «Гномов»",
+  "skill-title-5": "title printed as «Хозяин Своего Слова» (each word capitalised)",
+  "skill-title-6": "title printed with capital «Разгадки»",
+  "skill-title-7": "title printed with capital «Муха»",
+  "skill-title-9": "title printed with capital «Медведей»",
+  "skill-trickster-1": "printed «Перед тем как вы разыграете рывок» and «переместить любую группу врагов»",
+  "skill-weakness-cut-off": "«отряда» напечатано со строчной",
+  "skill-weakness-late": "заглавная О, как напечатано",
+  "skill-weakness-off-course": "«пути» напечатано со строчной",
+  "terrain-rubble": "({wit}, {ranged}) are corner icons, not printed text"
+ },
+ "_notes": {
+  "skill-arwen-3": "In the Sprint reminder the mark after «эту карту» looks like a period on this scan («эту карту. чтобы»), most likely a smudged comma (identical skill-arwen-4 clearly shows a comma); kept the comma.",
+  "skill-beast-friend-1": "Scan shows a stray space before the final period («из вашего сброса .»); kept «сброса.» without the space.",
+  "skill-beast-friend-6": "Print is degraded («вы можстс псрсмсститься»); read as «вы можете переместиться», matching the stored words.",
+  "skill-dwalin-2": "Card footer on the scan reads «Двалин 3» (and skill-dwalin-3 shows «Двалин 2»); both are the same card «Кровная вражда», so no content difference.",
+  "skill-delver-4": "Dash in «где X — количество» is very faint on the scan (at line end) but appears present; kept as stored.",
+  "skill-captain-4": "Stat glyph printed as a horn; kept {might} (same horn glyph appears for Might on skill-delver-6, consistent with EN).",
+  "skill-smith-9": "Printed «1{success}: 4 попадания, пробой» with no space between the number and the glyph; kept the stored «1 {success}» spacing as a token convention.",
+  "skill-smith-11": "Same as smith-9: printed «1{success}: 4 попадания, сокрушение» with no space; kept the stored spacing.",
+  "item-gondorian-horn": "Stored title «Гондолинский рог» differed from the printed «Гондорский рог»; rules text and EN name (Gondorian Horn) match, so treated as a typo and corrected rather than as a different card.",
+  "item-lindish-knife": "Printed text has the misprint «Если на этой карта есть» (not «карте»); transcribed as printed. Misprint on the card «на этой карта» shown corrected as «на этой карте».",
+  "item-short-sword": "Printed title shows a capital М in «Короткий Меч» (alternative-font print, like «Зачистка»); verify if the catalogue should keep «Короткий меч».",
+  "bane-captured": "Scan shows only card art / back, no text visible; not changed. Not checked: the Russian scan of this side is missing, the text stays an unofficial translation.",
+  "item-eredain-short-sword": "This print (like dancer-on-the-wind, revenant) uses a different font with capitalised «Попадания» and «Меч»; changed per strict capitalisation rule — revert if treated as a typographic quirk.",
+  "item-dancer-on-the-wind": "Capitalised «Попадания» is a quirk of this print run (same font as eredain-short-sword, revenant); changed per strict rule.",
+  "item-revenant": "Capitalised «Попадания» is a print quirk (same font as eredain-short-sword); changed per strict rule. Comma after the trinket glyph really is absent.",
+  "item-lassemaica": "«на этой карта есть» is a typo printed on the card; copied as printed per rules — revert to «карте» if typos should be normalised. Misprint on the card «на этой карта» shown corrected as «на этой карте».",
+  "boon-emboldened": "«добавляте» (missing й) is a typo printed on the card; copied as printed per rules — revert if typos should be normalised. Misprint on the card «добавляте» shown corrected as «добавляйте».",
+  "damage-cursed-injury": "Title is printed with a stress mark: «Про́клятая рана» (acute over о). Not added — DB has no combining accents elsewhere; decide if wanted.",
+  "terrain-rubble": "Card text box ends after «2 {success}: 1 попадание, пробой»; the stored trailing line «({wit}, {ranged})» is not printed text (they are corner icons: gold wit icon and ranged icon). Left unchanged.",
+  "terrain-barrels": "Some terrain cards print «{stat};2» without a space (barrels, log, statue, table, bush, pit, web); DB convention «{stat}; 2» kept. Also «провссти» on the scan is a print defect of «провести» — kept.",
+  "bane-escape-wit": "Printed RU card omits the «Получите 1 {fear} взакрытую» step that the English card has (rules difference on the printed card itself); text copied as printed."
+ },
+ "bane-captured": {
+  "_by": "llm-unofficial"
+ },
+ "bane-despondent": {
+  "_by": "scan"
+ },
+ "bane-escape-agility": {
+  "_by": "scan"
+ },
+ "bane-escape-might": {
+  "_by": "scan"
+ },
+ "bane-escape-spirit": {
+  "_by": "scan",
+  "text_ru": "Вы пробуете сбежать из неволи при помощи смелости и надежды. Проведите проверку {spirit}; 2.\nПри успехе ваши надзиратели пугают вас, но злу не удаётся остановить ваш побег. Получите 1 {fear} взакрытую. Затем поместите свою фигурку в любую исследованную область и сбросьте эту карту.\nПри провале вашей храбрости не хватает для побега. Сбросьте эту карту и возьмите карту «Неволя»."
+ },
+ "bane-escape-wisdom": {
+  "_by": "scan",
+  "text_ru": "Вы пробуете сбежать из неволи при помощи продуманного плана. Проведите проверку {wisdom}; 2.\nПри успехе ваши надзиратели жестоки, но слишком глупы, чтобы остановить вас. Получите 1 {damage} взакрытую. Затем поместите свою фигурку в любую исследованную область и сбросьте эту карту.\nПри провале ваш план разваливается на части. Сбросьте эту карту и возьмите карту «Неволя»."
+ },
+ "bane-escape-wit": {
+  "_by": "scan",
+  "text_ru": "Вы пробуете сбежать из неволи при помощи коварства и уговоров. Проведите проверку {wit}; 2.\nПри успехе ваши надзиратели сильны, но слишком недалёки, чтобы остановить вас. Поместите свою фигурку в любую исследованную область и сбросьте эту карту.\nПри провале вашего ума не хватает для побега. Сбросьте эту карту и возьмите карту «Неволя»."
+ },
+ "bane-terrified": {
+  "_by": "scan"
+ },
+ "boon-determined": {
+  "_by": "scan"
+ },
+ "boon-emboldened": {
+  "_by": "scan",
+  "text_ru": "В конце своего хода, если рядом с вами нет врагов, сбросьте эту карту.\nЕсли вы получили {damage} или {fear}, сбросьте эту карту.\nКогда вы атакуете, добавляйте 2 попадания к этой атаке."
+ },
+ "boon-hidden": {
+  "_by": "scan"
+ },
+ "damage-concussion": {
+  "_by": "scan"
+ },
+ "damage-crushed": {
+  "_by": "scan"
+ },
+ "damage-cursed-injury": {
+  "_by": "scan"
+ },
+ "damage-dazed": {
+  "_by": "scan"
+ },
+ "damage-deep-bruise": {
+  "_by": "scan"
+ },
+ "damage-entangled": {
+  "_by": "scan"
+ },
+ "damage-exhaustion": {
+  "_by": "scan"
+ },
+ "damage-feeble": {
+  "_by": "scan"
+ },
+ "damage-fever": {
+  "_by": "scan"
+ },
+ "damage-knocked-prone": {
+  "_by": "scan"
+ },
+ "damage-laceration": {
+  "_by": "scan"
+ },
+ "damage-poison": {
+  "_by": "scan"
+ },
+ "damage-putrid-boils": {
+  "_by": "scan"
+ },
+ "damage-shaken": {
+  "_by": "scan"
+ },
+ "damage-short-of-breath": {
+  "_by": "scan"
+ },
+ "damage-stunned": {
+  "_by": "scan"
+ },
+ "damage-sudden-sickness": {
+  "_by": "scan"
+ },
+ "damage-weariness": {
+  "_by": "scan"
+ },
+ "fear-anxiety": {
+  "_by": "scan"
+ },
+ "fear-cower": {
+  "_by": "scan"
+ },
+ "fear-dark-whispers": {
+  "_by": "scan"
+ },
+ "fear-delusions": {
+  "_by": "scan"
+ },
+ "fear-gloom": {
+  "_by": "scan"
+ },
+ "fear-greed": {
+  "_by": "scan"
+ },
+ "fear-hopelessness": {
+  "_by": "scan"
+ },
+ "fear-hysteria": {
+  "_by": "scan"
+ },
+ "fear-ill-will": {
+  "_by": "scan"
+ },
+ "fear-impending-doom": {
+  "_by": "scan"
+ },
+ "fear-infighting": {
+  "_by": "scan"
+ },
+ "fear-looming-shadows": {
+  "_by": "scan"
+ },
+ "fear-overcome": {
+  "_by": "scan"
+ },
+ "fear-paranoia": {
+  "_by": "scan"
+ },
+ "fear-rage": {
+  "_by": "scan"
+ },
+ "fear-surrender": {
+  "_by": "scan"
+ },
+ "fear-tormented": {
+  "_by": "scan"
+ },
+ "fear-troubled": {
+  "_by": "scan"
+ },
+ "item-banner": {
+  "_by": "scan"
+ },
+ "item-battle-axe": {
+  "_by": "scan"
+ },
+ "item-blade-bane": {
+  "_by": "scan"
+ },
+ "item-blood-wright": {
+  "_by": "scan"
+ },
+ "item-bolger-s-pride": {
+  "_by": "scan"
+ },
+ "item-bolt-thrower": {
+  "_by": "scan"
+ },
+ "item-bone-grinder": {
+  "_by": "scan"
+ },
+ "item-boots": {
+  "_by": "scan"
+ },
+ "item-bossed-shield": {
+  "_by": "scan"
+ },
+ "item-bough-of-the-white-tree": {
+  "_by": "scan"
+ },
+ "item-bounder-s-map": {
+  "_by": "scan"
+ },
+ "item-breeland-rations": {
+  "_by": "scan"
+ },
+ "item-brooch": {
+  "_by": "scan"
+ },
+ "item-bullroarer-s-course": {
+  "_by": "scan"
+ },
+ "item-butterbur-biscuits": {
+  "_by": "scan"
+ },
+ "item-cavalry-bow": {
+  "_by": "scan"
+ },
+ "item-chorus-of-light": {
+  "_by": "scan"
+ },
+ "item-circlet": {
+  "_by": "scan"
+ },
+ "item-clarion-call": {
+  "_by": "scan"
+ },
+ "item-clear-water": {
+  "_by": "scan"
+ },
+ "item-cloak": {
+  "_by": "scan"
+ },
+ "item-cloud-chaser": {
+  "_by": "scan"
+ },
+ "item-constant-companion": {
+  "_by": "scan"
+ },
+ "item-dagger": {
+  "_by": "scan"
+ },
+ "item-dancer-on-the-wind": {
+  "_by": "scan",
+  "text_ru": "Когда используется в атаке, можно потратить 1 воодушевление, чтобы игнорировать все контратаки.\n1 {success}: 3 Попадания\n1 {success}: 2 Попадания, рассечение\n2 {success}: 4 Попадания, раскол"
+ },
+ "item-dancing-steel": {
+  "_by": "scan"
+ },
+ "item-defender-of-the-citadel": {
+  "_by": "scan"
+ },
+ "item-deft-mace": {
+  "_by": "scan"
+ },
+ "item-dragon-scale": {
+  "_by": "scan"
+ },
+ "item-drake-tooth": {
+  "_by": "scan"
+ },
+ "item-duelling-sword": {
+  "_by": "scan"
+ },
+ "item-dunedain-banner": {
+  "_by": "scan",
+  "name_ru": "Дунэдайнское знамя"
+ },
+ "item-dusk-treaders": {
+  "_by": "scan"
+ },
+ "item-dwarf-forged-helmet": {
+  "_by": "scan"
+ },
+ "item-elf-forged-sword": {
+  "_by": "scan"
+ },
+ "item-elven-waterskin": {
+  "_by": "scan"
+ },
+ "item-endless-road": {
+  "_by": "scan"
+ },
+ "item-ent-crook": {
+  "_by": "scan"
+ },
+ "item-ered-luin-battle-axe": {
+  "_by": "scan"
+ },
+ "item-ered-luin-dagger": {
+  "_by": "scan"
+ },
+ "item-eredain-short-sword": {
+  "_by": "scan",
+  "name_ru": "Короткий Меч Эрадайн",
+  "text_ru": "Когда используется в атаке, можно потратить 1 воодушевление, чтобы добавить 1 попадание и пробой.\n1 {success}: 3 Попадания\n2 {success}: 3 Попадания, раскол"
+ },
+ "item-eriador-brooch": {
+  "_by": "scan"
+ },
+ "item-evendim-ring-mail": {
+  "_by": "scan"
+ },
+ "item-ever-bloom": {
+  "_by": "scan",
+  "text_ru": "Увеличьте свои пределы {damage} и {fear} на 1.\nПеред тем как получить взакрытую {damage}, вы можете заблокировать 1 из этих {damage}.\nКогда {damage} или {fear} указывают вам сбросить воодушевление или подготовленные карты, игнорируйте эти эффекты."
+ },
+ "item-ever-vigilant": {
+  "_by": "scan"
+ },
+ "item-extra-rations": {
+  "_by": "scan"
+ },
+ "item-faengwyr": {
+  "_by": "scan"
+ },
+ "item-fang-pendant": {
+  "_by": "scan",
+  "text_ru": "1 {success}: Пробой\nПосле того, как Вы уничтожили группу врагов, Вы можете израсходовать этот предмет, чтобы получить 1 воодушевление."
+ },
+ "item-fangorn-cloak": {
+  "_by": "scan"
+ },
+ "item-fate-bender": {
+  "_by": "scan"
+ },
+ "item-fire-scale": {
+  "_by": "scan"
+ },
+ "item-flame-guard": {
+  "_by": "scan"
+ },
+ "item-foe-blind": {
+  "_by": "scan"
+ },
+ "item-foe-blood": {
+  "_by": "scan",
+  "text_ru": "1 {success}: 3 попадания, добивание\n2 {success}: 5 попаданий, пробой\nКогда используется в атаке, вы можете добавить 2 попадания. В этом случае получите 1 {damage} взакрытую. (Этот {damage} нельзя заблокировать.)"
+ },
+ "item-forget-me-never": {
+  "_by": "scan"
+ },
+ "item-forlindon-harp": {
+  "_by": "scan"
+ },
+ "item-friendly-pony": {
+  "_by": "scan"
+ },
+ "item-giantsbane": {
+  "_by": "scan",
+  "name_ru": "Великанья Смерть"
+ },
+ "item-glory-mantle": {
+  "_by": "scan"
+ },
+ "item-gondolin-dagger": {
+  "_by": "scan"
+ },
+ "item-gondorian-horn": {
+  "_by": "scan",
+  "name_ru": "Гондорский рог"
+ },
+ "item-great-bow": {
+  "_by": "scan"
+ },
+ "item-greenway-boots": {
+  "_by": "scan"
+ },
+ "item-greenwood-garb": {
+  "_by": "scan"
+ },
+ "item-grief-bearer": {
+  "_by": "scan"
+ },
+ "item-grumble-bum": {
+  "_by": "scan"
+ },
+ "item-guard-s-tabard": {
+  "_by": "scan"
+ },
+ "item-hammer": {
+  "_by": "scan"
+ },
+ "item-hammer-and-tongs": {
+  "_by": "scan"
+ },
+ "item-handkerchief": {
+  "_by": "scan"
+ },
+ "item-harp": {
+  "_by": "scan"
+ },
+ "item-hatchet": {
+  "_by": "scan"
+ },
+ "item-heart-s-rest": {
+  "_by": "scan"
+ },
+ "item-heart-swell": {
+  "_by": "scan"
+ },
+ "item-heirloom-handkerchief": {
+  "_by": "scan"
+ },
+ "item-helmet": {
+  "_by": "scan"
+ },
+ "item-hoary-coat": {
+  "_by": "scan"
+ },
+ "item-hobbit-rations": {
+  "_by": "scan"
+ },
+ "item-hobbler": {
+  "_by": "scan"
+ },
+ "item-hobson-rope": {
+  "_by": "scan"
+ },
+ "item-hollowbold-hammer": {
+  "_by": "scan"
+ },
+ "item-honor-knell": {
+  "_by": "scan"
+ },
+ "item-hope-s-beacon": {
+  "_by": "scan"
+ },
+ "item-horn-sp": {
+  "_by": "scan"
+ },
+ "item-horn-sw": {
+  "_by": "scan"
+ },
+ "item-horselord-supply": {
+  "_by": "scan"
+ },
+ "item-hrinanbenn": {
+  "_by": "scan",
+  "text_ru": "Раз в раунд, когда вы должны получить любое число {damage}, вы можете заблокировать 2 {damage} и подготовить карту из своей стопки сброса.\nРаз в раунд, после того как в вашу область переместился враг, можете добавить ему оглушение."
+ },
+ "item-hunger": {
+  "_by": "scan"
+ },
+ "item-hunting-great-bow": {
+  "_by": "scan"
+ },
+ "item-hunting-knife": {
+  "_by": "scan"
+ },
+ "item-iron-hills-battle-axe": {
+  "_by": "scan",
+  "name_ru": "Боевой топор с Железных холмов"
+ },
+ "item-iron-hills-plate": {
+  "_by": "scan",
+  "name_ru": "Латы с Железных холмов"
+ },
+ "item-iron-render": {
+  "_by": "scan"
+ },
+ "item-iron-soul": {
+  "_by": "scan"
+ },
+ "item-ironhide": {
+  "_by": "scan"
+ },
+ "item-isenhild": {
+  "_by": "scan"
+ },
+ "item-king-s-crest": {
+  "_by": "scan"
+ },
+ "item-knife-did": {
+  "_by": "scan"
+ },
+ "item-knife-sp": {
+  "_by": "scan"
+ },
+ "item-lassemaica": {
+  "_by": "scan",
+  "text_ru": "Перед атакой, посмотрите верхнюю карту в колоде. Если на этой карте есть {fate}, добавьте 2 удара к атаке.\n1 {success}: 3 удара, пробой\n2 {success}: 3 удара, добивание"
+ },
+ "item-leathern-sling": {
+  "_by": "scan"
+ },
+ "item-legendarium-of-thror": {
+  "_by": "scan"
+ },
+ "item-lindish-knife": {
+  "_by": "scan",
+  "text_ru": "Перед атакой, посмотрите верхнюю карту в колоде. Если на этой карте есть {fate}, добавьте 2 удара к атаке.\n1 {success}: 3 удара, пробой\n2 {success}: 2 удара, добивание"
+ },
+ "item-lone-land-staff": {
+  "_by": "scan"
+ },
+ "item-long-spear": {
+  "_by": "scan",
+  "name_ru": "Длинное копьё"
+ },
+ "item-long-stemmed-pipe": {
+  "_by": "scan"
+ },
+ "item-mace": {
+  "_by": "scan"
+ },
+ "item-maiden-wrath": {
+  "_by": "scan"
+ },
+ "item-maranwe": {
+  "_by": "scan"
+ },
+ "item-mark-of-arnor": {
+  "_by": "scan"
+ },
+ "item-meadow-heart": {
+  "_by": "scan"
+ },
+ "item-mirkwood-great-bow": {
+  "_by": "scan"
+ },
+ "item-moon-caller": {
+  "_by": "scan"
+ },
+ "item-mountain-fall": {
+  "_by": "scan"
+ },
+ "item-mourning-song": {
+  "_by": "scan"
+ },
+ "item-needle-threader": {
+  "_by": "scan"
+ },
+ "item-ninnyhammer-braid": {
+  "_by": "scan"
+ },
+ "item-northern-blade": {
+  "_by": "scan",
+  "name_ru": "Северный клинок"
+ },
+ "item-numenorean-sword": {
+  "_by": "scan"
+ },
+ "item-old-map": {
+  "_by": "scan"
+ },
+ "item-old-pipe": {
+  "_by": "scan"
+ },
+ "item-old-scepter": {
+  "_by": "scan",
+  "text_ru": "У Вас есть атрибуты: Эльф, Гном и Хоббит.\nПосле взаимодействия с жетоном персонажа вы можете израсходовать этот предмет, чтобы получить 1 воодушевление."
+ },
+ "item-pack-mule": {
+  "_by": "scan"
+ },
+ "item-padded-armor": {
+  "_by": "scan"
+ },
+ "item-plate-armor": {
+  "_by": "scan"
+ },
+ "item-provisions": {
+  "_by": "scan"
+ },
+ "item-quick-nick": {
+  "_by": "scan"
+ },
+ "item-quickbeam": {
+  "_by": "scan"
+ },
+ "item-rain-of-stars": {
+  "_by": "scan"
+ },
+ "item-ranger-cloak": {
+  "_by": "scan"
+ },
+ "item-reinforced-shield": {
+  "_by": "scan",
+  "name_ru": "Усиленный щит"
+ },
+ "item-rending-claws": {
+  "_by": "scan"
+ },
+ "item-revenant": {
+  "_by": "scan",
+  "text_ru": "Когда используется в атаке, если у вас нет лежащей лицом вверх {trinket} добавьте 1 попадание и пробой.\n1 {success}: 3 Попадания\n1 {success}: 3 Попадания\n2 {success}: 4 Попадания, раскол"
+ },
+ "item-ring-mail-core": {
+  "_by": "scan"
+ },
+ "item-ring-mail-sp": {
+  "_by": "scan"
+ },
+ "item-ringing-glory": {
+  "_by": "scan"
+ },
+ "item-river-calling": {
+  "_by": "scan"
+ },
+ "item-rohirric-spear": {
+  "_by": "scan"
+ },
+ "item-rope": {
+  "_by": "scan"
+ },
+ "item-scour": {
+  "_by": "scan",
+  "text_ru": "Когда используется в атаке, вы сбрасываете все жетоны воодушевления и добавляете 2 попадания за каждое сброшенное воодушевление.\n1 {success}: 4 Попадания, пробой, сокрушение\n2 {success}: 5 Попаданий, раскол, оглушение"
+ },
+ "item-second-skin": {
+  "_by": "scan"
+ },
+ "item-sentry-s-horn": {
+  "_by": "scan"
+ },
+ "item-seven-flame-crown": {
+  "_by": "scan"
+ },
+ "item-shade-breaker": {
+  "_by": "scan"
+ },
+ "item-shield-sp": {
+  "_by": "scan"
+ },
+ "item-shield-sw": {
+  "_by": "scan"
+ },
+ "item-shooting-star": {
+  "_by": "scan"
+ },
+ "item-short-bow": {
+  "_by": "scan"
+ },
+ "item-short-sword": {
+  "_by": "scan",
+  "name_ru": "Короткий Меч",
+  "text_ru": "Когда используется в атаке, можно потратить 1 воодушевление, чтобы добавить 1 попадание и пробой.\n1 {success}: 3 Попадания\n2 {success}: 3 Попадания"
+ },
+ "item-silver-circlet": {
+  "_by": "scan"
+ },
+ "item-silver-fall": {
+  "_by": "scan"
+ },
+ "item-silver-scepter": {
+  "_by": "scan",
+  "text_ru": "У Вас есть атрибуты: Эльф, Гном и Хоббит.\nПосле взаимодействия с жетоном персонажа вы можете израсходовать этот предмет, чтобы получить 1 воодушевление или сбросить 1 {fear}."
+ },
+ "item-skinner": {
+  "_by": "scan"
+ },
+ "item-sleeping-bell": {
+  "_by": "scan"
+ },
+ "item-sling": {
+  "_by": "scan"
+ },
+ "item-slip-thorn": {
+  "_by": "scan"
+ },
+ "item-snowbright": {
+  "_by": "scan"
+ },
+ "item-sorrow-sworn": {
+  "_by": "scan"
+ },
+ "item-spear": {
+  "_by": "scan"
+ },
+ "item-splendor-well": {
+  "_by": "scan"
+ },
+ "item-staff-core": {
+  "_by": "scan"
+ },
+ "item-staff-of-the-flame": {
+  "_by": "scan"
+ },
+ "item-staff-sp": {
+  "_by": "scan"
+ },
+ "item-star-of-the-west": {
+  "_by": "scan"
+ },
+ "item-star-swift": {
+  "_by": "scan"
+ },
+ "item-starsong": {
+  "_by": "scan"
+ },
+ "item-storm-maker": {
+  "_by": "scan"
+ },
+ "item-storm-shroud": {
+  "_by": "scan"
+ },
+ "item-sun-silver": {
+  "_by": "scan"
+ },
+ "item-swift-steed": {
+  "_by": "scan"
+ },
+ "item-sword-core": {
+  "_by": "scan"
+ },
+ "item-sword-sp": {
+  "_by": "scan"
+ },
+ "item-sword-sw": {
+  "_by": "scan"
+ },
+ "item-the-crown-of-shadows": {
+  "_by": "scan",
+  "text_ru": "Вы можете экипироваться 1 дополнительной {trinket}.\nКогда вы проводите проверку, вы можете израсходовать эту вещь, чтобы добавить столько {success}, сколько у вас жетонов порчи."
+ },
+ "item-the-silent-scepter": {
+  "_by": "scan",
+  "text_ru": "У Вас есть атрибуты: Эльф, Гном и Хоббит.\nПосле взаимодействия с жетоном персонажа вы можете израсходовать этот предмет, чтобы Вы или ближайший Герой мог получить 2 воодушевления и сбросить 1 {fear}."
+ },
+ "item-throat-seeker": {
+  "_by": "scan"
+ },
+ "item-thunderclap": {
+  "_by": "scan"
+ },
+ "item-tome": {
+  "_by": "scan"
+ },
+ "item-tome-of-battle": {
+  "_by": "scan"
+ },
+ "item-tookish-apple-cakes": {
+  "_by": "scan"
+ },
+ "item-torch": {
+  "_by": "scan"
+ },
+ "item-travel-garb": {
+  "_by": "scan"
+ },
+ "item-traveller-s-horse": {
+  "_by": "scan",
+  "text_ru": "Герои в пределах 2 областей от вас считаются находящимися рядом с вами. Вы считаетесь находящимся рядом с героями в пределах 2 областей от вас.\n{action} Взаимодействуйте с жетоном в смежной области. Вы можете совершать это действие только раз в раунд."
+ },
+ "item-trusted-walking-stick": {
+  "_by": "scan"
+ },
+ "item-tuckborough-cloak": {
+  "_by": "scan"
+ },
+ "item-twice-wrought-ring-mail": {
+  "_by": "scan"
+ },
+ "item-under-sun": {
+  "_by": "scan"
+ },
+ "item-vanguard-armor": {
+  "_by": "scan"
+ },
+ "item-vengeance-s-bite": {
+  "_by": "scan",
+  "text_ru": "1 {success}: 2 попадания\n1 {success}: Пробой\nПосле того, как Вы уничтожили группу врагов, Вы можете израсходовать этот предмет, чтобы получить 1 воодушевление или карту “Решительность”."
+ },
+ "item-walking-stick": {
+  "_by": "scan"
+ },
+ "item-wanderer-s-hatchet": {
+  "_by": "scan"
+ },
+ "item-wanderer-s-wish": {
+  "_by": "scan"
+ },
+ "item-war-charger": {
+  "_by": "scan"
+ },
+ "item-war-haven": {
+  "_by": "scan"
+ },
+ "item-war-maker": {
+  "_by": "scan"
+ },
+ "item-warg-fang-pendant": {
+  "_by": "scan",
+  "text_ru": "1 {success}: 2 попадания\n1 {success}: Пробой\nПосле того, как Вы уничтожили группу врагов, Вы можете израсходовать этот предмет, чтобы получить 1 воодушевление."
+ },
+ "item-waterskin": {
+  "_by": "scan"
+ },
+ "item-wayfarer-s-provisions": {
+  "_by": "scan"
+ },
+ "item-weathertop-torch": {
+  "_by": "scan"
+ },
+ "item-westmarch-garb": {
+  "_by": "scan",
+  "name_ru": "Одежда с Западных пределов"
+ },
+ "item-whistler": {
+  "_by": "scan"
+ },
+ "item-wicked-smile": {
+  "_by": "scan"
+ },
+ "item-widow-s-warning": {
+  "_by": "scan"
+ },
+ "item-will-carver": {
+  "_by": "scan"
+ },
+ "item-wind-walker": {
+  "_by": "scan"
+ },
+ "item-witness-of-maranwe": {
+  "_by": "scan"
+ },
+ "item-world-root": {
+  "_by": "scan"
+ },
+ "item-world-s-burden": {
+  "_by": "scan"
+ },
+ "item-worm-s-tooth": {
+  "_by": "scan"
+ },
+ "item-wrath-s-end": {
+  "_by": "scan",
+  "name_ru": "Гаситель Ярости"
+ },
+ "skill-aragorn-1": {
+  "_by": "scan"
+ },
+ "skill-aragorn-2": {
+  "_by": "scan"
+ },
+ "skill-aragorn-3": {
+  "_by": "scan"
+ },
+ "skill-aragorn-4": {
+  "_by": "scan"
+ },
+ "skill-aragorn-5": {
+  "_by": "scan"
+ },
+ "skill-arwen-1": {
+  "_by": "scan"
+ },
+ "skill-arwen-2": {
+  "_by": "scan"
+ },
+ "skill-arwen-3": {
+  "_by": "scan"
+ },
+ "skill-arwen-4": {
+  "_by": "scan"
+ },
+ "skill-arwen-5": {
+  "_by": "scan"
+ },
+ "skill-balin-1": {
+  "_by": "scan"
+ },
+ "skill-balin-2": {
+  "_by": "scan"
+ },
+ "skill-balin-3": {
+  "_by": "scan"
+ },
+ "skill-balin-4": {
+  "_by": "scan"
+ },
+ "skill-balin-5": {
+  "_by": "scan"
+ },
+ "skill-basic-1": {
+  "_by": "scan"
+ },
+ "skill-basic-2": {
+  "_by": "scan"
+ },
+ "skill-basic-3": {
+  "_by": "scan"
+ },
+ "skill-basic-4": {
+  "_by": "scan"
+ },
+ "skill-basic-5": {
+  "_by": "scan"
+ },
+ "skill-basic-6": {
+  "_by": "scan"
+ },
+ "skill-beast-friend-1": {
+  "_by": "scan",
+  "name_ru": "Говорящая Мышь"
+ },
+ "skill-beast-friend-2": {
+  "_by": "scan",
+  "text_ru": "Перед проверкой вы можете скинуть эту карту, чтобы разыграть разведку 2, открывая по 1 доп. карте за каждое существо в вашей игровой зоне.\nУдар 2 (Сбросьте эту карту при атаке, чтобы добавить 2 попадания)."
+ },
+ "skill-beast-friend-3": {
+  "_by": "scan",
+  "name_ru": "Домашний Кролик",
+  "text_ru": "Перед отдыхом, получите 1 воодушевление.\nОтдых 2"
+ },
+ "skill-beast-friend-4": {
+  "_by": "scan",
+  "name_ru": "Стая Белок"
+ },
+ "skill-beast-friend-5": {
+  "_by": "scan",
+  "text_ru": "Когда герой в вашей области проводит проверку, он может раскрыть 1 дополнительную карту за каждое существо в вашей игровой зоне, вы сбрасываете эту карту.\nУкрытие"
+ },
+ "skill-beast-friend-6": {
+  "_by": "scan",
+  "text_ru": "Когда вы атакуете, добавьте оглушение.\nПеред рывком с этой карты, вы можете переместиться на 1 доп. область за каждое другое существо в вашей игровой зоне.\nРывок 1"
+ },
+ "skill-beorn-1": {
+  "_by": "scan"
+ },
+ "skill-beorn-2": {
+  "_by": "scan"
+ },
+ "skill-beorn-3": {
+  "_by": "scan"
+ },
+ "skill-beorn-4": {
+  "_by": "scan",
+  "text_ru": "Смените облик на Большого Медведя.\nКогда эта карта сбрасывается, смените облик на Беорна.\n(Когда вы меняете облик, замените свои планшет героя, фигурку и экипированное снаряжение.)"
+ },
+ "skill-beorn-5": {
+  "_by": "scan",
+  "text_ru": "Смените облик на Большого Медведя.\nКогда эта карта сбрасывается, смените облик на Беорна.\n(Когда вы меняете облик, замените свои планшет героя, фигурку и экипированное снаряжение.)"
+ },
+ "skill-beravor-1": {
+  "_by": "scan"
+ },
+ "skill-beravor-2": {
+  "_by": "scan"
+ },
+ "skill-beravor-3": {
+  "_by": "scan"
+ },
+ "skill-beravor-4": {
+  "_by": "scan"
+ },
+ "skill-beravor-5": {
+  "_by": "scan"
+ },
+ "skill-bilbo-1": {
+  "_by": "scan"
+ },
+ "skill-bilbo-2": {
+  "_by": "scan"
+ },
+ "skill-bilbo-3": {
+  "_by": "scan"
+ },
+ "skill-bilbo-4": {
+  "_by": "scan"
+ },
+ "skill-bilbo-5": {
+  "_by": "scan",
+  "name_ru": "Бежит дорога всё вперед"
+ },
+ "skill-boromir-1": {
+  "_by": "scan"
+ },
+ "skill-boromir-2": {
+  "_by": "scan"
+ },
+ "skill-boromir-3": {
+  "_by": "scan"
+ },
+ "skill-boromir-4": {
+  "_by": "scan"
+ },
+ "skill-boromir-5": {
+  "_by": "scan"
+ },
+ "skill-burglar-1": {
+  "_by": "scan"
+ },
+ "skill-burglar-10": {
+  "_by": "scan"
+ },
+ "skill-burglar-11": {
+  "_by": "scan",
+  "text_ru": "После того как вы подготовили эту карту, разыграйте разведку 2.\nПосле того как вы сбросили карту преимущества, вы можете сбросить эту карту, чтобы получить другую карту преимущества.\nРывок 1"
+ },
+ "skill-burglar-12": {
+  "_by": "scan"
+ },
+ "skill-burglar-2": {
+  "_by": "scan"
+ },
+ "skill-burglar-3": {
+  "_by": "scan"
+ },
+ "skill-burglar-4": {
+  "_by": "scan"
+ },
+ "skill-burglar-5": {
+  "_by": "scan"
+ },
+ "skill-burglar-6": {
+  "_by": "scan"
+ },
+ "skill-burglar-7": {
+  "_by": "scan"
+ },
+ "skill-burglar-8": {
+  "_by": "scan"
+ },
+ "skill-burglar-9": {
+  "_by": "scan"
+ },
+ "skill-calaminth-took-1": {
+  "_by": "scan"
+ },
+ "skill-calaminth-took-2": {
+  "_by": "scan"
+ },
+ "skill-calaminth-took-3": {
+  "_by": "scan"
+ },
+ "skill-calaminth-took-4": {
+  "_by": "scan"
+ },
+ "skill-calaminth-took-5": {
+  "_by": "scan"
+ },
+ "skill-captain-1": {
+  "_by": "scan"
+ },
+ "skill-captain-10": {
+  "_by": "scan"
+ },
+ "skill-captain-11": {
+  "_by": "scan"
+ },
+ "skill-captain-12": {
+  "_by": "scan"
+ },
+ "skill-captain-2": {
+  "_by": "scan",
+  "text_ru": "После того как вы атаковали, вы можете сбросить эту карту, чтобы вы получили 1 воодушевление, а находящийся рядом герой также совершил атаку.\nУдар 2 (когда вы атакуете, сбросьте эту карту, чтобы добавить 2 попадания к этой атаке)."
+ },
+ "skill-captain-3": {
+  "_by": "scan",
+  "text_ru": "После того как вы атаковали, вы можете сбросить эту карту, чтобы вы получили 1 воодушевление, а находящийся рядом герой также совершил атаку.\nУдар 2 (когда вы атакуете, сбросьте эту карту, чтобы добавить 2 попадания к этой атаке)."
+ },
+ "skill-captain-4": {
+  "_by": "scan"
+ },
+ "skill-captain-5": {
+  "_by": "scan"
+ },
+ "skill-captain-6": {
+  "_by": "scan"
+ },
+ "skill-captain-7": {
+  "_by": "scan"
+ },
+ "skill-captain-8": {
+  "_by": "scan"
+ },
+ "skill-captain-9": {
+  "_by": "scan"
+ },
+ "skill-delver-1": {
+  "_by": "scan"
+ },
+ "skill-delver-10": {
+  "_by": "scan"
+ },
+ "skill-delver-11": {
+  "_by": "scan"
+ },
+ "skill-delver-12": {
+  "_by": "scan"
+ },
+ "skill-delver-2": {
+  "_by": "scan"
+ },
+ "skill-delver-3": {
+  "_by": "scan"
+ },
+ "skill-delver-4": {
+  "_by": "scan"
+ },
+ "skill-delver-5": {
+  "_by": "scan"
+ },
+ "skill-delver-6": {
+  "_by": "scan"
+ },
+ "skill-delver-7": {
+  "_by": "scan"
+ },
+ "skill-delver-8": {
+  "_by": "scan"
+ },
+ "skill-delver-9": {
+  "_by": "scan"
+ },
+ "skill-dis-1": {
+  "_by": "scan"
+ },
+ "skill-dis-2": {
+  "_by": "scan"
+ },
+ "skill-dis-3": {
+  "_by": "scan"
+ },
+ "skill-dis-4": {
+  "_by": "scan"
+ },
+ "skill-dis-5": {
+  "_by": "scan"
+ },
+ "skill-dwalin-1": {
+  "_by": "scan"
+ },
+ "skill-dwalin-2": {
+  "_by": "scan"
+ },
+ "skill-dwalin-3": {
+  "_by": "scan"
+ },
+ "skill-dwalin-4": {
+  "_by": "scan"
+ },
+ "skill-dwalin-5": {
+  "_by": "scan"
+ },
+ "skill-eleanor-1": {
+  "_by": "scan"
+ },
+ "skill-eleanor-2": {
+  "_by": "scan"
+ },
+ "skill-eleanor-3": {
+  "_by": "scan"
+ },
+ "skill-eleanor-4": {
+  "_by": "scan"
+ },
+ "skill-eleanor-5": {
+  "_by": "scan"
+ },
+ "skill-elena-1": {
+  "_by": "scan"
+ },
+ "skill-elena-2": {
+  "_by": "scan"
+ },
+ "skill-elena-3": {
+  "_by": "scan"
+ },
+ "skill-elena-4": {
+  "_by": "scan"
+ },
+ "skill-elena-5": {
+  "_by": "scan"
+ },
+ "skill-freahild-1": {
+  "_by": "scan"
+ },
+ "skill-freahild-2": {
+  "_by": "scan"
+ },
+ "skill-freahild-3": {
+  "_by": "scan"
+ },
+ "skill-freahild-4": {
+  "_by": "scan"
+ },
+ "skill-freahild-5": {
+  "_by": "scan"
+ },
+ "skill-gandalf-1": {
+  "_by": "scan"
+ },
+ "skill-gandalf-2": {
+  "_by": "scan"
+ },
+ "skill-gandalf-3": {
+  "_by": "scan"
+ },
+ "skill-gandalf-4": {
+  "_by": "scan"
+ },
+ "skill-gandalf-5": {
+  "_by": "scan"
+ },
+ "skill-gimli-1": {
+  "_by": "scan"
+ },
+ "skill-gimli-2": {
+  "_by": "scan"
+ },
+ "skill-gimli-3": {
+  "_by": "scan"
+ },
+ "skill-gimli-4": {
+  "_by": "scan"
+ },
+ "skill-gimli-5": {
+  "_by": "scan"
+ },
+ "skill-guardian-1": {
+  "_by": "scan"
+ },
+ "skill-guardian-10": {
+  "_by": "scan"
+ },
+ "skill-guardian-11": {
+  "_by": "scan"
+ },
+ "skill-guardian-12": {
+  "_by": "scan"
+ },
+ "skill-guardian-2": {
+  "_by": "scan"
+ },
+ "skill-guardian-3": {
+  "_by": "scan"
+ },
+ "skill-guardian-4": {
+  "_by": "scan"
+ },
+ "skill-guardian-5": {
+  "_by": "scan"
+ },
+ "skill-guardian-6": {
+  "_by": "scan"
+ },
+ "skill-guardian-7": {
+  "_by": "scan",
+  "name_ru": "Голос, подобный звенящей стали"
+ },
+ "skill-guardian-8": {
+  "_by": "scan"
+ },
+ "skill-guardian-9": {
+  "_by": "scan"
+ },
+ "skill-guide-1": {
+  "_by": "scan"
+ },
+ "skill-guide-10": {
+  "_by": "scan",
+  "text_ru": "Герои в вашей области не сбрасывают воодушевление, карты преимуществ и подготовленные карты, если сами того не захотят.\nУкрытие"
+ },
+ "skill-guide-11": {
+  "_by": "scan"
+ },
+ "skill-guide-12": {
+  "_by": "scan"
+ },
+ "skill-guide-2": {
+  "_by": "scan"
+ },
+ "skill-guide-3": {
+  "_by": "scan"
+ },
+ "skill-guide-4": {
+  "_by": "scan"
+ },
+ "skill-guide-5": {
+  "_by": "scan"
+ },
+ "skill-guide-6": {
+  "_by": "scan"
+ },
+ "skill-guide-7": {
+  "_by": "scan"
+ },
+ "skill-guide-8": {
+  "_by": "scan"
+ },
+ "skill-guide-9": {
+  "_by": "scan"
+ },
+ "skill-herbalist-1": {
+  "_by": "scan",
+  "text_ru": "После того как вы подготовили карту с {fate}, вы можете сбросить эту карту «Любопытство», чтобы получить 2 воодушевления или карту «Решительность»."
+ },
+ "skill-herbalist-10": {
+  "_by": "scan"
+ },
+ "skill-herbalist-11": {
+  "_by": "scan"
+ },
+ "skill-herbalist-12": {
+  "_by": "scan"
+ },
+ "skill-herbalist-2": {
+  "_by": "scan"
+ },
+ "skill-herbalist-3": {
+  "_by": "scan"
+ },
+ "skill-herbalist-4": {
+  "_by": "scan"
+ },
+ "skill-herbalist-5": {
+  "_by": "scan"
+ },
+ "skill-herbalist-6": {
+  "_by": "scan"
+ },
+ "skill-herbalist-7": {
+  "_by": "scan"
+ },
+ "skill-herbalist-8": {
+  "_by": "scan"
+ },
+ "skill-herbalist-9": {
+  "_by": "scan"
+ },
+ "skill-hunter-1": {
+  "_by": "scan",
+  "text_ru": "После того как вы подготовили эту карту, получите 1 воодушевление.\nВ конце своего хода вы можете сбросить эту карту, чтобы получить 1 воодушевление или разыграть разведку 1."
+ },
+ "skill-hunter-10": {
+  "_by": "scan",
+  "text_ru": "После того как вы подготовили эту карту, получите 1 воодушевление.\nКогда вы разыгрываете отдых с этой карты, вы можете разыграть разведку 3.\nОтдых 2"
+ },
+ "skill-hunter-11": {
+  "_by": "scan"
+ },
+ "skill-hunter-12": {
+  "_by": "scan"
+ },
+ "skill-hunter-2": {
+  "_by": "scan"
+ },
+ "skill-hunter-3": {
+  "_by": "scan"
+ },
+ "skill-hunter-4": {
+  "_by": "scan",
+  "text_ru": "После того как вы подготовили эту карту, получите 1 воодушевление.\nВ конце своего хода вы можете сбросить эту карту, чтобы получить 1 воодушевление или разыграть разведку 1."
+ },
+ "skill-hunter-5": {
+  "_by": "scan"
+ },
+ "skill-hunter-6": {
+  "_by": "scan"
+ },
+ "skill-hunter-7": {
+  "_by": "scan"
+ },
+ "skill-hunter-8": {
+  "_by": "scan"
+ },
+ "skill-hunter-9": {
+  "_by": "scan"
+ },
+ "skill-legolas-1": {
+  "_by": "scan"
+ },
+ "skill-legolas-2": {
+  "_by": "scan"
+ },
+ "skill-legolas-3": {
+  "_by": "scan"
+ },
+ "skill-legolas-4": {
+  "_by": "scan"
+ },
+ "skill-legolas-5": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-1": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-10": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-11": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-12": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-2": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-3": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-4": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-5": {
+  "_by": "scan",
+  "name_ru": "Мудрость не по годам"
+ },
+ "skill-lorekeeper-6": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-7": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-8": {
+  "_by": "scan"
+ },
+ "skill-lorekeeper-9": {
+  "_by": "scan"
+ },
+ "skill-meddler-1": {
+  "_by": "scan"
+ },
+ "skill-meddler-10": {
+  "_by": "scan"
+ },
+ "skill-meddler-11": {
+  "_by": "scan"
+ },
+ "skill-meddler-12": {
+  "_by": "scan"
+ },
+ "skill-meddler-2": {
+  "_by": "scan"
+ },
+ "skill-meddler-3": {
+  "_by": "scan"
+ },
+ "skill-meddler-4": {
+  "_by": "scan"
+ },
+ "skill-meddler-5": {
+  "_by": "scan"
+ },
+ "skill-meddler-6": {
+  "_by": "scan",
+  "text_ru": "Когда находящийся рядом герой проводит проверку во время взаимодействия, вы можете сбросить эту карту, чтобы провести эту проверку вместо него (все эффекты по-прежнему воздействуют на изначального героя).\nРывок 1"
+ },
+ "skill-meddler-7": {
+  "_by": "scan"
+ },
+ "skill-meddler-8": {
+  "_by": "scan"
+ },
+ "skill-meddler-9": {
+  "_by": "scan"
+ },
+ "skill-musician-1": {
+  "_by": "scan"
+ },
+ "skill-musician-10": {
+  "_by": "scan"
+ },
+ "skill-musician-11": {
+  "_by": "scan"
+ },
+ "skill-musician-12": {
+  "_by": "scan"
+ },
+ "skill-musician-2": {
+  "_by": "scan"
+ },
+ "skill-musician-3": {
+  "_by": "scan"
+ },
+ "skill-musician-4": {
+  "_by": "scan"
+ },
+ "skill-musician-5": {
+  "_by": "scan"
+ },
+ "skill-musician-6": {
+  "_by": "scan"
+ },
+ "skill-musician-7": {
+  "_by": "scan",
+  "text_ru": "Когда вы подготавливаете карту песни, получите 1 воодушевление.\nКогда вы должны получить воодушевление, вы можете вместо этого отдать его находящимся рядом героям.\nОтдых 2"
+ },
+ "skill-musician-8": {
+  "_by": "scan"
+ },
+ "skill-musician-9": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-1": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-10": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-11": {
+  "_by": "scan",
+  "text_ru": "Когда вы проводите проверку, вы можете добавить к результату 1 {success} за каждую карту с рывком среди ваших подготовленных карт, а затем сбросить эту карту «Неудержимый».\nРывок 2"
+ },
+ "skill-pathfinder-12": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-2": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-3": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-4": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-5": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-6": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-7": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-8": {
+  "_by": "scan"
+ },
+ "skill-pathfinder-9": {
+  "_by": "scan"
+ },
+ "skill-provisioner-1": {
+  "_by": "scan"
+ },
+ "skill-provisioner-10": {
+  "_by": "scan"
+ },
+ "skill-provisioner-11": {
+  "_by": "scan"
+ },
+ "skill-provisioner-12": {
+  "_by": "scan"
+ },
+ "skill-provisioner-2": {
+  "_by": "scan"
+ },
+ "skill-provisioner-3": {
+  "_by": "scan"
+ },
+ "skill-provisioner-4": {
+  "_by": "scan"
+ },
+ "skill-provisioner-5": {
+  "_by": "scan"
+ },
+ "skill-provisioner-6": {
+  "_by": "scan"
+ },
+ "skill-provisioner-7": {
+  "_by": "scan"
+ },
+ "skill-provisioner-8": {
+  "_by": "scan"
+ },
+ "skill-provisioner-9": {
+  "_by": "scan",
+  "text_ru": "В конце своего хода вы можете выбрать любое число находящихся рядом героев. Каждый из них получает 1 воодушевление за каждую карту помощи, еды и песни в вашей игровой зоне. Если сделали это, сбросьте карту «Приятная компания»."
+ },
+ "skill-renerien-1": {
+  "_by": "scan"
+ },
+ "skill-renerien-2": {
+  "_by": "scan"
+ },
+ "skill-renerien-3": {
+  "_by": "scan"
+ },
+ "skill-renerien-4": {
+  "_by": "scan"
+ },
+ "skill-renerien-5": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-1": {
+  "_by": "scan",
+  "text_ru": "Когда находящийся рядом герой проводит проверку, вы можете сбросить эту карту, чтобы заменить все {fate} на {success}.\nУдар 2"
+ },
+ "skill-shieldmaiden-10": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-11": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-12": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-2": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-3": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-4": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-5": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-6": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-7": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-8": {
+  "_by": "scan"
+ },
+ "skill-shieldmaiden-9": {
+  "_by": "scan"
+ },
+ "skill-smith-1": {
+  "_by": "scan"
+ },
+ "skill-smith-10": {
+  "_by": "scan"
+ },
+ "skill-smith-11": {
+  "_by": "scan"
+ },
+ "skill-smith-12": {
+  "_by": "scan"
+ },
+ "skill-smith-2": {
+  "_by": "scan"
+ },
+ "skill-smith-3": {
+  "_by": "scan"
+ },
+ "skill-smith-4": {
+  "_by": "scan",
+  "text_ru": "Увеличьте свой предел воодушевления на 2 (если эта карта сбрасывается, сбросьте всё своё воодушевление сверх обычного предела).\nОтдых 1"
+ },
+ "skill-smith-5": {
+  "_by": "scan"
+ },
+ "skill-smith-6": {
+  "_by": "scan"
+ },
+ "skill-smith-7": {
+  "_by": "scan"
+ },
+ "skill-smith-8": {
+  "_by": "scan"
+ },
+ "skill-smith-9": {
+  "_by": "scan"
+ },
+ "skill-soldier-1": {
+  "_by": "scan"
+ },
+ "skill-soldier-10": {
+  "_by": "scan"
+ },
+ "skill-soldier-11": {
+  "_by": "scan"
+ },
+ "skill-soldier-12": {
+  "_by": "scan"
+ },
+ "skill-soldier-2": {
+  "_by": "scan"
+ },
+ "skill-soldier-3": {
+  "_by": "scan"
+ },
+ "skill-soldier-4": {
+  "_by": "scan"
+ },
+ "skill-soldier-5": {
+  "_by": "scan"
+ },
+ "skill-soldier-6": {
+  "_by": "scan"
+ },
+ "skill-soldier-7": {
+  "_by": "scan"
+ },
+ "skill-soldier-8": {
+  "_by": "scan"
+ },
+ "skill-soldier-9": {
+  "_by": "scan"
+ },
+ "skill-title-1": {
+  "_by": "scan"
+ },
+ "skill-title-10": {
+  "_by": "scan",
+  "name_ru": "Дающий Огонь"
+ },
+ "skill-title-11": {
+  "_by": "scan",
+  "name_ru": "Повелитель Бури"
+ },
+ "skill-title-12": {
+  "_by": "scan"
+ },
+ "skill-title-13": {
+  "_by": "scan"
+ },
+ "skill-title-14": {
+  "_by": "scan",
+  "name_ru": "Друг Эльфов"
+ },
+ "skill-title-15": {
+  "_by": "scan",
+  "name_ru": "Кроличья Лапка"
+ },
+ "skill-title-16": {
+  "_by": "scan"
+ },
+ "skill-title-17": {
+  "_by": "scan",
+  "name_ru": "Наездник на Бочках"
+ },
+ "skill-title-18": {
+  "_by": "scan",
+  "name_ru": "Хранитель Пламени"
+ },
+ "skill-title-19": {
+  "_by": "scan",
+  "name_ru": "Гость Орлов"
+ },
+ "skill-title-2": {
+  "_by": "scan",
+  "name_ru": "Говорящий с Камнями"
+ },
+ "skill-title-20": {
+  "_by": "scan",
+  "name_ru": "Приносящий Удачу"
+ },
+ "skill-title-21": {
+  "_by": "scan",
+  "name_ru": "Одинокий Боец"
+ },
+ "skill-title-22": {
+  "_by": "scan",
+  "text_ru": "Когда активируется ближайший элитный враг, вы можете убрать этот навык из приключения, чтобы получить карту преимущества “Смелость”. Если вы это сделаете, этот враг не сможет двигаться или атаковать во время своей активации."
+ },
+ "skill-title-23": {
+  "_by": "scan",
+  "text_ru": "Перед проверкой, вы можете убрать этот навык из приключения, чтобы разыграть эффект “Разведка 5”."
+ },
+ "skill-title-24": {
+  "_by": "scan",
+  "text_ru": "Когда вы подготавливаете этот навык, вы можете перевернуть 1 {fear} лицом вниз.\nВы можете убрать этот навык из приключения, чтобы до конца вашего хода игнорировать все контратаки."
+ },
+ "skill-title-25": {
+  "_by": "scan",
+  "name_ru": "Искатель Сокровищ"
+ },
+ "skill-title-26": {
+  "_by": "scan"
+ },
+ "skill-title-27": {
+  "_by": "scan",
+  "name_ru": "Вестник Зари",
+  "text_ru": "«Заря для людей всегда означает надежду».\n«Две крепости»"
+ },
+ "skill-title-28": {
+  "_by": "scan",
+  "text_ru": "Вместо прохождения проверки на стойкость, можете убрать этот навык из приключения, чтобы получить 2 воодушевления и сбросить 1 {damage} и 1 {fear}."
+ },
+ "skill-title-29": {
+  "_by": "scan",
+  "text_ru": "До проведения проверки, можете сбросить данный навык из приключения, чтобы пройти проверку параметра на свой выбор и сделать разведку 1."
+ },
+ "skill-title-3": {
+  "_by": "scan",
+  "name_ru": "Живущий в Стае"
+ },
+ "skill-title-30": {
+  "_by": "scan",
+  "text_ru": "Во время вашего хода, можете убрать данный навык из приключения, чтобы атаковать врага и добавить сокрушение к атаке.\nСкрыться"
+ },
+ "skill-title-31": {
+  "_by": "scan"
+ },
+ "skill-title-32": {
+  "_by": "scan"
+ },
+ "skill-title-33": {
+  "_by": "scan",
+  "name_ru": "Поющий Зверям"
+ },
+ "skill-title-4": {
+  "_by": "scan",
+  "name_ru": "Друг Гномов"
+ },
+ "skill-title-5": {
+  "_by": "scan",
+  "name_ru": "Хозяин Своего Слова"
+ },
+ "skill-title-6": {
+  "_by": "scan",
+  "name_ru": "Находящий Разгадки"
+ },
+ "skill-title-7": {
+  "_by": "scan",
+  "name_ru": "Жалящая Муха"
+ },
+ "skill-title-8": {
+  "_by": "scan"
+ },
+ "skill-title-9": {
+  "_by": "scan",
+  "name_ru": "Друг Медведей"
+ },
+ "skill-traveller-1": {
+  "_by": "scan"
+ },
+ "skill-traveller-10": {
+  "_by": "scan"
+ },
+ "skill-traveller-11": {
+  "_by": "scan"
+ },
+ "skill-traveller-12": {
+  "_by": "scan"
+ },
+ "skill-traveller-2": {
+  "_by": "scan"
+ },
+ "skill-traveller-3": {
+  "_by": "scan"
+ },
+ "skill-traveller-4": {
+  "_by": "scan"
+ },
+ "skill-traveller-5": {
+  "_by": "scan"
+ },
+ "skill-traveller-6": {
+  "_by": "scan"
+ },
+ "skill-traveller-7": {
+  "_by": "scan"
+ },
+ "skill-traveller-8": {
+  "_by": "scan"
+ },
+ "skill-traveller-9": {
+  "_by": "scan"
+ },
+ "skill-trickster-1": {
+  "_by": "scan",
+  "text_ru": "Перед тем как вы разыграете рывок с этой карты, вы можете переместить любую группу врагов на 1 область.\nРывок 1 (во время своего хода сбросьте эту карту, чтобы переместиться на 1 область)."
+ },
+ "skill-trickster-10": {
+  "_by": "scan"
+ },
+ "skill-trickster-11": {
+  "_by": "scan"
+ },
+ "skill-trickster-12": {
+  "_by": "scan"
+ },
+ "skill-trickster-2": {
+  "_by": "scan"
+ },
+ "skill-trickster-3": {
+  "_by": "scan"
+ },
+ "skill-trickster-4": {
+  "_by": "scan"
+ },
+ "skill-trickster-5": {
+  "_by": "scan"
+ },
+ "skill-trickster-6": {
+  "_by": "scan"
+ },
+ "skill-trickster-7": {
+  "_by": "scan"
+ },
+ "skill-trickster-8": {
+  "_by": "scan"
+ },
+ "skill-trickster-9": {
+  "_by": "scan"
+ },
+ "skill-weakness-arrogant": {
+  "_by": "scan"
+ },
+ "skill-weakness-burdened": {
+  "_by": "scan"
+ },
+ "skill-weakness-cut-off": {
+  "_by": "scan",
+  "name_ru": "Отрезан от отряда"
+ },
+ "skill-weakness-distracted": {
+  "_by": "scan"
+ },
+ "skill-weakness-followed": {
+  "_by": "scan"
+ },
+ "skill-weakness-foolish": {
+  "_by": "scan"
+ },
+ "skill-weakness-harried": {
+  "_by": "scan"
+ },
+ "skill-weakness-haunted": {
+  "_by": "scan"
+ },
+ "skill-weakness-hunted": {
+  "_by": "scan"
+ },
+ "skill-weakness-ill-omen": {
+  "_by": "scan"
+ },
+ "skill-weakness-impeded": {
+  "_by": "scan"
+ },
+ "skill-weakness-isolated": {
+  "_by": "scan"
+ },
+ "skill-weakness-late": {
+  "_by": "scan",
+  "name_ru": "Опоздание"
+ },
+ "skill-weakness-lazy": {
+  "_by": "scan"
+ },
+ "skill-weakness-misfortune": {
+  "_by": "scan"
+ },
+ "skill-weakness-misled": {
+  "_by": "scan"
+ },
+ "skill-weakness-off-course": {
+  "_by": "scan",
+  "name_ru": "Сбиться с пути"
+ },
+ "skill-weakness-slowed": {
+  "_by": "scan"
+ },
+ "skill-weakness-uncertain": {
+  "_by": "scan"
+ },
+ "skill-weakness-watched": {
+  "_by": "scan"
+ },
+ "terrain-barrels": {
+  "_by": "scan"
+ },
+ "terrain-barricade": {
+  "_by": "scan"
+ },
+ "terrain-boulder": {
+  "_by": "scan"
+ },
+ "terrain-bush": {
+  "_by": "scan"
+ },
+ "terrain-chest": {
+  "_by": "scan"
+ },
+ "terrain-elevation": {
+  "_by": "scan"
+ },
+ "terrain-fence": {
+  "_by": "scan"
+ },
+ "terrain-fire-pit": {
+  "_by": "scan"
+ },
+ "terrain-fountain": {
+  "_by": "scan"
+ },
+ "terrain-log": {
+  "_by": "scan"
+ },
+ "terrain-mist": {
+  "_by": "scan"
+ },
+ "terrain-pit": {
+  "_by": "scan"
+ },
+ "terrain-pond": {
+  "_by": "scan"
+ },
+ "terrain-rubble": {
+  "_by": "scan",
+  "text_ru": "Пока вы находитесь в области с обломками, вы можете использовать обломки как экипированное снаряжение.\n1 {success}: 2 попадания\n2 {success}: 1 попадание, пробой"
+ },
+ "terrain-statue": {
+  "_by": "scan"
+ },
+ "terrain-stream": {
+  "_by": "scan"
+ },
+ "terrain-table": {
+  "_by": "scan"
+ },
+ "terrain-trench": {
+  "_by": "scan"
+ },
+ "terrain-wall": {
+  "_by": "scan"
+ },
+ "terrain-web": {
+  "_by": "scan"
+ }
+}

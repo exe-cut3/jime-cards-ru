@@ -755,6 +755,23 @@ img {
   margin: 0;
 }
 
+.hero-extra p + p {
+  margin-top: 6px;
+}
+
+.hero-extra .flavour.dim + .flavour.dim {
+  margin-top: 4px;
+}
+
+.hero-extra p:not(.dim) + p.dim {
+  margin-top: 12px;
+}
+
+.suggested {
+  margin: 0;
+  font-family: var(--font-serif);
+}
+
 .facts {
   display: grid;
   grid-template-columns: max-content 1fr;

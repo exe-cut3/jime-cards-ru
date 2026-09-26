@@ -469,6 +469,24 @@ def main():
                 c["todo"].append("verify_ru" if t.get("proofread") else "proofread_ru")
         report["notes"].append(f"translations applied to {n_tr} cards from {tr_path.name}")
 
+    # ------------------------------------------------------------------ English OCR fixes (data/fixes_en.json)
+    # Hero backgrounds are not in the spreadsheet: they come from OCR of the English backs and are
+    # corrected by hand here (b/h confusion, lost paragraphs, the "Suggested start" block glued on).
+    en_path = ROOT / "data" / "fixes_en.json"
+    if en_path.exists():
+        en_fixes = {k: v for k, v in json.loads(en_path.read_text(encoding="utf-8")).items() if not k.startswith("_")}
+        by_id = {c["id"]: c for c in cards}
+        for cid, fx in en_fixes.items():
+            c = by_id.get(cid)
+            if not c:
+                report["notes"].append(f"fixes_en.json: unknown card {cid}")
+                continue
+            if "background_en" in fx:
+                c["background_en"] = fx["background_en"]
+                c["background_source"] = "proofread"
+                c["todo"] = [x for x in c["todo"] if x != "proofread_background_ocr"]
+        report["notes"].append(f"English fixes applied to {len(en_fixes)} cards from {en_path.name}")
+
     # ------------------------------------------------------------------ write
     order = {"hero": 0, "skill": 1, "item": 2, "terrain": 3, "damage": 4, "fear": 5, "condition": 6}
     cards.sort(key=lambda c: (order[c["kind"]], c.get("page") or "", c.get("number") or 0, c["id"]))

@@ -68,7 +68,9 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
   const hasBack = Boolean(lang === 'ru' ? card.image.back_ru : card.image.back);
   const path = lang === 'ru' ? (side === 'back' ? card.image.back_ru : card.image.front_ru) : side === 'back' ? card.image.back : card.image.front;
   const img = imageUrl(path ?? (lang === 'ru' ? card.image.front_ru : card.image.front), lang === 'ru');
-  const unverified = Boolean(card.text_ru) && card.translation && !card.translation.verified;
+  const unverified = Boolean(card.text_ru) && card.translation && !card.translation.verified && card.translation.proofread !== 'scan';
+  // The Great Bear's back explains the alternate form instead of a background
+  const altForm = card.kind === 'hero' && /alternate form/i.test(card.background_en ?? '');
 
   async function copyLink() {
     try {
@@ -173,7 +175,12 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
             ) : card.no_text ? null : (
               <div className="todo-note">RU: {UI.noRu}</div>
             )}
-            {unverified && <div className="todo-note">{card.translation?.proofread ? UI.proofreadNote : UI.ocrNote}</div>}
+            {unverified && (
+              <div className="todo-note">
+                {card.translation?.proofread === 'llm-unofficial' ? UI.unofficialNote : card.translation?.proofread ? UI.proofreadNote : UI.ocrNote}
+              </div>
+            )}
+            {card.text_ru && card.translation?.proofread === 'scan' && <div className="todo-note">{UI.scanNote}</div>}
             {card.text_en && <CardText text={card.text_en} className={card.text_ru ? 'en dim' : 'en'} />}
           </section>
 
@@ -181,19 +188,22 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
             <section className="hero-extra">
               {(card.background_ru || card.background_en) && (
                 <>
-                  <h4>{UI.background}</h4>
-                  <p className="flavour">{card.background_ru ?? card.background_en}</p>
-                  {card.background_ru && card.background_en && <p className="flavour dim small">{card.background_en}</p>}
+                  <h4>{altForm ? UI.altForm : UI.background}</h4>
+                  <Paragraphs text={card.background_ru ?? card.background_en} className="flavour" />
+                  {card.background_ru && card.background_en && <Paragraphs text={card.background_en} className="flavour dim small" />}
                 </>
               )}
-              {card.suggested_role && (
+              {(card.suggested_ru || card.suggested_role) && (
                 <>
-                  <h4>{UI.suggested}</h4>
-                  <p>
-                    <span className="badge badge-owner is-role">{card.suggested_role}</span>
-                    {card.starting_gear && card.starting_gear.length > 0 && <> · {card.starting_gear.join(', ')}</>}
-                  </p>
-                  {card.suggested_ru && <p className="dim">{card.suggested_ru}</p>}
+                  <h4>{altForm ? UI.mandatedGear : UI.suggested}</h4>
+                  {card.suggested_ru ? (
+                    <Paragraphs text={card.suggested_ru} className="suggested" />
+                  ) : (
+                    <p>
+                      <span className="badge badge-owner is-role">{OWNER_LABEL[card.suggested_role ?? ''] ?? card.suggested_role}</span>
+                      {card.starting_gear && card.starting_gear.length > 0 && <> · {card.starting_gear.join(', ')}</>}
+                    </p>
+                  )}
                 </>
               )}
             </section>
@@ -261,6 +271,24 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
         </div>
       )}
     </div>
+  );
+}
+
+/** Multi-paragraph text: one <p> per line of the source. */
+function Paragraphs({ text, className }: { text: string | null | undefined; className?: string }) {
+  if (!text) return null;
+  return (
+    <>
+      {text
+        .split(/\n+/)
+        .map((l) => l.trim())
+        .filter(Boolean)
+        .map((l, i) => (
+          <p key={i} className={className}>
+            {l}
+          </p>
+        ))}
+    </>
   );
 }
 

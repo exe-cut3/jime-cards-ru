@@ -154,7 +154,10 @@ def main():
     fixes = {}
     for fp in sorted((ROOT / "data" / "fixes").glob("*.json")) + [ROOT / "data" / "translations_fixes.json"]:
         if fp.exists():
-            fixes.update({k: v for k, v in json.loads(fp.read_text(encoding="utf-8")).items() if not k.startswith("_")})
+            # merged field by field: a later file may fix one field of a card and keep the rest
+            for k, v in json.loads(fp.read_text(encoding="utf-8")).items():
+                if not k.startswith("_"):
+                    fixes.setdefault(k, {}).update(v)
 
     ru2en_role = {v: k for k, v in names["role"].items()}
     ru2en_hero = {v: k for k, v in names["hero"].items()}
