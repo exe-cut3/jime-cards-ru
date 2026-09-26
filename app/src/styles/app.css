@@ -1159,11 +1159,16 @@ img {
     overflow-y: auto;
   }
 
-  .modal-img img {
+  .modal-img img,
+  .modal.is-landscape .modal-img img {
     max-height: 46vh;
     width: auto;
     max-width: 100%;
     margin: 0 auto;
+  }
+
+  .modal-zoom {
+    max-width: 100%;
   }
 
   .modal-nav {
