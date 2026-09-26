@@ -8,16 +8,17 @@ export async function loadDb(): Promise<Db> {
   return (await res.json()) as Db;
 }
 
-export function imageUrl(path: string | null | undefined, ru = false): string | null {
+/** URL of a scan; `thumb` picks the 320 px grid version from /thumb (640 px for hero boards). */
+export function imageUrl(path: string | null | undefined, ru = false, thumb = false): string | null {
   if (!path) return null;
-  return `${BASE}img/${ru ? 'ru/' : ''}${path.replace(/\.png$/i, '.webp')}`;
+  return `${BASE}${thumb ? 'thumb' : 'img'}/${ru ? 'ru/' : ''}${path.replace(/\.png$/i, '.webp')}`;
 }
 
 /** Preferred scan for a card: the Russian edition when it exists, else the English one. */
-export function primaryImage(c: Card, side: 'front' | 'back' = 'front'): string | null {
+export function primaryImage(c: Card, side: 'front' | 'back' = 'front', thumb = false): string | null {
   const ru = side === 'front' ? c.image.front_ru : c.image.back_ru;
-  if (ru) return imageUrl(ru, true);
-  return imageUrl(side === 'front' ? c.image.front : c.image.back);
+  if (ru) return imageUrl(ru, true, thumb);
+  return imageUrl(side === 'front' ? c.image.front : c.image.back, false, thumb);
 }
 
 export function displayName(c: Card): { main: string; sub: string | null } {

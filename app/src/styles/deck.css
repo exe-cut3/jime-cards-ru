@@ -679,6 +679,34 @@
     margin-left: 5px;
   }
 
+  /* bigger touch targets, no tall portrait in the setup panel */
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .prep {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .hero-mini img {
+    display: none;
+  }
+
+  .deck-setup select,
+  .deck-setup textarea,
+  .deck select,
+  .deck input[type='number'],
+  .deck-setup input[type='number'] {
+    padding: 9px 10px;
+    font-size: 15px;
+  }
+
+  .build-item {
+    padding: 9px 10px;
+  }
+
   .sidebar.is-deck {
     display: block;
     position: static;

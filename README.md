@@ -131,17 +131,26 @@ python scripts/build_cards.py                               # подмешива
 
 ## Приложение (`app/`)
 
-Статический сайт без бэкенда: Vite + React + TypeScript, поиск через MiniSearch,
-состояние фильтров в URL, закладки в localStorage. Данные и картинки берутся из
+Статический сайт без бэкенда (PWA): Vite + React + TypeScript, поиск через MiniSearch,
+состояние фильтров в URL, закладки и билды в localStorage. Данные и картинки берутся из
 `app/public/` (не в git), куда их кладёт `scripts/prepare_app.py`.
 
 ```bash
-uv run --with pillow python scripts/prepare_app.py   # png → webp в app/public/img, копия cards.json
+uv run --with pillow python scripts/prepare_app.py   # png → webp в app/public/img + миниатюры в app/public/thumb, копия cards.json
+python scripts/fetch_fonts.py                        # шрифты Alegreya (OFL) в app/public/fonts — один раз, файлы в git
+uv run --with pillow python scripts/make_icons.py    # favicon и иконки PWA — один раз, файлы в git
 cd app
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # tsc + vite build → app/dist
+npm run build      # tsc + vite build → app/dist (+ sw.js и manifest от vite-plugin-pwa)
 ```
+
+Сетка показывает миниатюры (`/thumb`, 320 px, для планшетов героев 640 px), полный скан
+открывается в карточке. Сайт работает офлайн: сервис-воркер заранее кэширует приложение,
+шрифты и `cards.json`, а сканы — по мере просмотра (до 3000 файлов, 60 дней). Шрифты лежат
+рядом с сайтом, внешних запросов нет. На телефоне разделы переключаются нижней панелью,
+фильтры выезжают панелью снизу, карты в карточке листаются свайпом (на компьютере стрелками),
+тап по скану открывает его во весь экран.
 
 ### Планировщик колоды («Колода» в шапке, `?view=deck`)
 
@@ -205,7 +214,8 @@ app/src/
   deck.ts            # планировщик колоды: билды, опыт по ролям, лимиты снаряжения, ссылка
   components/        # Filters, CardTile, CardModal, CardText, Badges, Icons, deck/ (планировщик)
   styles/tokens.css  # палитра: цвета типов карт, характеристик, дополнений
-  styles/app.css     # вёрстка, адаптив от 375px
+  styles/app.css     # вёрстка, адаптив от 375px (нижняя навигация, панель фильтров)
+  styles/deck.css    # планировщик колоды
 ```
 
 ## Статус

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { displayName, expansions, imageUrl } from '../data';
 import { EXPANSION_LABEL, OWNER_LABEL, STAT_KEYS, STAT_LABEL, STAT_LABEL_EN, UI } from '../i18n';
 import type { Card, StatKey } from '../types';
@@ -13,25 +13,55 @@ interface Props {
   onFav: (id: string) => void;
   onOpen: (id: string) => void;
   related: Card[]; // same owner / family
+  onPrev?: () => void; // neighbours in the current list (arrow keys, swipe)
+  onNext?: () => void;
+  position?: { index: number; total: number };
 }
 
-export function CardModal({ card, fav, onClose, onFav, onOpen, related }: Props) {
+export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, onNext, position }: Props) {
   const [side, setSide] = useState<'front' | 'back'>('front');
   const [lang, setLang] = useState<'ru' | 'en'>('ru');
   const [copied, setCopied] = useState(false);
+  const [zoom, setZoom] = useState(false);
+  const touch = useRef<{ x: number; y: number } | null>(null);
   useEffect(() => {
     setSide('front');
     setLang(card.image.front_ru ? 'ru' : 'en');
+    setZoom(false);
   }, [card.id, card.image.front_ru]);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (zoom) setZoom(false);
+        else onClose();
+      } else if (e.key === 'ArrowLeft') onPrev?.();
+      else if (e.key === 'ArrowRight') onNext?.();
+    };
     window.addEventListener('keydown', onKey);
     document.body.classList.add('modal-open');
     return () => {
       window.removeEventListener('keydown', onKey);
       document.body.classList.remove('modal-open');
     };
-  }, [onClose]);
+  }, [onClose, onPrev, onNext, zoom]);
+
+  // horizontal swipe on phones flips to the neighbouring card
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const s = touch.current;
+    touch.current = null;
+    if (!s) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - s.x;
+    const dy = t.clientY - s.y;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) onNext?.();
+      else onPrev?.();
+    }
+  };
 
   const { main, sub } = displayName(card);
   const hasRu = Boolean(card.image.front_ru);
@@ -52,13 +82,42 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related }: Props)
 
   return (
     <div className="modal-backdrop" onClick={onClose} role="presentation">
-      <div className={`modal ${typeClass(card)} ${card.kind === 'hero' ? 'is-landscape' : ''}`} role="dialog" aria-modal="true" aria-label={main} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={`modal ${typeClass(card)} ${card.kind === 'hero' ? 'is-landscape' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={main}
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <button className="modal-close" onClick={onClose} aria-label={UI.close}>
           <CloseIcon />
         </button>
+        {position && (
+          <span className="modal-pos" aria-hidden="true">
+            {position.index} / {position.total}
+          </span>
+        )}
 
         <div className={`modal-img ${card.kind === 'hero' ? 'is-landscape' : ''}`}>
-          {img ? <img src={img} alt={main} /> : <div className="tile-noimg">нет скана</div>}
+          {img ? (
+            <button className="modal-zoom" onClick={() => setZoom(true)} aria-label={UI.zoom}>
+              <img src={img} alt={main} />
+            </button>
+          ) : (
+            <div className="tile-noimg">нет скана</div>
+          )}
+          {onPrev && (
+            <button className="modal-nav prev" onClick={onPrev} aria-label={UI.prev}>
+              ‹
+            </button>
+          )}
+          {onNext && (
+            <button className="modal-nav next" onClick={onNext} aria-label={UI.next}>
+              ›
+            </button>
+          )}
           <div className="img-controls">
             {hasBack && (
               <div className="segmented small">
@@ -195,6 +254,12 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related }: Props)
           </div>
         </div>
       </div>
+
+      {zoom && img && (
+        <div className="lightbox" onClick={(e) => { e.stopPropagation(); setZoom(false); }} role="presentation">
+          <img src={img} alt={main} />
+        </div>
+      )}
     </div>
   );
 }

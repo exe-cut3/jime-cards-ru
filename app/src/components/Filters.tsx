@@ -1,7 +1,7 @@
 import type { Facets } from '../data';
 import { EXPANSION_LABEL, ICON_LABEL, KIND_LABEL, KIND_ORDER, OWNER_LABEL, STAT_LABEL_EN, SUBTYPE_LABEL, TRAIT_LABEL, UI } from '../i18n';
 import type { Filters as F, Kind } from '../types';
-import { CardIcon } from './Icons';
+import { CardIcon, CloseIcon } from './Icons';
 
 interface Props {
   f: F;
@@ -10,6 +10,67 @@ interface Props {
   onChange: (next: F) => void;
   onReset: () => void;
   dirty: boolean;
+  count?: number; // matching cards, for the drawer's apply button on phones
+  onClose?: () => void;
+}
+
+const LIST_KEYS = ['sub', 'owner', 'exp', 'cost', 'icon', 'trait', 'tier', 'test'] as const;
+
+/** Number of active filter values (for the badge on the phone nav). */
+export function countActive(f: F): number {
+  return (f.q ? 1 : 0) + (f.kind ? 1 : 0) + (f.fav ? 1 : 0) + LIST_KEYS.reduce((n, k) => n + f[k].length, 0);
+}
+
+function valueLabel(key: string, v: string): string {
+  switch (key) {
+    case 'sub':
+      return SUBTYPE_LABEL[v] ?? v;
+    case 'owner':
+      return OWNER_LABEL[v] ?? v;
+    case 'exp':
+      return EXPANSION_LABEL[v] ?? v;
+    case 'cost':
+      return v === '0' ? UI.starting : `${v} опыта`;
+    case 'icon':
+      return ICON_LABEL[v] ?? v;
+    case 'trait':
+      return TRAIT_LABEL[v] ?? v;
+    case 'tier':
+      return `ранг ${v}`;
+    case 'test':
+      return STAT_LABEL_EN[v] ?? v;
+    default:
+      return v;
+  }
+}
+
+/** The active filters as removable chips above the grid. */
+export function ActiveFilters({ f, onChange, onReset }: { f: F; onChange: (next: F) => void; onReset: () => void }) {
+  const chips: { key: string; label: string; remove: () => void }[] = [];
+  if (f.q) chips.push({ key: 'q', label: `«${f.q}»`, remove: () => onChange({ ...f, q: '' }) });
+  if (f.kind) chips.push({ key: 'kind', label: KIND_LABEL[f.kind], remove: () => onChange({ ...f, kind: '', sub: [], owner: [], cost: [], icon: [], tier: [], test: [] }) });
+  for (const k of LIST_KEYS) {
+    for (const v of f[k]) chips.push({ key: `${k}:${v}`, label: valueLabel(k, v), remove: () => onChange({ ...f, [k]: f[k].filter((x) => x !== v) }) });
+  }
+  if (f.fav) chips.push({ key: 'fav', label: UI.bookmarks, remove: () => onChange({ ...f, fav: false }) });
+  if (!chips.length) return null;
+  return (
+    <div className="active-filters" aria-label="Активные фильтры">
+      {chips.map((c) => (
+        <span key={c.key} className="afchip">
+          {c.label}
+          <button onClick={c.remove} aria-label={`Убрать фильтр ${c.label}`}>
+            ×
+          </button>
+        </span>
+      ))}
+      {chips.length > 1 && (
+        <button className="linklike afreset" onClick={onReset}>
+          {UI.reset}
+        </button>
+      )}
+    </div>
+  );
 }
 
 const SKILL_SUBS = ['Hero', 'Role', 'Basic', 'Title', 'Weakness'];
@@ -20,7 +81,7 @@ function toggle(list: string[], v: string): string[] {
   return list.includes(v) ? list.filter((x) => x !== v) : [...list, v];
 }
 
-export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty }: Props) {
+export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty, count, onClose }: Props) {
   const set = (patch: Partial<F>) => onChange({ ...f, ...patch });
 
   function setKind(k: Kind | '') {
@@ -40,6 +101,11 @@ export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty }: Pr
         {dirty && (
           <button className="linklike" onClick={onReset}>
             {UI.reset}
+          </button>
+        )}
+        {onClose && (
+          <button className="filters-close" onClick={onClose} aria-label={UI.close}>
+            <CloseIcon size={18} />
           </button>
         )}
       </div>
@@ -115,6 +181,14 @@ export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty }: Pr
       <Group label={UI.expansion}>
         <Chips values={facets.expansions} selected={f.exp} label={(v) => EXPANSION_LABEL[v] ?? v} onToggle={(v) => set({ exp: toggle(f.exp, v) })} />
       </Group>
+
+      {onClose && count != null && (
+        <div className="filters-foot">
+          <button className="btn btn-primary" onClick={onClose}>
+            {UI.show(count)}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

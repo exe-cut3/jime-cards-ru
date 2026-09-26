@@ -12,7 +12,7 @@ interface Props {
 
 export function CardTile({ card, fav, onOpen, onFav }: Props) {
   const { main, sub } = displayName(card);
-  const img = primaryImage(card);
+  const img = primaryImage(card, 'front', true);
   const landscape = card.kind === 'hero';
   return (
     <article className={`tile ${typeClass(card)} ${landscape ? 'is-landscape' : ''}`}>

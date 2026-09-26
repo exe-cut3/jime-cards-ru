@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CardModal } from './components/CardModal';
 import { CardTile } from './components/CardTile';
-import { FiltersPanel } from './components/Filters';
+import { ActiveFilters, FiltersPanel, countActive } from './components/Filters';
 import { BookmarkIcon, CardsIcon, DeckIcon, FilterIcon } from './components/Icons';
 import { DeckMain } from './components/deck/DeckMain';
 import { DeckSetup } from './components/deck/DeckSetup';
@@ -25,10 +25,23 @@ export default function App() {
   const [view, setView] = useState<View>(() => readView());
   const [builds, setBuilds] = useState<Build[]>(() => loadBuilds());
   const [buildId, setBuildId] = useState<string | null>(() => loadCurrentId());
+  const [online, setOnline] = useState<boolean>(() => navigator.onLine);
   const imported = useRef(false);
+  const sentinel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     loadDb().then(setDb).catch((e) => setError(String(e)));
+  }, []);
+
+  useEffect(() => {
+    const on = () => setOnline(true);
+    const off = () => setOnline(false);
+    window.addEventListener('online', on);
+    window.addEventListener('offline', off);
+    return () => {
+      window.removeEventListener('online', on);
+      window.removeEventListener('offline', off);
+    };
   }, []);
 
   // a build shared as a link: import it as a new build, then drop it from the URL
@@ -74,6 +87,12 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
+  // the filters drawer on phones locks page scroll behind it
+  useEffect(() => {
+    document.body.classList.toggle('drawer-open', showFilters && view === 'cards');
+    return () => document.body.classList.remove('drawer-open');
+  }, [showFilters, view]);
+
   const cards = db?.cards ?? [];
   const byId = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
   const index = useMemo(() => (cards.length ? buildIndex(cards) : null), [cards]);
@@ -109,6 +128,7 @@ export default function App() {
       setCardId(null);
       setShowFilters(false);
       writeUrl(filters, null, false, v);
+      window.scrollTo({ top: 0 });
     },
     [filters],
   );
@@ -122,6 +142,21 @@ export default function App() {
       return next;
     });
   }, []);
+
+  // more tiles as the grid scrolls (the button below stays as a fallback)
+  const hasMore = visible.length > limit;
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el || !hasMore) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) setLimit((l) => l + PAGE);
+      },
+      { rootMargin: '600px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasMore, limit]);
 
   // ---- builds
   const build = builds.find((b) => b.id === buildId) ?? builds[0] ?? null;
@@ -174,11 +209,34 @@ export default function App() {
   const related = useMemo(() => (current ? relatedCards(current, cards) : []), [current, cards]);
   const dirty = !isEmptyFilters(filters);
   const isDeck = view === 'deck';
+  const activeCount = countActive(filters);
+
+  // previous / next card inside the current list (cards view only)
+  const navIndex = current && !isDeck ? visible.findIndex((c) => c.id === current.id) : -1;
+  const prevCard = navIndex > 0 ? visible[navIndex - 1] : null;
+  const nextCard = navIndex >= 0 && navIndex < visible.length - 1 ? visible[navIndex + 1] : null;
+  const openPrev = useCallback(() => prevCard && openCard(prevCard.id), [prevCard, openCard]);
+  const openNext = useCallback(() => {
+    if (!nextCard) return;
+    if (navIndex + 1 >= limit) setLimit((l) => l + PAGE);
+    openCard(nextCard.id);
+  }, [nextCard, navIndex, limit, openCard]);
 
   useEffect(() => {
     const site = UI.title;
     document.title = current ? `${displayName(current).main} — ${site}` : isDeck && build ? `${build.name} · ${UI.viewDeck} — ${site}` : `${site} — ${UI.subtitle}`;
   }, [current, isDeck, build]);
+
+  const showBookmarks = () => {
+    if (isDeck) switchView('cards');
+    updateFilters({ ...filters, fav: !filters.fav });
+  };
+  const showFiltersDrawer = () => {
+    if (isDeck) {
+      switchView('cards');
+      setShowFilters(true);
+    } else setShowFilters((v) => !v);
+  };
 
   return (
     <div className="app">
@@ -186,6 +244,11 @@ export default function App() {
         <div className="brand">
           <h1>{UI.title}</h1>
           <span className="brand-sub">{UI.subtitle}</span>
+          {!online && (
+            <span className="online-badge" title="Нет сети: показываются сохранённые данные">
+              {UI.offline}
+            </span>
+          )}
         </div>
         <div className="search">
           {!isDeck && (
@@ -210,23 +273,18 @@ export default function App() {
             </button>
           </div>
           {!isDeck && (
-            <>
-              <button className={`btn btn-icon ${filters.fav ? 'is-on' : ''}`} onClick={() => updateFilters({ ...filters, fav: !filters.fav })} aria-pressed={filters.fav} title={UI.bookmarks}>
-                <BookmarkIcon filled={filters.fav} />
-                <span className="btn-label">{UI.bookmarks}</span>
-                {favs.size > 0 && <span className="count">{favs.size}</span>}
-              </button>
-              <button className={`btn btn-icon only-mobile ${showFilters ? 'is-on' : ''}`} onClick={() => setShowFilters((v) => !v)} aria-expanded={showFilters}>
-                <FilterIcon />
-                <span className="btn-label">{UI.filters}</span>
-              </button>
-            </>
+            <button className={`btn btn-icon ${filters.fav ? 'is-on' : ''}`} onClick={() => updateFilters({ ...filters, fav: !filters.fav })} aria-pressed={filters.fav} title={UI.bookmarks}>
+              <BookmarkIcon filled={filters.fav} />
+              <span className="btn-label">{UI.bookmarks}</span>
+              {favs.size > 0 && <span className="count">{favs.size}</span>}
+            </button>
           )}
         </div>
       </header>
 
       <div className={`layout ${isDeck ? 'is-deck' : ''}`}>
-        <aside className={`sidebar ${showFilters ? 'is-open' : ''} ${isDeck ? 'is-deck' : ''}`}>
+        {showFilters && !isDeck && <div className="drawer-backdrop" onClick={() => setShowFilters(false)} role="presentation" />}
+        <aside className={`sidebar ${showFilters ? 'is-open' : ''} ${isDeck ? 'is-deck' : ''}`} aria-hidden={!isDeck && !showFilters ? undefined : undefined}>
           {isDeck ? (
             db &&
             build && (
@@ -245,7 +303,16 @@ export default function App() {
               />
             )
           ) : (
-            <FiltersPanel f={filters} facets={facets} counts={counts} onChange={(n) => updateFilters(n)} onReset={() => updateFilters({ ...readFilters(''), q: '' })} dirty={dirty} />
+            <FiltersPanel
+              f={filters}
+              facets={facets}
+              counts={counts}
+              onChange={(n) => updateFilters(n)}
+              onReset={() => updateFilters({ ...readFilters(''), q: '' })}
+              dirty={dirty}
+              count={visible.length}
+              onClose={() => setShowFilters(false)}
+            />
           )}
         </aside>
 
@@ -256,7 +323,8 @@ export default function App() {
           {db && !isDeck && (
             <>
               <div className="resultbar">
-                <span>{UI.found(visible.length)}</span>
+                <span className="resultbar-n">{UI.found(visible.length)}</span>
+                {dirty && <ActiveFilters f={filters} onChange={(n) => updateFilters(n)} onReset={() => updateFilters({ ...readFilters(''), q: '' })} />}
               </div>
               {visible.length === 0 ? (
                 <div className="empty">{UI.nothing}</div>
@@ -267,8 +335,9 @@ export default function App() {
                   ))}
                 </div>
               )}
-              {visible.length > limit && (
+              {hasMore && (
                 <div className="more">
+                  <div className="sentinel" ref={sentinel} aria-hidden="true" />
                   <button className="btn" onClick={() => setLimit((l) => l + PAGE)}>
                     Показать ещё ({visible.length - limit})
                   </button>
@@ -280,7 +349,40 @@ export default function App() {
         </main>
       </div>
 
-      {current && <CardModal card={current} fav={favs.has(current.id)} onClose={closeCard} onFav={toggleFav} onOpen={openCard} related={related} />}
+      <nav className="bottomnav" aria-label="Разделы">
+        <button className={!isDeck && !showFilters ? 'is-on' : ''} onClick={() => switchView('cards')}>
+          <CardsIcon size={22} />
+          {UI.viewCards}
+        </button>
+        <button className={isDeck ? 'is-on' : ''} onClick={() => switchView('deck')}>
+          <DeckIcon size={22} />
+          {UI.viewDeck}
+        </button>
+        <button className={showFilters ? 'is-on' : ''} onClick={showFiltersDrawer} aria-expanded={showFilters}>
+          <FilterIcon size={22} />
+          {UI.filters}
+          {activeCount > 0 && <span className="count">{activeCount}</span>}
+        </button>
+        <button className={!isDeck && filters.fav ? 'is-on' : ''} onClick={showBookmarks} aria-pressed={!isDeck && filters.fav}>
+          <BookmarkIcon filled={!isDeck && filters.fav} size={22} />
+          {UI.bookmarks}
+          {favs.size > 0 && <span className="count">{favs.size}</span>}
+        </button>
+      </nav>
+
+      {current && (
+        <CardModal
+          card={current}
+          fav={favs.has(current.id)}
+          onClose={closeCard}
+          onFav={toggleFav}
+          onOpen={openCard}
+          related={related}
+          onPrev={prevCard ? openPrev : undefined}
+          onNext={nextCard ? openNext : undefined}
+          position={navIndex >= 0 ? { index: navIndex + 1, total: visible.length } : undefined}
+        />
+      )}
     </div>
   );
 }

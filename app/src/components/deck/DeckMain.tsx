@@ -161,7 +161,7 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           <h3>Выберите героя</h3>
           <div className="hero-pick">
             {heroes.map((h) => {
-              const img = primaryImage(h);
+              const img = primaryImage(h, 'front', true);
               const sug = matchRole(h.suggested_role, roles);
               return (
                 <button key={h.id} className="hero-card" onClick={() => onChange((b) => withHero(b, h.id, cards, byId, roles))}>

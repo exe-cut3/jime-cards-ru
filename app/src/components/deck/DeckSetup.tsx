@@ -97,7 +97,7 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
         </select>
         {hero && (
           <div className="hero-mini">
-            {primaryImage(hero) && <img src={primaryImage(hero)!} alt="" />}
+            {primaryImage(hero, 'front', true) && <img src={primaryImage(hero, 'front', true)!} alt="" />}
             <div className="hero-mini-stats">
               {STAT_KEYS.map((k) => (
                 <span key={k} className="stat" title={STAT_LABEL[k]}>
