@@ -957,6 +957,15 @@ img {
   height: 1px;
 }
 
+/* desktop: the scroll wrapper does not exist for layout, the phone dock is hidden */
+.modal-scroll {
+  display: contents;
+}
+
+.modal-dock {
+  display: none;
+}
+
 .bottomnav,
 .drawer-backdrop,
 .filters-foot,
@@ -1161,19 +1170,111 @@ img {
     margin: -6px -8px 0 0;
   }
 
+  /* The card opens as a bottom sheet. It stops short of the top of the visible viewport
+     (dvh follows the browser's toolbars), so a strip of backdrop stays tappable and the
+     close button can never hide under the address bar. Only .modal-scroll scrolls. */
   .modal-backdrop {
     padding: 0;
     place-items: end stretch;
+    overflow: hidden;
   }
 
-  .modal {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    max-height: 100vh;
-    border-radius: 14px 14px 0 0;
-    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  .modal,
+  .modal.is-landscape {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     width: 100%;
+    max-height: calc(100vh - 44px);
+    max-height: calc(100dvh - 44px);
+    border-radius: 16px 16px 0 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* grab handle */
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 42px;
+    height: 4px;
+    margin-left: -21px;
+    border-radius: 2px;
+    background: var(--line-2);
+    z-index: 3;
+  }
+
+  .modal-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 26px 16px 16px;
+  }
+
+  /* hero boards fill the width: start them below the close button */
+  .modal.is-landscape .modal-scroll {
+    padding-top: 62px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background: var(--bg-3);
+    color: var(--text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    z-index: 4;
+  }
+
+  .modal-dock {
+    display: grid;
+    grid-template-columns: 56px 1fr 56px;
+    gap: 8px;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+    background: var(--bg-1);
+  }
+
+  .modal-dock button {
+    height: 46px;
+    border-radius: 12px;
+    border: 1px solid var(--line-2);
+    background: var(--bg-2);
+    color: var(--text);
+    font-size: 16px;
+  }
+
+  .modal-dock button[aria-label] {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .modal-dock button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .modal-dock .dock-close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line-2));
   }
 
   .modal-img img,
@@ -1188,23 +1289,23 @@ img {
     max-width: 100%;
   }
 
+  /* the dock has prev / next, so no arrows over the scan */
   .modal-nav {
-    width: 40px;
-    height: 60px;
-    top: 35%;
+    display: none;
   }
 
-  .modal-nav.prev {
-    left: 0;
-  }
-
-  .modal-nav.next {
-    right: 0;
-  }
-
+  /* the counter lives in the dock on phones */
   .modal-pos {
-    top: 18px;
-    right: 56px;
+    display: none;
+  }
+
+  .dock-pos {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-3);
+    font-variant-numeric: tabular-nums;
+    margin-top: 1px;
   }
 
   .modal-body {

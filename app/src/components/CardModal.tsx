@@ -23,11 +23,14 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
   const [lang, setLang] = useState<'ru' | 'en'>('ru');
   const [copied, setCopied] = useState(false);
   const [zoom, setZoom] = useState(false);
-  const touch = useRef<{ x: number; y: number } | null>(null);
+  const touch = useRef<{ x: number; y: number; atTop: boolean } | null>(null);
+  const sheet = useRef<HTMLDivElement>(null);
+  const scroller = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setSide('front');
     setLang(card.image.front_ru ? 'ru' : 'en');
     setZoom(false);
+    scroller.current?.scrollTo({ top: 0 });
   }, [card.id, card.image.front_ru]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -45,10 +48,25 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
     };
   }, [onClose, onPrev, onNext, zoom]);
 
-  // horizontal swipe on phones flips to the neighbouring card
+  // Phones: a horizontal swipe flips to the neighbouring card; pulling the sheet down while its
+  // content is scrolled to the top closes it (the sheet follows the finger).
+  const setPull = (dy: number, animate = false) => {
+    const el = sheet.current;
+    if (!el) return;
+    el.style.transition = animate ? 'transform 0.18s ease-out' : '';
+    el.style.transform = dy > 0 ? `translateY(${dy}px)` : '';
+  };
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches[0];
-    touch.current = { x: t.clientX, y: t.clientY };
+    touch.current = { x: t.clientX, y: t.clientY, atTop: (scroller.current?.scrollTop ?? 0) <= 0 };
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    const s = touch.current;
+    if (!s || !s.atTop) return;
+    const t = e.touches[0];
+    const dy = t.clientY - s.y;
+    const dx = t.clientX - s.x;
+    if (dy > 0 && dy > Math.abs(dx)) setPull(dy);
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const s = touch.current;
@@ -57,6 +75,11 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
     const t = e.changedTouches[0];
     const dx = t.clientX - s.x;
     const dy = t.clientY - s.y;
+    if (s.atTop && dy > 110 && dy > Math.abs(dx) * 1.5) {
+      onClose();
+      return;
+    }
+    setPull(0, true);
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
       if (dx < 0) onNext?.();
       else onPrev?.();
@@ -91,7 +114,9 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
         aria-label={main}
         onClick={(e) => e.stopPropagation()}
         onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
+        ref={sheet}
       >
         <button className="modal-close" onClick={onClose} aria-label={UI.close}>
           <CloseIcon />
@@ -102,6 +127,8 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
           </span>
         )}
 
+        {/* phones: only this part scrolls, the close button and the dock stay in place */}
+        <div className="modal-scroll" ref={scroller}>
         <div className={`modal-img ${card.kind === 'hero' ? 'is-landscape' : ''}`}>
           {img ? (
             <button className="modal-zoom" onClick={() => setZoom(true)} aria-label={UI.zoom}>
@@ -262,6 +289,25 @@ export function CardModal({ card, fav, onClose, onFav, onOpen, related, onPrev, 
               <LinkIcon /> {copied ? UI.copied : UI.copyLink}
             </button>
           </div>
+        </div>
+        </div>
+
+        {/* phones: thumb-reach controls at the bottom of the sheet */}
+        <div className="modal-dock">
+          <button onClick={onPrev} disabled={!onPrev} aria-label={UI.prev}>
+            ‹
+          </button>
+          <button className="dock-close" onClick={onClose}>
+            {UI.close}
+            {position && (
+              <span className="dock-pos">
+                {position.index} / {position.total}
+              </span>
+            )}
+          </button>
+          <button onClick={onNext} disabled={!onNext} aria-label={UI.next}>
+            ›
+          </button>
         </div>
       </div>
 
