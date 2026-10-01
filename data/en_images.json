@@ -1,0 +1,4521 @@
+{
+ "hero-aragorn": {
+  "front": "tts_en/cards/119-01.png",
+  "score": 0.982,
+  "margin": 0.163,
+  "by": "name",
+  "nickname": "aragorn",
+  "back": "tts_en/cards/119-01-back.png"
+ },
+ "hero-arwen": {
+  "front": "tts_en/cards/137-00.png",
+  "score": 0.942,
+  "margin": 0.16,
+  "by": "name",
+  "nickname": "arwen",
+  "back": "tts_en/cards/137-00-back.png"
+ },
+ "hero-balin": {
+  "front": "tts_en/cards/136-00.png",
+  "score": 0.992,
+  "margin": 0.208,
+  "by": "name",
+  "nickname": "balin",
+  "back": "tts_en/cards/136-00-back.png"
+ },
+ "hero-beorn": {
+  "front": "tts_en/cards/142-00.png",
+  "score": 0.991,
+  "margin": 0.244,
+  "by": "name",
+  "nickname": "beorn",
+  "back": "tts_en/cards/142-00-back.png"
+ },
+ "hero-the-great-bear": {
+  "front": "tts_en/cards/141-00.png",
+  "score": 0.943,
+  "margin": 0.218,
+  "by": "name",
+  "nickname": "the great bear",
+  "back": "tts_en/cards/141-00-back.png"
+ },
+ "hero-beravor": {
+  "front": "tts_en/cards/121-00.png",
+  "score": 0.892,
+  "margin": 0.116,
+  "by": "name",
+  "nickname": "beravor",
+  "back": "tts_en/cards/121-00-back.png"
+ },
+ "hero-bilbo": {
+  "front": "tts_en/cards/120-02.png",
+  "score": 0.979,
+  "margin": 0.19,
+  "by": "name",
+  "nickname": "bilbo",
+  "back": "tts_en/cards/120-02-back.png"
+ },
+ "hero-boromir": {
+  "front": "tts_en/cards/143-00.png",
+  "score": 0.957,
+  "margin": 0.141,
+  "by": "name",
+  "nickname": "boromir",
+  "back": "tts_en/cards/143-00-back.png"
+ },
+ "hero-calaminth-took": {
+  "front": "tts_en/cards/144-00.png",
+  "score": 0.82,
+  "margin": 0.096,
+  "by": "name",
+  "nickname": "calaminth took",
+  "back": "tts_en/cards/144-00-back.png"
+ },
+ "hero-dis": {
+  "front": "tts_en/cards/135-00.png",
+  "score": 0.979,
+  "margin": 0.232,
+  "by": "name",
+  "nickname": "dis",
+  "back": "tts_en/cards/135-00-back.png"
+ },
+ "hero-dwalin": {
+  "front": "tts_en/cards/145-00.png",
+  "score": 0.957,
+  "margin": 0.106,
+  "by": "name",
+  "nickname": "dwalin",
+  "back": "tts_en/cards/145-00-back.png"
+ },
+ "hero-eleanor": {
+  "front": "tts_en/cards/133-00.png",
+  "score": 0.961,
+  "margin": 0.191,
+  "by": "name",
+  "nickname": "eleanor",
+  "back": "tts_en/cards/133-00-back.png"
+ },
+ "hero-elena": {
+  "front": "tts_en/cards/117-03.png",
+  "score": 0.895,
+  "margin": 0.17,
+  "by": "name",
+  "nickname": "elena",
+  "back": "tts_en/cards/117-03-back.png"
+ },
+ "hero-freahild": {
+  "front": "tts_en/cards/146-00.png",
+  "score": 0.962,
+  "margin": 0.171,
+  "by": "name",
+  "nickname": "freahild",
+  "back": "tts_en/cards/146-00-back.png"
+ },
+ "hero-gandalf": {
+  "front": "tts_en/cards/134-00.png",
+  "score": 0.932,
+  "margin": 0.22,
+  "by": "name",
+  "nickname": "gandalf",
+  "back": "tts_en/cards/134-00-back.png"
+ },
+ "hero-gimli": {
+  "front": "tts_en/cards/122-00.png",
+  "score": 0.985,
+  "margin": 0.136,
+  "by": "name",
+  "nickname": "gimli",
+  "back": "tts_en/cards/122-00-back.png"
+ },
+ "hero-legolas": {
+  "front": "tts_en/cards/118-05.png",
+  "score": 0.912,
+  "margin": 0.168,
+  "by": "name",
+  "nickname": "legolas",
+  "back": "tts_en/cards/118-05-back.png"
+ },
+ "hero-renerien": {
+  "front": "tts_en/cards/147-00.png",
+  "score": 0.987,
+  "margin": 0.221,
+  "by": "name",
+  "nickname": "renerien",
+  "back": "tts_en/cards/147-00-back.png"
+ },
+ "skill-aragorn-1": {
+  "front": "tts_en/cards/9-22.png",
+  "score": 0.916,
+  "margin": 0.051,
+  "by": "name",
+  "nickname": "wanderer"
+ },
+ "skill-aragorn-2": {
+  "front": "tts_en/cards/9-20.png",
+  "score": 0.934,
+  "margin": 0.043,
+  "by": "name",
+  "nickname": "strider"
+ },
+ "skill-aragorn-3": {
+  "front": "tts_en/cards/9-20.png",
+  "score": 0.939,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "strider"
+ },
+ "skill-aragorn-4": {
+  "front": "tts_en/cards/9-19.png",
+  "score": 0.955,
+  "margin": 0.043,
+  "by": "name",
+  "nickname": "thorongil"
+ },
+ "skill-aragorn-5": {
+  "front": "tts_en/cards/149-32.png",
+  "score": 0.938,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "gift of men"
+ },
+ "skill-arwen-1": {
+  "front": "tts_en/cards/132-09.png",
+  "score": 0.912,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "nobility"
+ },
+ "skill-arwen-2": {
+  "front": "tts_en/cards/132-08.png",
+  "score": 0.941,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "elven light"
+ },
+ "skill-arwen-3": {
+  "front": "tts_en/cards/132-07.png",
+  "score": 0.963,
+  "margin": 0.067,
+  "by": "name",
+  "nickname": "evenstar"
+ },
+ "skill-arwen-4": {
+  "front": "tts_en/cards/132-07.png",
+  "score": 0.963,
+  "margin": 0.068,
+  "by": "name",
+  "nickname": "evenstar"
+ },
+ "skill-arwen-5": {
+  "front": "tts_en/cards/132-05.png",
+  "score": 0.935,
+  "margin": 0.048,
+  "by": "name",
+  "nickname": "willful"
+ },
+ "skill-balin-1": {
+  "front": "tts_en/cards/149-29.png",
+  "score": 0.933,
+  "margin": 0.071,
+  "by": "name",
+  "nickname": "kinship"
+ },
+ "skill-balin-2": {
+  "front": "tts_en/cards/132-04.png",
+  "score": 0.949,
+  "margin": 0.065,
+  "by": "name",
+  "nickname": "raven companion"
+ },
+ "skill-balin-3": {
+  "front": "tts_en/cards/132-00.png",
+  "score": 0.957,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "loyal friend"
+ },
+ "skill-balin-4": {
+  "front": "tts_en/cards/132-00.png",
+  "score": 0.966,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "loyal friend"
+ },
+ "skill-balin-5": {
+  "front": "tts_en/cards/149-26.png",
+  "score": 0.943,
+  "margin": 0.077,
+  "by": "name",
+  "nickname": "misty mountains cold"
+ },
+ "skill-basic-1": {
+  "front": "tts_en/cards/4-04.png",
+  "score": 0.951,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "undying might"
+ },
+ "skill-basic-2": {
+  "front": "tts_en/cards/4-03.png",
+  "score": 0.929,
+  "margin": 0.105,
+  "by": "name",
+  "nickname": "honed agility"
+ },
+ "skill-basic-3": {
+  "front": "tts_en/cards/4-00.png",
+  "score": 0.888,
+  "margin": 0.023,
+  "by": "name",
+  "nickname": "unyielding spirit"
+ },
+ "skill-basic-4": {
+  "front": "tts_en/cards/4-01.png",
+  "score": 0.913,
+  "margin": 0.043,
+  "by": "name",
+  "nickname": "ancient wisdom"
+ },
+ "skill-basic-5": {
+  "front": "tts_en/cards/4-05.png",
+  "score": 0.959,
+  "margin": 0.102,
+  "by": "name",
+  "nickname": "clever wit"
+ },
+ "skill-basic-6": {
+  "front": "tts_en/cards/4-02.png",
+  "score": 0.936,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "time of need"
+ },
+ "skill-beast-friend-1": {
+  "front": "tts_en/cards/177-06.png",
+  "score": 0.783,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "chittering mouse"
+ },
+ "skill-beast-friend-2": {
+  "front": "tts_en/cards/177-05.png",
+  "score": 0.906,
+  "margin": 0.064,
+  "by": "name",
+  "nickname": "nightingale"
+ },
+ "skill-beast-friend-3": {
+  "front": "tts_en/cards/177-04.png",
+  "score": 0.903,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "pet rabbit"
+ },
+ "skill-beast-friend-4": {
+  "front": "tts_en/cards/177-09.png",
+  "score": 0.87,
+  "margin": 0.044,
+  "by": "name",
+  "nickname": "band of squirrels"
+ },
+ "skill-beast-friend-5": {
+  "front": "tts_en/cards/177-08.png",
+  "score": 0.882,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "lome"
+ },
+ "skill-beast-friend-6": {
+  "front": "tts_en/cards/177-07.png",
+  "score": 0.892,
+  "margin": 0.063,
+  "by": "name",
+  "nickname": "iron hills goat"
+ },
+ "skill-beorn-1": {
+  "front": "tts_en/cards/149-44.png",
+  "score": 0.959,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "the day will come"
+ },
+ "skill-beorn-2": {
+  "front": "tts_en/cards/149-43.png",
+  "score": 0.925,
+  "margin": 0.086,
+  "by": "name",
+  "nickname": "beast tongue"
+ },
+ "skill-beorn-3": {
+  "front": "tts_en/cards/149-42.png",
+  "score": 0.943,
+  "margin": 0.059,
+  "by": "name",
+  "nickname": "friend of bees"
+ },
+ "skill-beorn-4": {
+  "front": "tts_en/cards/149-41.png",
+  "score": 0.925,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "the first beorning"
+ },
+ "skill-beorn-5": {
+  "front": "tts_en/cards/149-41.png",
+  "score": 0.931,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "the first beorning"
+ },
+ "skill-beravor-1": {
+  "front": "tts_en/cards/9-09.png",
+  "score": 0.893,
+  "margin": 0.033,
+  "by": "name",
+  "nickname": "into hiding"
+ },
+ "skill-beravor-2": {
+  "front": "tts_en/cards/9-10.png",
+  "score": 0.948,
+  "margin": 0.046,
+  "by": "name",
+  "nickname": "ways of old"
+ },
+ "skill-beravor-3": {
+  "front": "tts_en/cards/9-14.png",
+  "score": 0.944,
+  "margin": 0.04,
+  "by": "name",
+  "nickname": "ways of old"
+ },
+ "skill-beravor-4": {
+  "front": "tts_en/cards/149-30.png",
+  "score": 0.965,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "fateless"
+ },
+ "skill-beravor-5": {
+  "front": "tts_en/cards/149-32.png",
+  "score": 0.929,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "gift of men"
+ },
+ "skill-bilbo-1": {
+  "front": "tts_en/cards/149-18.png",
+  "score": 0.927,
+  "margin": 0.033,
+  "by": "name",
+  "nickname": "the tookish part"
+ },
+ "skill-bilbo-2": {
+  "front": "tts_en/cards/149-18.png",
+  "score": 0.965,
+  "margin": 0.047,
+  "by": "name",
+  "nickname": "the tookish part"
+ },
+ "skill-bilbo-3": {
+  "front": "tts_en/cards/9-17.png",
+  "score": 0.953,
+  "margin": 0.079,
+  "by": "name",
+  "nickname": "well nourished"
+ },
+ "skill-bilbo-4": {
+  "front": "tts_en/cards/149-19.png",
+  "score": 0.954,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "simple desires"
+ },
+ "skill-bilbo-5": {
+  "front": "tts_en/cards/9-16.png",
+  "score": 0.91,
+  "margin": 0.078,
+  "by": "name",
+  "nickname": "the road goes ever on"
+ },
+ "skill-boromir-1": {
+  "front": "tts_en/cards/149-35.png",
+  "score": 0.955,
+  "margin": 0.111,
+  "by": "name",
+  "nickname": "fierce resolve"
+ },
+ "skill-boromir-2": {
+  "front": "tts_en/cards/149-36.png",
+  "score": 0.94,
+  "margin": 0.047,
+  "by": "name",
+  "nickname": "born to lead"
+ },
+ "skill-boromir-3": {
+  "front": "tts_en/cards/149-37.png",
+  "score": 0.963,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "overpower"
+ },
+ "skill-boromir-4": {
+  "front": "tts_en/cards/149-38.png",
+  "score": 0.942,
+  "margin": 0.063,
+  "by": "name",
+  "nickname": "blood of gondor"
+ },
+ "skill-boromir-5": {
+  "front": "tts_en/cards/149-32.png",
+  "score": 0.939,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "gift of men"
+ },
+ "skill-burglar-1": {
+  "front": "tts_en/cards/14-29.png",
+  "score": 0.9,
+  "margin": 0.189,
+  "by": "name",
+  "nickname": "self sufficient"
+ },
+ "skill-burglar-2": {
+  "front": "tts_en/cards/14-33.png",
+  "score": 0.948,
+  "margin": 0.03,
+  "by": "name",
+  "nickname": "quiet"
+ },
+ "skill-burglar-3": {
+  "front": "tts_en/cards/14-33.png",
+  "score": 0.947,
+  "margin": 0.03,
+  "by": "name",
+  "nickname": "quiet"
+ },
+ "skill-burglar-4": {
+  "front": "tts_en/cards/15-00.png",
+  "score": 0.955,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "word of fortune"
+ },
+ "skill-burglar-5": {
+  "front": "tts_en/cards/14-30.png",
+  "score": 0.948,
+  "margin": 0.052,
+  "by": "name",
+  "nickname": "sneaking"
+ },
+ "skill-burglar-6": {
+  "front": "tts_en/cards/14-32.png",
+  "score": 0.955,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "pockets"
+ },
+ "skill-burglar-7": {
+  "front": "tts_en/cards/14-31.png",
+  "score": 0.909,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "what is in my pocket"
+ },
+ "skill-burglar-8": {
+  "front": "tts_en/cards/14-29.png",
+  "score": 0.875,
+  "margin": 0.153,
+  "by": "name",
+  "nickname": "self sufficient"
+ },
+ "skill-burglar-9": {
+  "front": "tts_en/cards/15-03.png",
+  "score": 0.935,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "hidden blades"
+ },
+ "skill-burglar-10": {
+  "front": "tts_en/cards/14-27.png",
+  "score": 0.919,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "unseen strike"
+ },
+ "skill-burglar-11": {
+  "front": "tts_en/cards/14-26.png",
+  "score": 0.888,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "quick thinking"
+ },
+ "skill-burglar-12": {
+  "front": "tts_en/cards/14-28.png",
+  "score": 0.929,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "embrace the darkness"
+ },
+ "skill-calaminth-took-1": {
+  "front": "tts_en/cards/149-19.png",
+  "score": 0.959,
+  "margin": 0.068,
+  "by": "name",
+  "nickname": "simple desires"
+ },
+ "skill-calaminth-took-2": {
+  "front": "tts_en/cards/149-18.png",
+  "score": 0.967,
+  "margin": 0.043,
+  "by": "name",
+  "nickname": "the tookish part"
+ },
+ "skill-calaminth-took-3": {
+  "front": "tts_en/cards/149-17.png",
+  "score": 0.975,
+  "margin": 0.053,
+  "by": "name",
+  "nickname": "hobbit sense"
+ },
+ "skill-calaminth-took-4": {
+  "front": "tts_en/cards/149-16.png",
+  "score": 0.958,
+  "margin": 0.118,
+  "by": "name",
+  "nickname": "drinking ditty"
+ },
+ "skill-calaminth-took-5": {
+  "front": "tts_en/cards/149-35.png",
+  "score": 0.944,
+  "margin": 0.11,
+  "by": "name",
+  "nickname": "fierce resolve"
+ },
+ "skill-captain-1": {
+  "front": "tts_en/cards/14-00.png",
+  "score": 0.941,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "well provisioned"
+ },
+ "skill-captain-2": {
+  "front": "tts_en/cards/13-32.png",
+  "score": 0.946,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "lead the charge"
+ },
+ "skill-captain-3": {
+  "front": "tts_en/cards/13-32.png",
+  "score": 0.945,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "lead the charge"
+ },
+ "skill-captain-4": {
+  "front": "tts_en/cards/13-31.png",
+  "score": 0.944,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "word of triumph"
+ },
+ "skill-captain-5": {
+  "front": "tts_en/cards/13-29.png",
+  "score": 0.918,
+  "margin": 0.08,
+  "by": "name",
+  "nickname": "stand together"
+ },
+ "skill-captain-6": {
+  "front": "tts_en/cards/13-28.png",
+  "score": 0.928,
+  "margin": 0.029,
+  "by": "name",
+  "nickname": "a fey mood"
+ },
+ "skill-captain-7": {
+  "front": "tts_en/cards/13-27.png",
+  "score": 0.918,
+  "margin": 0.013,
+  "by": "name",
+  "nickname": "empowering words"
+ },
+ "skill-captain-8": {
+  "front": "tts_en/cards/13-30.png",
+  "score": 0.886,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "inspiring presense"
+ },
+ "skill-captain-9": {
+  "front": "tts_en/cards/13-25.png",
+  "score": 0.876,
+  "margin": 0.03,
+  "by": "name",
+  "nickname": "to me"
+ },
+ "skill-captain-10": {
+  "front": "tts_en/cards/13-26.png",
+  "score": 0.874,
+  "margin": 0.032,
+  "by": "name",
+  "nickname": "battle plan"
+ },
+ "skill-captain-11": {
+  "front": "tts_en/cards/14-01.png",
+  "score": 0.903,
+  "margin": 0.011,
+  "by": "name",
+  "nickname": "a wind among grass"
+ },
+ "skill-captain-12": {
+  "front": "tts_en/cards/13-24.png",
+  "score": 0.946,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "master tactician"
+ },
+ "skill-delver-1": {
+  "front": "tts_en/cards/131-33.png",
+  "score": 0.943,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "intrepid"
+ },
+ "skill-delver-2": {
+  "front": "tts_en/cards/131-31.png",
+  "score": 0.981,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "shadow sight"
+ },
+ "skill-delver-3": {
+  "front": "tts_en/cards/131-31.png",
+  "score": 0.979,
+  "margin": 0.036,
+  "by": "name",
+  "nickname": "shadow sight"
+ },
+ "skill-delver-4": {
+  "front": "tts_en/cards/131-30.png",
+  "score": 0.966,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "wiles"
+ },
+ "skill-delver-5": {
+  "front": "tts_en/cards/131-37.png",
+  "score": 0.96,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "crushing blow"
+ },
+ "skill-delver-6": {
+  "front": "tts_en/cards/131-36.png",
+  "score": 0.968,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "boasting"
+ },
+ "skill-delver-7": {
+  "front": "tts_en/cards/131-35.png",
+  "score": 0.968,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "forging ahead"
+ },
+ "skill-delver-8": {
+  "front": "tts_en/cards/131-34.png",
+  "score": 0.933,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "spirit of adventure"
+ },
+ "skill-delver-9": {
+  "front": "tts_en/cards/131-52.png",
+  "score": 0.956,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "no stone unturned"
+ },
+ "skill-delver-10": {
+  "front": "tts_en/cards/131-52.png",
+  "score": 0.97,
+  "margin": 0.03,
+  "by": "name",
+  "nickname": "no stone unturned"
+ },
+ "skill-delver-11": {
+  "front": "tts_en/cards/131-39.png",
+  "score": 0.894,
+  "margin": 0.088,
+  "by": "name",
+  "nickname": "glory"
+ },
+ "skill-delver-12": {
+  "front": "tts_en/cards/131-38.png",
+  "score": 0.943,
+  "margin": 0.041,
+  "by": "name",
+  "nickname": "treasures untold"
+ },
+ "skill-dis-1": {
+  "front": "tts_en/cards/9-08.png",
+  "score": 0.932,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "fury"
+ },
+ "skill-dis-2": {
+  "front": "tts_en/cards/149-29.png",
+  "score": 0.913,
+  "margin": 0.052,
+  "by": "name",
+  "nickname": "kinship"
+ },
+ "skill-dis-3": {
+  "front": "tts_en/cards/132-11.png",
+  "score": 0.932,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "strength of thrain"
+ },
+ "skill-dis-4": {
+  "front": "tts_en/cards/132-12.png",
+  "score": 0.955,
+  "margin": 0.059,
+  "by": "name",
+  "nickname": "fire heart"
+ },
+ "skill-dis-5": {
+  "front": "tts_en/cards/132-12.png",
+  "score": 0.956,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "fire heart"
+ },
+ "skill-dwalin-1": {
+  "front": "tts_en/cards/149-29.png",
+  "score": 0.926,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "kinship"
+ },
+ "skill-dwalin-2": {
+  "front": "tts_en/cards/149-28.png",
+  "score": 0.945,
+  "margin": 0.07,
+  "by": "name",
+  "nickname": "ancestral grudge"
+ },
+ "skill-dwalin-3": {
+  "front": "tts_en/cards/149-28.png",
+  "score": 0.921,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "ancestral grudge"
+ },
+ "skill-dwalin-4": {
+  "front": "tts_en/cards/149-26.png",
+  "score": 0.929,
+  "margin": 0.067,
+  "by": "name",
+  "nickname": "misty mountains cold"
+ },
+ "skill-dwalin-5": {
+  "front": "tts_en/cards/149-25.png",
+  "score": 0.961,
+  "margin": 0.046,
+  "by": "name",
+  "nickname": "stirring performance"
+ },
+ "skill-eleanor-1": {
+  "front": "tts_en/cards/132-09.png",
+  "score": 0.912,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "nobility"
+ },
+ "skill-eleanor-2": {
+  "front": "tts_en/cards/149-30.png",
+  "score": 0.967,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "fateless"
+ },
+ "skill-eleanor-3": {
+  "front": "tts_en/cards/149-38.png",
+  "score": 0.948,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "blood of gondor"
+ },
+ "skill-eleanor-4": {
+  "front": "tts_en/cards/149-38.png",
+  "score": 0.951,
+  "margin": 0.065,
+  "by": "name",
+  "nickname": "blood of gondor"
+ },
+ "skill-eleanor-5": {
+  "front": "tts_en/cards/149-32.png",
+  "score": 0.951,
+  "margin": 0.076,
+  "by": "name",
+  "nickname": "gift of men"
+ },
+ "skill-elena-1": {
+  "front": "tts_en/cards/149-24.png",
+  "score": 0.939,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "child of the lhun"
+ },
+ "skill-elena-2": {
+  "front": "tts_en/cards/9-24.png",
+  "score": 0.913,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "elven light"
+ },
+ "skill-elena-3": {
+  "front": "tts_en/cards/9-29.png",
+  "score": 0.958,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "immortality"
+ },
+ "skill-elena-4": {
+  "front": "tts_en/cards/9-28.png",
+  "score": 0.948,
+  "margin": 0.071,
+  "by": "name",
+  "nickname": "lay of twilight"
+ },
+ "skill-elena-5": {
+  "front": "tts_en/cards/9-28.png",
+  "score": 0.947,
+  "margin": 0.076,
+  "by": "name",
+  "nickname": "lay of twilight"
+ },
+ "skill-freahild-1": {
+  "front": "tts_en/cards/149-30.png",
+  "score": 0.943,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "fateless"
+ },
+ "skill-freahild-2": {
+  "front": "tts_en/cards/149-31.png",
+  "score": 0.947,
+  "margin": 0.112,
+  "by": "name",
+  "nickname": "faithful compainon"
+ },
+ "skill-freahild-3": {
+  "front": "tts_en/cards/149-32.png",
+  "score": 0.926,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "gift of men"
+ },
+ "skill-freahild-4": {
+  "front": "tts_en/cards/149-34.png",
+  "score": 0.939,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "cavalry combat"
+ },
+ "skill-freahild-5": {
+  "front": "tts_en/cards/149-34.png",
+  "score": 0.937,
+  "margin": 0.034,
+  "by": "name",
+  "nickname": "cavalry combat"
+ },
+ "skill-gandalf-1": {
+  "front": "tts_en/cards/132-20.png",
+  "score": 0.899,
+  "margin": 0.03,
+  "by": "name",
+  "nickname": "grey pilgrim"
+ },
+ "skill-gandalf-2": {
+  "front": "tts_en/cards/132-24.png",
+  "score": 0.935,
+  "margin": 0.074,
+  "by": "name",
+  "nickname": "uncanny"
+ },
+ "skill-gandalf-3": {
+  "front": "tts_en/cards/132-21.png",
+  "score": 0.969,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "flame imperishable"
+ },
+ "skill-gandalf-4": {
+  "front": "tts_en/cards/132-22.png",
+  "score": 0.885,
+  "margin": 0.093,
+  "by": "name",
+  "nickname": "greater power"
+ },
+ "skill-gandalf-5": {
+  "front": "tts_en/cards/132-23.png",
+  "score": 0.932,
+  "margin": 0.071,
+  "by": "name",
+  "nickname": "dazzling flash"
+ },
+ "skill-gimli-1": {
+  "front": "tts_en/cards/9-04.png",
+  "score": 0.942,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "poet s heart"
+ },
+ "skill-gimli-2": {
+  "front": "tts_en/cards/9-06.png",
+  "score": 0.936,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "restless axe"
+ },
+ "skill-gimli-3": {
+  "front": "tts_en/cards/9-06.png",
+  "score": 0.916,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "restless axe"
+ },
+ "skill-gimli-4": {
+  "front": "tts_en/cards/149-29.png",
+  "score": 0.941,
+  "margin": 0.073,
+  "by": "name",
+  "nickname": "kinship"
+ },
+ "skill-gimli-5": {
+  "front": "tts_en/cards/9-08.png",
+  "score": 0.935,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "fury"
+ },
+ "skill-guardian-1": {
+  "front": "tts_en/cards/13-21.png",
+  "score": 0.963,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "you cannot pass"
+ },
+ "skill-guardian-2": {
+  "front": "tts_en/cards/13-22.png",
+  "score": 0.934,
+  "margin": 0.067,
+  "by": "name",
+  "nickname": "ready defense"
+ },
+ "skill-guardian-3": {
+  "front": "tts_en/cards/13-22.png",
+  "score": 0.901,
+  "margin": 0.064,
+  "by": "name",
+  "nickname": "ready defense"
+ },
+ "skill-guardian-4": {
+  "front": "tts_en/cards/13-19.png",
+  "score": 0.935,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "word of glory"
+ },
+ "skill-guardian-5": {
+  "front": "tts_en/cards/13-18.png",
+  "score": 0.931,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "noble sacrifice"
+ },
+ "skill-guardian-6": {
+  "front": "tts_en/cards/13-15.png",
+  "score": 0.936,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "desperate defense"
+ },
+ "skill-guardian-7": {
+  "front": "tts_en/cards/13-17.png",
+  "score": 0.911,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "voice like ringing steel"
+ },
+ "skill-guardian-8": {
+  "front": "tts_en/cards/13-16.png",
+  "score": 0.923,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "ready defense"
+ },
+ "skill-guardian-9": {
+  "front": "tts_en/cards/13-12.png",
+  "score": 0.914,
+  "margin": 0.02,
+  "by": "name",
+  "nickname": "guarded strike"
+ },
+ "skill-guardian-10": {
+  "front": "tts_en/cards/13-14.png",
+  "score": 0.935,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "grim resolve"
+ },
+ "skill-guardian-11": {
+  "front": "tts_en/cards/13-23.png",
+  "score": 0.911,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "final defense"
+ },
+ "skill-guardian-12": {
+  "front": "tts_en/cards/13-13.png",
+  "score": 0.923,
+  "margin": 0.04,
+  "by": "name",
+  "nickname": "defense instruction"
+ },
+ "skill-guide-1": {
+  "front": "tts_en/cards/148-00.png",
+  "score": 0.959,
+  "margin": 0.067,
+  "by": "name",
+  "nickname": "great hound"
+ },
+ "skill-guide-2": {
+  "front": "tts_en/cards/148-01.png",
+  "score": 0.941,
+  "margin": 0.113,
+  "by": "name",
+  "nickname": "the way forward"
+ },
+ "skill-guide-3": {
+  "front": "tts_en/cards/148-01.png",
+  "score": 0.934,
+  "margin": 0.108,
+  "by": "name",
+  "nickname": "the way forward"
+ },
+ "skill-guide-4": {
+  "front": "tts_en/cards/148-03.png",
+  "score": 0.95,
+  "margin": 0.097,
+  "by": "name",
+  "nickname": "helping hand"
+ },
+ "skill-guide-5": {
+  "front": "tts_en/cards/148-04.png",
+  "score": 0.951,
+  "margin": 0.059,
+  "by": "name",
+  "nickname": "point the way"
+ },
+ "skill-guide-6": {
+  "front": "tts_en/cards/148-05.png",
+  "score": 0.934,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "lead by example"
+ },
+ "skill-guide-7": {
+  "front": "tts_en/cards/148-06.png",
+  "score": 0.932,
+  "margin": 0.069,
+  "by": "name",
+  "nickname": "alert"
+ },
+ "skill-guide-8": {
+  "front": "tts_en/cards/148-07.png",
+  "score": 0.932,
+  "margin": 0.046,
+  "by": "name",
+  "nickname": "ancient trails"
+ },
+ "skill-guide-9": {
+  "front": "tts_en/cards/148-08.png",
+  "score": 0.957,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "teamwork"
+ },
+ "skill-guide-10": {
+  "front": "tts_en/cards/148-09.png",
+  "score": 0.965,
+  "margin": 0.077,
+  "by": "name",
+  "nickname": "survival training"
+ },
+ "skill-guide-11": {
+  "front": "tts_en/cards/148-10.png",
+  "score": 0.946,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "all together"
+ },
+ "skill-guide-12": {
+  "front": "tts_en/cards/148-11.png",
+  "score": 0.921,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "timely assistance"
+ },
+ "skill-herbalist-1": {
+  "front": "tts_en/cards/131-23.png",
+  "score": 0.963,
+  "margin": 0.093,
+  "by": "name",
+  "nickname": "curiosity"
+ },
+ "skill-herbalist-2": {
+  "front": "tts_en/cards/131-22.png",
+  "score": 0.931,
+  "margin": 0.137,
+  "by": "name",
+  "nickname": "gathered wisdom"
+ },
+ "skill-herbalist-3": {
+  "front": "tts_en/cards/131-22.png",
+  "score": 0.929,
+  "margin": 0.137,
+  "by": "name",
+  "nickname": "gathered wisdom"
+ },
+ "skill-herbalist-4": {
+  "front": "tts_en/cards/131-20.png",
+  "score": 0.96,
+  "margin": 0.065,
+  "by": "name",
+  "nickname": "study of nature"
+ },
+ "skill-herbalist-5": {
+  "front": "tts_en/cards/131-27.png",
+  "score": 0.949,
+  "margin": 0.069,
+  "by": "name",
+  "nickname": "hands of a healer"
+ },
+ "skill-herbalist-6": {
+  "front": "tts_en/cards/131-26.png",
+  "score": 0.951,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "herbalist 6"
+ },
+ "skill-herbalist-7": {
+  "front": "tts_en/cards/131-25.png",
+  "score": 0.927,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "3 2 cards and place each of"
+ },
+ "skill-herbalist-8": {
+  "front": "tts_en/cards/131-24.png",
+  "score": 0.944,
+  "margin": 0.027,
+  "by": "name",
+  "nickname": "athelas"
+ },
+ "skill-herbalist-9": {
+  "front": "tts_en/cards/131-55.png",
+  "score": 0.912,
+  "margin": 0.052,
+  "by": "name",
+  "nickname": "natural remedy"
+ },
+ "skill-herbalist-10": {
+  "front": "tts_en/cards/131-54.png",
+  "score": 0.953,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "innovation"
+ },
+ "skill-herbalist-11": {
+  "front": "tts_en/cards/131-29.png",
+  "score": 0.92,
+  "margin": 0.135,
+  "by": "name",
+  "nickname": "phosphorescence"
+ },
+ "skill-herbalist-12": {
+  "front": "tts_en/cards/131-28.png",
+  "score": 0.893,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "healing poultice"
+ },
+ "skill-hunter-1": {
+  "front": "tts_en/cards/14-21.png",
+  "score": 0.951,
+  "margin": 0.059,
+  "by": "name",
+  "nickname": "resourceful"
+ },
+ "skill-hunter-2": {
+  "front": "tts_en/cards/14-23.png",
+  "score": 0.962,
+  "margin": 0.024,
+  "by": "name",
+  "nickname": "precise strike"
+ },
+ "skill-hunter-3": {
+  "front": "tts_en/cards/14-23.png",
+  "score": 0.968,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "precise strike"
+ },
+ "skill-hunter-4": {
+  "front": "tts_en/cards/14-21.png",
+  "score": 0.941,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "resourceful"
+ },
+ "skill-hunter-5": {
+  "front": "tts_en/cards/14-20.png",
+  "score": 0.937,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "coordinated strike"
+ },
+ "skill-hunter-6": {
+  "front": "tts_en/cards/14-19.png",
+  "score": 0.936,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "quick snare"
+ },
+ "skill-hunter-7": {
+  "front": "tts_en/cards/14-17.png",
+  "score": 0.926,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "death stroke"
+ },
+ "skill-hunter-8": {
+  "front": "tts_en/cards/14-18.png",
+  "score": 0.93,
+  "margin": 0.024,
+  "by": "name",
+  "nickname": "barrage"
+ },
+ "skill-hunter-9": {
+  "front": "tts_en/cards/14-16.png",
+  "score": 0.929,
+  "margin": 0.034,
+  "by": "name",
+  "nickname": "falcon companion"
+ },
+ "skill-hunter-10": {
+  "front": "tts_en/cards/14-25.png",
+  "score": 0.945,
+  "margin": 0.011,
+  "by": "name",
+  "nickname": "gather supplies"
+ },
+ "skill-hunter-11": {
+  "front": "tts_en/cards/14-15.png",
+  "score": 0.89,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "on the hunt"
+ },
+ "skill-hunter-12": {
+  "front": "tts_en/cards/14-14.png",
+  "score": 0.932,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "stalk prey"
+ },
+ "skill-legolas-1": {
+  "front": "tts_en/cards/9-00.png",
+  "score": 0.851,
+  "margin": -0.009,
+  "by": "name",
+  "nickname": "keen eyes"
+ },
+ "skill-legolas-2": {
+  "front": "tts_en/cards/9-11.png",
+  "score": 0.913,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "light footed"
+ },
+ "skill-legolas-3": {
+  "front": "tts_en/cards/9-01.png",
+  "score": 0.918,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "light footed"
+ },
+ "skill-legolas-4": {
+  "front": "tts_en/cards/149-22.png",
+  "score": 0.924,
+  "margin": 0.032,
+  "by": "name",
+  "nickname": "tireless"
+ },
+ "skill-legolas-5": {
+  "front": "tts_en/cards/9-29.png",
+  "score": 0.964,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "immortality"
+ },
+ "skill-lorekeeper-1": {
+  "front": "tts_en/cards/148-12.png",
+  "score": 0.944,
+  "margin": 0.063,
+  "by": "name",
+  "nickname": "preparation"
+ },
+ "skill-lorekeeper-2": {
+  "front": "tts_en/cards/148-13.png",
+  "score": 0.93,
+  "margin": 0.145,
+  "by": "name",
+  "nickname": "childhood tales"
+ },
+ "skill-lorekeeper-3": {
+  "front": "tts_en/cards/148-13.png",
+  "score": 0.892,
+  "margin": 0.123,
+  "by": "name",
+  "nickname": "childhood tales"
+ },
+ "skill-lorekeeper-4": {
+  "front": "tts_en/cards/148-15.png",
+  "score": 0.962,
+  "margin": 0.09,
+  "by": "name",
+  "nickname": "driven by knowledge"
+ },
+ "skill-lorekeeper-5": {
+  "front": "tts_en/cards/148-16.png",
+  "score": 0.958,
+  "margin": 0.096,
+  "by": "name",
+  "nickname": "wisdom beyond years"
+ },
+ "skill-lorekeeper-6": {
+  "front": "tts_en/cards/148-17.png",
+  "score": 0.95,
+  "margin": 0.051,
+  "by": "name",
+  "nickname": "wit beyond measure"
+ },
+ "skill-lorekeeper-7": {
+  "front": "tts_en/cards/148-18.png",
+  "score": 0.953,
+  "margin": 0.088,
+  "by": "name",
+  "nickname": "ancestry"
+ },
+ "skill-lorekeeper-8": {
+  "front": "tts_en/cards/148-19.png",
+  "score": 0.943,
+  "margin": 0.063,
+  "by": "name",
+  "nickname": "collector"
+ },
+ "skill-lorekeeper-9": {
+  "front": "tts_en/cards/148-23.png",
+  "score": 0.953,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "secrets of the wide world"
+ },
+ "skill-lorekeeper-10": {
+  "front": "tts_en/cards/148-22.png",
+  "score": 0.972,
+  "margin": 0.058,
+  "by": "name",
+  "nickname": "song of history"
+ },
+ "skill-lorekeeper-11": {
+  "front": "tts_en/cards/148-21.png",
+  "score": 0.942,
+  "margin": 0.116,
+  "by": "name",
+  "nickname": "keeper of the chronicle"
+ },
+ "skill-lorekeeper-12": {
+  "front": "tts_en/cards/148-20.png",
+  "score": 0.95,
+  "margin": 0.074,
+  "by": "name",
+  "nickname": "exploit weakness"
+ },
+ "skill-meddler-1": {
+  "front": "tts_en/cards/131-13.png",
+  "score": 0.96,
+  "margin": 0.073,
+  "by": "name",
+  "nickname": "nosy"
+ },
+ "skill-meddler-2": {
+  "front": "tts_en/cards/131-11.png",
+  "score": 0.963,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "guidance"
+ },
+ "skill-meddler-3": {
+  "front": "tts_en/cards/131-11.png",
+  "score": 0.957,
+  "margin": 0.071,
+  "by": "name",
+  "nickname": "guidance"
+ },
+ "skill-meddler-4": {
+  "front": "tts_en/cards/131-10.png",
+  "score": 0.958,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "gossip"
+ },
+ "skill-meddler-5": {
+  "front": "tts_en/cards/131-17.png",
+  "score": 0.966,
+  "margin": 0.08,
+  "by": "name",
+  "nickname": "fast talking"
+ },
+ "skill-meddler-6": {
+  "front": "tts_en/cards/131-16.png",
+  "score": 0.957,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "interfering"
+ },
+ "skill-meddler-7": {
+  "front": "tts_en/cards/131-15.png",
+  "score": 0.936,
+  "margin": 0.027,
+  "by": "name",
+  "nickname": "ancient legend"
+ },
+ "skill-meddler-8": {
+  "front": "tts_en/cards/131-14.png",
+  "score": 0.964,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "contemplation"
+ },
+ "skill-meddler-9": {
+  "front": "tts_en/cards/131-57.png",
+  "score": 0.853,
+  "margin": 0.062,
+  "by": "name",
+  "nickname": "flattery"
+ },
+ "skill-meddler-10": {
+  "front": "tts_en/cards/131-56.png",
+  "score": 0.948,
+  "margin": 0.03,
+  "by": "name",
+  "nickname": "hidden plans"
+ },
+ "skill-meddler-11": {
+  "front": "tts_en/cards/131-19.png",
+  "score": 0.981,
+  "margin": 0.041,
+  "by": "name",
+  "nickname": "quick temper"
+ },
+ "skill-meddler-12": {
+  "front": "tts_en/cards/131-18.png",
+  "score": 0.941,
+  "margin": 0.063,
+  "by": "name",
+  "nickname": "strong opinion"
+ },
+ "skill-musician-1": {
+  "front": "tts_en/cards/14-12.png",
+  "score": 0.948,
+  "margin": 0.045,
+  "by": "name",
+  "nickname": "endless melody"
+ },
+ "skill-musician-2": {
+  "front": "tts_en/cards/14-09.png",
+  "score": 0.951,
+  "margin": 0.047,
+  "by": "name",
+  "nickname": "travelling song"
+ },
+ "skill-musician-3": {
+  "front": "tts_en/cards/14-11.png",
+  "score": 0.93,
+  "margin": 0.032,
+  "by": "name",
+  "nickname": "travelling song"
+ },
+ "skill-musician-4": {
+  "front": "tts_en/cards/14-10.png",
+  "score": 0.939,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "word of peace"
+ },
+ "skill-musician-5": {
+  "front": "tts_en/cards/14-07.png",
+  "score": 0.918,
+  "margin": 0.095,
+  "by": "name",
+  "nickname": "song of mocking"
+ },
+ "skill-musician-6": {
+  "front": "tts_en/cards/14-05.png",
+  "score": 0.934,
+  "margin": 0.055,
+  "by": "name",
+  "nickname": "a bit of nonsense"
+ },
+ "skill-musician-7": {
+  "front": "tts_en/cards/14-06.png",
+  "score": 0.942,
+  "margin": 0.032,
+  "by": "name",
+  "nickname": "endless wonder"
+ },
+ "skill-musician-8": {
+  "front": "tts_en/cards/14-08.png",
+  "score": 0.901,
+  "margin": 0.04,
+  "by": "name",
+  "nickname": "durin s song"
+ },
+ "skill-musician-9": {
+  "front": "tts_en/cards/14-02.png",
+  "score": 0.93,
+  "margin": 0.053,
+  "by": "name",
+  "nickname": "lay of nimrodel"
+ },
+ "skill-musician-10": {
+  "front": "tts_en/cards/14-13.png",
+  "score": 0.866,
+  "margin": 0.01,
+  "by": "name",
+  "nickname": "burst into song"
+ },
+ "skill-musician-11": {
+  "front": "tts_en/cards/14-04.png",
+  "score": 0.878,
+  "margin": 0.051,
+  "by": "name",
+  "nickname": "crescendo of dawn"
+ },
+ "skill-musician-12": {
+  "front": "tts_en/cards/14-03.png",
+  "score": 0.905,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "tale of tinuviel"
+ },
+ "skill-pathfinder-1": {
+  "front": "tts_en/cards/13-10.png",
+  "score": 0.944,
+  "margin": 0.041,
+  "by": "name",
+  "nickname": "trailblazer"
+ },
+ "skill-pathfinder-2": {
+  "front": "tts_en/cards/13-09.png",
+  "score": 0.934,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "paths unseen"
+ },
+ "skill-pathfinder-3": {
+  "front": "tts_en/cards/13-09.png",
+  "score": 0.94,
+  "margin": 0.058,
+  "by": "name",
+  "nickname": "paths unseen"
+ },
+ "skill-pathfinder-4": {
+  "front": "tts_en/cards/13-07.png",
+  "score": 0.905,
+  "margin": 0.136,
+  "by": "name",
+  "nickname": "word of warning"
+ },
+ "skill-pathfinder-5": {
+  "front": "tts_en/cards/13-05.png",
+  "score": 0.938,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "baited trap"
+ },
+ "skill-pathfinder-6": {
+  "front": "tts_en/cards/13-06.png",
+  "score": 0.952,
+  "margin": 0.064,
+  "by": "name",
+  "nickname": "trail sign"
+ },
+ "skill-pathfinder-7": {
+  "front": "tts_en/cards/13-03.png",
+  "score": 0.913,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "ambush"
+ },
+ "skill-pathfinder-8": {
+  "front": "tts_en/cards/13-03.png",
+  "score": 0.91,
+  "margin": 0.036,
+  "by": "name",
+  "nickname": "ambush"
+ },
+ "skill-pathfinder-9": {
+  "front": "tts_en/cards/13-11.png",
+  "score": 0.934,
+  "margin": 0.028,
+  "by": "name",
+  "nickname": "a shortcut"
+ },
+ "skill-pathfinder-10": {
+  "front": "tts_en/cards/13-02.png",
+  "score": 0.901,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "find a way"
+ },
+ "skill-pathfinder-11": {
+  "front": "tts_en/cards/13-01.png",
+  "score": 0.928,
+  "margin": 0.012,
+  "by": "name",
+  "nickname": "unstoppable"
+ },
+ "skill-pathfinder-12": {
+  "front": "tts_en/cards/13-00.png",
+  "score": 0.919,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "honed instinct"
+ },
+ "skill-provisioner-1": {
+  "front": "tts_en/cards/148-36.png",
+  "score": 0.926,
+  "margin": 0.089,
+  "by": "name",
+  "nickname": "foraging"
+ },
+ "skill-provisioner-2": {
+  "front": "tts_en/cards/148-38.png",
+  "score": 0.93,
+  "margin": 0.065,
+  "by": "name",
+  "nickname": "waybread"
+ },
+ "skill-provisioner-3": {
+  "front": "tts_en/cards/148-38.png",
+  "score": 0.938,
+  "margin": 0.078,
+  "by": "name",
+  "nickname": "waybread"
+ },
+ "skill-provisioner-4": {
+  "front": "tts_en/cards/148-39.png",
+  "score": 0.966,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "mending"
+ },
+ "skill-provisioner-5": {
+  "front": "tts_en/cards/148-40.png",
+  "score": 0.951,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "gathering"
+ },
+ "skill-provisioner-6": {
+  "front": "tts_en/cards/148-41.png",
+  "score": 0.944,
+  "margin": 0.082,
+  "by": "name",
+  "nickname": "good cheer"
+ },
+ "skill-provisioner-7": {
+  "front": "tts_en/cards/148-42.png",
+  "score": 0.953,
+  "margin": 0.068,
+  "by": "name",
+  "nickname": "herbs"
+ },
+ "skill-provisioner-8": {
+  "front": "tts_en/cards/148-43.png",
+  "score": 0.925,
+  "margin": 0.029,
+  "by": "name",
+  "nickname": "respite"
+ },
+ "skill-provisioner-9": {
+  "front": "tts_en/cards/156-00.png",
+  "score": 0.895,
+  "margin": 0.034,
+  "by": "name",
+  "nickname": "pleasant company"
+ },
+ "skill-provisioner-10": {
+  "front": "tts_en/cards/148-44.png",
+  "score": 0.972,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "heavy packs"
+ },
+ "skill-provisioner-11": {
+  "front": "tts_en/cards/148-45.png",
+  "score": 0.938,
+  "margin": 0.068,
+  "by": "name",
+  "nickname": "feasting"
+ },
+ "skill-provisioner-12": {
+  "front": "tts_en/cards/148-46.png",
+  "score": 0.928,
+  "margin": 0.079,
+  "by": "name",
+  "nickname": "hope renewed"
+ },
+ "skill-renerien-1": {
+  "front": "tts_en/cards/149-24.png",
+  "score": 0.793,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "child of the lhun"
+ },
+ "skill-renerien-2": {
+  "front": "tts_en/cards/149-23.png",
+  "score": 0.856,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "mischief"
+ },
+ "skill-renerien-3": {
+  "front": "tts_en/cards/149-22.png",
+  "score": 0.954,
+  "margin": 0.055,
+  "by": "name",
+  "nickname": "tireless"
+ },
+ "skill-renerien-4": {
+  "front": "tts_en/cards/149-21.png",
+  "score": 0.94,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "grey haven craft"
+ },
+ "skill-renerien-5": {
+  "front": "tts_en/cards/149-21.png",
+  "score": 0.925,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "grey haven craft"
+ },
+ "skill-shieldmaiden-1": {
+  "front": "tts_en/cards/148-28.png",
+  "score": 0.93,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "as one"
+ },
+ "skill-shieldmaiden-2": {
+  "front": "tts_en/cards/148-25.png",
+  "score": 0.933,
+  "margin": 0.07,
+  "by": "name",
+  "nickname": "call to glory"
+ },
+ "skill-shieldmaiden-3": {
+  "front": "tts_en/cards/148-25.png",
+  "score": 0.912,
+  "margin": 0.048,
+  "by": "name",
+  "nickname": "call to glory"
+ },
+ "skill-shieldmaiden-4": {
+  "front": "tts_en/cards/148-27.png",
+  "score": 0.921,
+  "margin": 0.085,
+  "by": "name",
+  "nickname": "taunting cry"
+ },
+ "skill-shieldmaiden-5": {
+  "front": "tts_en/cards/148-28.png",
+  "score": 0.917,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "as one"
+ },
+ "skill-shieldmaiden-6": {
+  "front": "tts_en/cards/148-29.png",
+  "score": 0.917,
+  "margin": 0.098,
+  "by": "name",
+  "nickname": "press the advantage"
+ },
+ "skill-shieldmaiden-7": {
+  "front": "tts_en/cards/148-30.png",
+  "score": 0.929,
+  "margin": 0.052,
+  "by": "name",
+  "nickname": "back to back"
+ },
+ "skill-shieldmaiden-8": {
+  "front": "tts_en/cards/148-31.png",
+  "score": 0.901,
+  "margin": 0.067,
+  "by": "name",
+  "nickname": "momentum"
+ },
+ "skill-shieldmaiden-9": {
+  "front": "tts_en/cards/148-32.png",
+  "score": 0.912,
+  "margin": 0.068,
+  "by": "name",
+  "nickname": "force them back"
+ },
+ "skill-shieldmaiden-10": {
+  "front": "tts_en/cards/148-33.png",
+  "score": 0.943,
+  "margin": 0.106,
+  "by": "name",
+  "nickname": "flanking strike"
+ },
+ "skill-shieldmaiden-11": {
+  "front": "tts_en/cards/148-34.png",
+  "score": 0.954,
+  "margin": 0.074,
+  "by": "name",
+  "nickname": "overrun"
+ },
+ "skill-shieldmaiden-12": {
+  "front": "tts_en/cards/148-35.png",
+  "score": 0.954,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "carry the day"
+ },
+ "skill-smith-1": {
+  "front": "tts_en/cards/131-03.png",
+  "score": 0.92,
+  "margin": 0.019,
+  "by": "name",
+  "nickname": "reforging"
+ },
+ "skill-smith-2": {
+  "front": "tts_en/cards/131-01.png",
+  "score": 0.952,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "thrice forged steel"
+ },
+ "skill-smith-3": {
+  "front": "tts_en/cards/131-01.png",
+  "score": 0.951,
+  "margin": 0.052,
+  "by": "name",
+  "nickname": "thrice forged steel"
+ },
+ "skill-smith-4": {
+  "front": "tts_en/cards/131-00.png",
+  "score": 0.905,
+  "margin": 0.092,
+  "by": "name",
+  "nickname": "unbowed"
+ },
+ "skill-smith-5": {
+  "front": "tts_en/cards/131-07.png",
+  "score": 0.956,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "industrious"
+ },
+ "skill-smith-6": {
+  "front": "tts_en/cards/131-06.png",
+  "score": 0.947,
+  "margin": 0.028,
+  "by": "name",
+  "nickname": "industrious"
+ },
+ "skill-smith-7": {
+  "front": "tts_en/cards/131-05.png",
+  "score": 0.949,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "strike the anvil"
+ },
+ "skill-smith-8": {
+  "front": "tts_en/cards/131-04.png",
+  "score": 0.879,
+  "margin": 0.126,
+  "by": "name",
+  "nickname": "dwarf linked rings"
+ },
+ "skill-smith-9": {
+  "front": "tts_en/cards/131-59.png",
+  "score": 0.89,
+  "margin": 0.022,
+  "by": "name",
+  "nickname": "elf wrights grace"
+ },
+ "skill-smith-10": {
+  "front": "tts_en/cards/131-58.png",
+  "score": 0.913,
+  "margin": 0.04,
+  "by": "name",
+  "nickname": "craft of men"
+ },
+ "skill-smith-11": {
+  "front": "tts_en/cards/131-09.png",
+  "score": 0.912,
+  "margin": 0.036,
+  "by": "name",
+  "nickname": "cirth inscription"
+ },
+ "skill-smith-12": {
+  "front": "tts_en/cards/131-08.png",
+  "score": 0.912,
+  "margin": 0.085,
+  "by": "name",
+  "nickname": "forge s fire"
+ },
+ "skill-soldier-1": {
+  "front": "tts_en/cards/149-00.png",
+  "score": 0.937,
+  "margin": 0.071,
+  "by": "name",
+  "nickname": "comrade in arms"
+ },
+ "skill-soldier-2": {
+  "front": "tts_en/cards/149-02.png",
+  "score": 0.948,
+  "margin": 0.04,
+  "by": "name",
+  "nickname": "love of war and valor"
+ },
+ "skill-soldier-3": {
+  "front": "tts_en/cards/149-02.png",
+  "score": 0.945,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "love of war and valor"
+ },
+ "skill-soldier-4": {
+  "front": "tts_en/cards/149-06.png",
+  "score": 0.944,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "fighting advance"
+ },
+ "skill-soldier-5": {
+  "front": "tts_en/cards/149-06.png",
+  "score": 0.924,
+  "margin": 0.076,
+  "by": "name",
+  "nickname": "fighting advance"
+ },
+ "skill-soldier-6": {
+  "front": "tts_en/cards/149-06.png",
+  "score": 0.948,
+  "margin": 0.091,
+  "by": "name",
+  "nickname": "fighting advance"
+ },
+ "skill-soldier-7": {
+  "front": "tts_en/cards/149-05.png",
+  "score": 0.915,
+  "margin": 0.082,
+  "by": "name",
+  "nickname": "on your orders"
+ },
+ "skill-soldier-8": {
+  "front": "tts_en/cards/149-05.png",
+  "score": 0.955,
+  "margin": 0.1,
+  "by": "name",
+  "nickname": "on your orders"
+ },
+ "skill-soldier-9": {
+  "front": "tts_en/cards/149-08.png",
+  "score": 0.927,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "sleep anywhere"
+ },
+ "skill-soldier-10": {
+  "front": "tts_en/cards/149-08.png",
+  "score": 0.947,
+  "margin": 0.076,
+  "by": "name",
+  "nickname": "sleep anywhere"
+ },
+ "skill-soldier-11": {
+  "front": "tts_en/cards/149-10.png",
+  "score": 0.9,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "break the wave"
+ },
+ "skill-soldier-12": {
+  "front": "tts_en/cards/149-10.png",
+  "score": 0.877,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "break the wave"
+ },
+ "skill-title-1": {
+  "front": "tts_en/cards/17-08.png",
+  "score": 0.929,
+  "margin": 0.126,
+  "by": "name",
+  "nickname": "mist walker"
+ },
+ "skill-title-2": {
+  "front": "tts_en/cards/17-12.png",
+  "score": 0.917,
+  "margin": 0.076,
+  "by": "name",
+  "nickname": "stone talker"
+ },
+ "skill-title-3": {
+  "front": "tts_en/cards/17-11.png",
+  "score": 0.923,
+  "margin": 0.1,
+  "by": "name",
+  "nickname": "pack dweller"
+ },
+ "skill-title-4": {
+  "front": "tts_en/cards/17-03.png",
+  "score": 0.906,
+  "margin": 0.069,
+  "by": "name",
+  "nickname": "dwarf friend"
+ },
+ "skill-title-5": {
+  "front": "tts_en/cards/17-05.png",
+  "score": 0.854,
+  "margin": 0.077,
+  "by": "name",
+  "nickname": "world wielder"
+ },
+ "skill-title-6": {
+  "front": "tts_en/cards/17-07.png",
+  "score": 0.863,
+  "margin": 0.054,
+  "by": "name",
+  "nickname": "clue finder"
+ },
+ "skill-title-7": {
+  "front": "tts_en/cards/17-20.png",
+  "score": 0.877,
+  "margin": 0.041,
+  "by": "name",
+  "nickname": "stinging fly"
+ },
+ "skill-title-8": {
+  "front": "tts_en/cards/17-01.png",
+  "score": 0.872,
+  "margin": 0.105,
+  "by": "name",
+  "nickname": "wingfoot"
+ },
+ "skill-title-9": {
+  "front": "tts_en/cards/17-00.png",
+  "score": 0.886,
+  "margin": 0.091,
+  "by": "name",
+  "nickname": "friend of bears"
+ },
+ "skill-title-10": {
+  "front": "tts_en/cards/17-14.png",
+  "score": 0.745,
+  "margin": 0.071,
+  "by": "name",
+  "nickname": "fire giver"
+ },
+ "skill-title-11": {
+  "front": "tts_en/cards/17-19.png",
+  "score": 0.874,
+  "margin": 0.097,
+  "by": "name",
+  "nickname": "gale rock"
+ },
+ "skill-title-12": {
+  "front": "tts_en/cards/17-13.png",
+  "score": 0.895,
+  "margin": 0.095,
+  "by": "name",
+  "nickname": "stormcrow"
+ },
+ "skill-title-13": {
+  "front": "tts_en/cards/17-04.png",
+  "score": 0.892,
+  "margin": 0.15,
+  "by": "name",
+  "nickname": "unfallen"
+ },
+ "skill-title-14": {
+  "front": "tts_en/cards/17-06.png",
+  "score": 0.901,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "elf friend"
+ },
+ "skill-title-15": {
+  "front": "tts_en/cards/17-15.png",
+  "score": 0.722,
+  "margin": 0.041,
+  "by": "name",
+  "nickname": "coney foot"
+ },
+ "skill-title-16": {
+  "front": "tts_en/cards/17-02.png",
+  "score": 0.929,
+  "margin": 0.102,
+  "by": "name",
+  "nickname": "skin changer"
+ },
+ "skill-title-17": {
+  "front": "tts_en/cards/17-10.png",
+  "score": 0.898,
+  "margin": 0.131,
+  "by": "name",
+  "nickname": "barrel rider"
+ },
+ "skill-title-18": {
+  "front": "tts_en/cards/17-16.png",
+  "score": 0.82,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "flame bearer"
+ },
+ "skill-title-19": {
+  "front": "tts_en/cards/17-09.png",
+  "score": 0.912,
+  "margin": 0.147,
+  "by": "name",
+  "nickname": "guest of eagles"
+ },
+ "skill-title-20": {
+  "front": "tts_en/cards/17-18.png",
+  "score": 0.74,
+  "margin": 0.019,
+  "by": "name",
+  "nickname": "luckwearer"
+ },
+ "skill-title-21": {
+  "front": "tts_en/cards/17-17.png",
+  "score": 0.926,
+  "margin": 0.073,
+  "by": "name",
+  "nickname": "lone survivor"
+ },
+ "skill-title-22": {
+  "front": "tts_en/cards/22-01.png",
+  "score": 0.83,
+  "margin": 0.053,
+  "by": "name",
+  "nickname": "nemesis"
+ },
+ "skill-title-23": {
+  "front": "tts_en/cards/22-02.png",
+  "score": 0.924,
+  "margin": 0.119,
+  "by": "name",
+  "nickname": "lore master"
+ },
+ "skill-title-24": {
+  "front": "tts_en/cards/22-00.png",
+  "score": 0.856,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "ever wary"
+ },
+ "skill-title-25": {
+  "front": "tts_en/cards/124-11.png",
+  "score": 0.945,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "treasure seeker"
+ },
+ "skill-title-26": {
+  "front": "tts_en/cards/124-04.png",
+  "score": 0.941,
+  "margin": 0.088,
+  "by": "name",
+  "nickname": "storyteller"
+ },
+ "skill-title-27": {
+  "front": "tts_en/cards/124-05.png",
+  "score": 0.946,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "dawn bringer"
+ },
+ "skill-title-28": {
+  "front": "tts_en/cards/140-05.png",
+  "score": 0.909,
+  "margin": 0.113,
+  "by": "name",
+  "nickname": "undying"
+ },
+ "skill-title-29": {
+  "front": "tts_en/cards/140-04.png",
+  "score": 0.859,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "sly tongue"
+ },
+ "skill-title-30": {
+  "front": "tts_en/cards/140-08.png",
+  "score": 0.857,
+  "margin": 0.028,
+  "by": "name",
+  "nickname": "spirit bonded"
+ },
+ "skill-title-31": {
+  "front": "tts_en/cards/149-14.png",
+  "score": 0.921,
+  "margin": 0.083,
+  "by": "name",
+  "nickname": "freind of gondor"
+ },
+ "skill-title-32": {
+  "front": "tts_en/cards/149-13.png",
+  "score": 0.91,
+  "margin": 0.088,
+  "by": "name",
+  "nickname": "friend of rohan"
+ },
+ "skill-title-33": {
+  "front": "tts_en/cards/149-12.png",
+  "score": 0.773,
+  "margin": -0.007,
+  "by": "name",
+  "nickname": "beast singer"
+ },
+ "skill-traveller-1": {
+  "front": "tts_en/cards/131-43.png",
+  "score": 0.922,
+  "margin": 0.133,
+  "by": "name",
+  "nickname": "over ridge and rill"
+ },
+ "skill-traveller-2": {
+  "front": "tts_en/cards/131-41.png",
+  "score": 0.91,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "many paths to tread"
+ },
+ "skill-traveller-3": {
+  "front": "tts_en/cards/131-41.png",
+  "score": 0.917,
+  "margin": 0.043,
+  "by": "name",
+  "nickname": "many paths to tread"
+ },
+ "skill-traveller-4": {
+  "front": "tts_en/cards/131-40.png",
+  "score": 0.964,
+  "margin": 0.093,
+  "by": "name",
+  "nickname": "camaraderie"
+ },
+ "skill-traveller-5": {
+  "front": "tts_en/cards/131-47.png",
+  "score": 0.956,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "around every corner"
+ },
+ "skill-traveller-6": {
+  "front": "tts_en/cards/131-46.png",
+  "score": 0.956,
+  "margin": 0.047,
+  "by": "name",
+  "nickname": "seasoned"
+ },
+ "skill-traveller-7": {
+  "front": "tts_en/cards/131-45.png",
+  "score": 0.916,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "fleet of foot"
+ },
+ "skill-traveller-8": {
+  "front": "tts_en/cards/131-44.png",
+  "score": 0.941,
+  "margin": 0.048,
+  "by": "name",
+  "nickname": "nothing to fear"
+ },
+ "skill-traveller-9": {
+  "front": "tts_en/cards/131-51.png",
+  "score": 0.943,
+  "margin": 0.059,
+  "by": "name",
+  "nickname": "campfire tales"
+ },
+ "skill-traveller-10": {
+  "front": "tts_en/cards/131-50.png",
+  "score": 0.917,
+  "margin": 0.149,
+  "by": "name",
+  "nickname": "paths less travelled"
+ },
+ "skill-traveller-11": {
+  "front": "tts_en/cards/131-49.png",
+  "score": 0.965,
+  "margin": 0.04,
+  "by": "name",
+  "nickname": "wanderlust"
+ },
+ "skill-traveller-12": {
+  "front": "tts_en/cards/131-48.png",
+  "score": 0.883,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "forgotten roads"
+ },
+ "skill-trickster-1": {
+  "front": "tts_en/cards/148-47.png",
+  "score": 0.916,
+  "margin": 0.093,
+  "by": "name",
+  "nickname": "merry chase"
+ },
+ "skill-trickster-2": {
+  "front": "tts_en/cards/148-49.png",
+  "score": 0.946,
+  "margin": 0.044,
+  "by": "name",
+  "nickname": "chicanery"
+ },
+ "skill-trickster-3": {
+  "front": "tts_en/cards/148-49.png",
+  "score": 0.949,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "chicanery"
+ },
+ "skill-trickster-4": {
+  "front": "tts_en/cards/148-50.png",
+  "score": 0.887,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "clever distraction"
+ },
+ "skill-trickster-5": {
+  "front": "tts_en/cards/148-51.png",
+  "score": 0.938,
+  "margin": 0.032,
+  "by": "name",
+  "nickname": "improvisation"
+ },
+ "skill-trickster-6": {
+  "front": "tts_en/cards/148-52.png",
+  "score": 0.947,
+  "margin": 0.1,
+  "by": "name",
+  "nickname": "trick up your sleeve"
+ },
+ "skill-trickster-7": {
+  "front": "tts_en/cards/148-53.png",
+  "score": 0.948,
+  "margin": 0.06,
+  "by": "name",
+  "nickname": "cutting remark"
+ },
+ "skill-trickster-8": {
+  "front": "tts_en/cards/148-54.png",
+  "score": 0.945,
+  "margin": 0.048,
+  "by": "name",
+  "nickname": "gallows humor"
+ },
+ "skill-trickster-9": {
+  "front": "tts_en/cards/148-58.png",
+  "score": 0.947,
+  "margin": 0.068,
+  "by": "name",
+  "nickname": "look over there"
+ },
+ "skill-trickster-10": {
+  "front": "tts_en/cards/148-57.png",
+  "score": 0.931,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "confusticate"
+ },
+ "skill-trickster-11": {
+  "front": "tts_en/cards/148-56.png",
+  "score": 0.796,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "eye for opportunity"
+ },
+ "skill-trickster-12": {
+  "front": "tts_en/cards/148-55.png",
+  "score": 0.9,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "quite a spectacle"
+ },
+ "skill-weakness-arrogant": {
+  "front": "tts_en/cards/16-13.png",
+  "score": 0.861,
+  "margin": 0.325,
+  "by": "name",
+  "nickname": "arrogant"
+ },
+ "skill-weakness-burdened": {
+  "front": "tts_en/cards/16-02.png",
+  "score": 0.793,
+  "margin": 0.49,
+  "by": "name",
+  "nickname": "burdened"
+ },
+ "skill-weakness-cut-off": {
+  "front": "tts_en/cards/16-12.png",
+  "score": 0.954,
+  "margin": 0.343,
+  "by": "name",
+  "nickname": "cut off"
+ },
+ "skill-weakness-distracted": {
+  "front": "tts_en/cards/16-11.png",
+  "score": 0.893,
+  "margin": 0.496,
+  "by": "name",
+  "nickname": "distracted"
+ },
+ "skill-weakness-followed": {
+  "front": "tts_en/cards/16-06.png",
+  "score": 0.749,
+  "margin": 0.39,
+  "by": "name",
+  "nickname": "followed"
+ },
+ "skill-weakness-foolish": {
+  "front": "tts_en/cards/16-05.png",
+  "score": 0.934,
+  "margin": 0.605,
+  "by": "name",
+  "nickname": "foolish"
+ },
+ "skill-weakness-harried": {
+  "front": "tts_en/cards/16-03.png",
+  "score": 0.915,
+  "margin": 0.541,
+  "by": "name",
+  "nickname": "harried"
+ },
+ "skill-weakness-haunted": {
+  "front": "tts_en/cards/16-14.png",
+  "score": 0.884,
+  "margin": 0.418,
+  "by": "name",
+  "nickname": "haunted"
+ },
+ "skill-weakness-hunted": {
+  "front": "tts_en/cards/16-08.png",
+  "score": 0.854,
+  "margin": 0.578,
+  "by": "name",
+  "nickname": "hunted"
+ },
+ "skill-weakness-impeded": {
+  "front": "tts_en/cards/16-00.png",
+  "score": 0.947,
+  "margin": 0.437,
+  "by": "name",
+  "nickname": "impeded"
+ },
+ "skill-weakness-isolated": {
+  "front": "tts_en/cards/16-09.png",
+  "score": 0.886,
+  "margin": 0.427,
+  "by": "name",
+  "nickname": "isolated"
+ },
+ "skill-weakness-late": {
+  "front": "tts_en/cards/16-18.png",
+  "score": 0.887,
+  "margin": 0.43,
+  "by": "name",
+  "nickname": "late"
+ },
+ "skill-weakness-lazy": {
+  "front": "tts_en/cards/16-19.png",
+  "score": 0.826,
+  "margin": 0.521,
+  "by": "name",
+  "nickname": "lazy"
+ },
+ "skill-weakness-misfortune": {
+  "front": "tts_en/cards/16-04.png",
+  "score": 0.888,
+  "margin": 0.454,
+  "by": "name",
+  "nickname": "misfortune"
+ },
+ "skill-weakness-misled": {
+  "front": "tts_en/cards/16-10.png",
+  "score": 0.914,
+  "margin": 0.647,
+  "by": "name",
+  "nickname": "misled"
+ },
+ "skill-weakness-off-course": {
+  "front": "tts_en/cards/16-15.png",
+  "score": 0.923,
+  "margin": 0.552,
+  "by": "name",
+  "nickname": "off course"
+ },
+ "skill-weakness-slowed": {
+  "front": "tts_en/cards/16-07.png",
+  "score": 0.747,
+  "margin": 0.169,
+  "by": "name",
+  "nickname": "slowed"
+ },
+ "skill-weakness-uncertain": {
+  "front": "tts_en/cards/16-17.png",
+  "score": 0.765,
+  "margin": 0.47,
+  "by": "name",
+  "nickname": "tmlic szc toffg"
+ },
+ "skill-weakness-watched": {
+  "front": "tts_en/cards/16-01.png",
+  "score": 0.89,
+  "margin": 0.626,
+  "by": "name",
+  "nickname": "tm lic szc to ffg"
+ },
+ "item-dragon-scale": {
+  "front": "tts_en/cards/151-15.png",
+  "score": 0.988,
+  "margin": 0.035,
+  "by": "name",
+  "nickname": "dragon scale"
+ },
+ "item-endless-road": {
+  "front": "tts_en/cards/151-14.png",
+  "score": 0.883,
+  "margin": -0.007,
+  "by": "name",
+  "nickname": "endless road"
+ },
+ "item-king-s-crest": {
+  "front": "tts_en/cards/151-16.png",
+  "score": 0.992,
+  "margin": 0.027,
+  "by": "name",
+  "nickname": "king s crest"
+ },
+ "item-star-of-the-west": {
+  "front": "tts_en/cards/151-06.png",
+  "score": 0.919,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "star of the west"
+ },
+ "item-storm-shroud": {
+  "front": "tts_en/cards/151-01.png",
+  "score": 0.975,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "storm shroud"
+ },
+ "item-padded-armor": {
+  "front": "tts_en/cards/151-05.png",
+  "score": 0.98,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "padded armor"
+ },
+ "item-travel-garb": {
+  "front": "tts_en/cards/11-14.png",
+  "score": 0.967,
+  "margin": 0.032,
+  "by": "name",
+  "nickname": "travel garb"
+ },
+ "item-ring-mail-core": {
+  "front": "tts_en/cards/11-16.png",
+  "score": 0.946,
+  "margin": 0.006,
+  "by": "name",
+  "nickname": "ring mail"
+ },
+ "item-ring-mail-sp": {
+  "front": "tts_en/cards/11-16.png",
+  "score": 0.946,
+  "margin": 0.006,
+  "by": "name",
+  "nickname": "ring mail"
+ },
+ "item-cloak": {
+  "front": "tts_en/cards/11-02.png",
+  "score": 0.984,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "cloak"
+ },
+ "item-plate-armor": {
+  "front": "tts_en/cards/151-13.png",
+  "score": 0.919,
+  "margin": -0.011,
+  "by": "name",
+  "nickname": "plate armor"
+ },
+ "item-greenwood-garb": {
+  "front": "tts_en/cards/11-18.png",
+  "score": 0.966,
+  "margin": 0.005,
+  "by": "name",
+  "nickname": "greenwood garb"
+ },
+ "item-westmarch-garb": {
+  "front": "tts_en/cards/11-10.png",
+  "score": 0.98,
+  "margin": 0.031,
+  "by": "name",
+  "nickname": "westmarch garb"
+ },
+ "item-guard-s-tabard": {
+  "front": "tts_en/cards/151-03.png",
+  "score": 0.973,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "guard s tabard"
+ },
+ "item-vanguard-armor": {
+  "front": "tts_en/cards/151-02.png",
+  "score": 0.959,
+  "margin": -0.02,
+  "by": "name",
+  "nickname": "vanguard armor"
+ },
+ "item-evendim-ring-mail": {
+  "front": "tts_en/cards/11-15.png",
+  "score": 0.964,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "evendim ring mail"
+ },
+ "item-twice-wrought-ring-mail": {
+  "front": "tts_en/cards/124-07.png",
+  "score": 0.932,
+  "margin": -0.022,
+  "by": "name",
+  "nickname": "twice wrought ring mail"
+ },
+ "item-fangorn-cloak": {
+  "front": "tts_en/cards/11-06.png",
+  "score": 0.91,
+  "margin": -0.03,
+  "by": "name",
+  "nickname": "fangorn cloak"
+ },
+ "item-ranger-cloak": {
+  "front": "tts_en/cards/11-04.png",
+  "score": 0.935,
+  "margin": -0.002,
+  "by": "name",
+  "nickname": "ranger cloak"
+ },
+ "item-tuckborough-cloak": {
+  "front": "tts_en/cards/11-00.png",
+  "score": 0.85,
+  "margin": -0.001,
+  "by": "name",
+  "nickname": "tuckborough cloak"
+ },
+ "item-iron-hills-plate": {
+  "front": "tts_en/cards/151-12.png",
+  "score": 0.976,
+  "margin": 0.011,
+  "by": "name",
+  "nickname": "iron hills plate"
+ },
+ "item-ever-bloom": {
+  "front": "tts_en/cards/11-07.png",
+  "score": 0.882,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "ever bloom"
+ },
+ "item-wanderer-s-wish": {
+  "front": "tts_en/cards/11-12.png",
+  "score": 0.959,
+  "margin": 0.005,
+  "by": "name",
+  "nickname": "wanderer s wish"
+ },
+ "item-slip-thorn": {
+  "front": "tts_en/cards/11-01.png",
+  "score": 0.857,
+  "margin": -0.02,
+  "by": "name",
+  "nickname": "slip thorn"
+ },
+ "item-splendor-well": {
+  "front": "tts_en/cards/11-05.png",
+  "score": 0.893,
+  "margin": -0.037,
+  "by": "name",
+  "nickname": "splendor well"
+ },
+ "item-wind-walker": {
+  "front": "tts_en/cards/11-11.png",
+  "score": 0.748,
+  "margin": -0.133,
+  "by": "name",
+  "nickname": "wind walker"
+ },
+ "item-blade-bane": {
+  "front": "tts_en/cards/11-13.png",
+  "score": 0.972,
+  "margin": 0.015,
+  "by": "name",
+  "nickname": "blade bain"
+ },
+ "item-second-skin": {
+  "front": "tts_en/cards/124-08.png",
+  "score": 0.935,
+  "margin": -0.042,
+  "by": "name",
+  "nickname": "second skin"
+ },
+ "item-wrath-s-end": {
+  "front": "tts_en/cards/11-17.png",
+  "score": 0.972,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "wrath s end"
+ },
+ "item-defender-of-the-citadel": {
+  "front": "tts_en/cards/151-11.png",
+  "score": 0.955,
+  "margin": -0.011,
+  "by": "name",
+  "nickname": "defender of the citadel"
+ },
+ "item-ever-vigilant": {
+  "front": "tts_en/cards/151-08.png",
+  "score": 0.984,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "ever vigilant"
+ },
+ "item-glory-mantle": {
+  "front": "tts_en/cards/151-09.png",
+  "score": 0.866,
+  "margin": -0.031,
+  "by": "name",
+  "nickname": "glory mantle"
+ },
+ "item-heart-swell": {
+  "front": "tts_en/cards/151-07.png",
+  "score": 0.809,
+  "margin": -0.036,
+  "by": "name",
+  "nickname": "heart swell"
+ },
+ "item-iron-soul": {
+  "front": "tts_en/cards/151-10.png",
+  "score": 0.957,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "iron soul"
+ },
+ "item-hoary-coat": {
+  "front": "tts_en/cards/151-00.png",
+  "score": 0.859,
+  "margin": 0.074,
+  "by": "name",
+  "nickname": "hoary coat"
+ },
+ "item-rending-claws": {
+  "front": "tts_en/cards/150-03.png",
+  "score": 0.71,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "rending claws"
+ },
+ "item-snowbright": {
+  "front": "tts_en/cards/152-04.png",
+  "score": 0.748,
+  "margin": 0.042,
+  "by": "name",
+  "nickname": "snowbright"
+ },
+ "item-bolt-thrower": {
+  "front": "tts_en/cards/150-25.png",
+  "score": 0.861,
+  "margin": -0.011,
+  "by": "name",
+  "nickname": "bolt thrower"
+ },
+ "item-bone-grinder": {
+  "front": "tts_en/cards/150-24.png",
+  "score": 0.941,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "bone grinder"
+ },
+ "item-chorus-of-light": {
+  "front": "tts_en/cards/150-00.png",
+  "score": 0.882,
+  "margin": -0.008,
+  "by": "name",
+  "nickname": "chorus of light"
+ },
+ "item-cloud-chaser": {
+  "front": "tts_en/cards/150-27.png",
+  "score": 0.933,
+  "margin": 0.078,
+  "by": "name",
+  "nickname": "cloud chaser"
+ },
+ "item-hope-s-beacon": {
+  "front": "tts_en/cards/150-02.png",
+  "score": 0.841,
+  "margin": -0.015,
+  "by": "name",
+  "nickname": "hope s beacon"
+ },
+ "item-hrinanbenn": {
+  "front": "tts_en/cards/150-17.png",
+  "score": 0.954,
+  "margin": 0.047,
+  "by": "name",
+  "nickname": "hrinanbenn"
+ },
+ "item-hunger": {
+  "front": "tts_en/cards/150-07.png",
+  "score": 0.919,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "hunger"
+ },
+ "item-isenhild": {
+  "front": "tts_en/cards/150-32.png",
+  "score": 0.952,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "isenhild"
+ },
+ "item-needle-threader": {
+  "front": "tts_en/cards/150-37.png",
+  "score": 0.865,
+  "margin": -0.021,
+  "by": "name",
+  "nickname": "needle threader"
+ },
+ "item-scour": {
+  "front": "tts_en/cards/177-10.png",
+  "score": 0.929,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "scour"
+ },
+ "item-shooting-star": {
+  "front": "tts_en/cards/150-16.png",
+  "score": 0.958,
+  "margin": 0.061,
+  "by": "name",
+  "nickname": "shooting star"
+ },
+ "item-sorrow-sworn": {
+  "front": "tts_en/cards/150-26.png",
+  "score": 0.903,
+  "margin": -0.01,
+  "by": "name",
+  "nickname": "sorrow sworn"
+ },
+ "item-thunderclap": {
+  "front": "tts_en/cards/150-11.png",
+  "score": 0.927,
+  "margin": 0.055,
+  "by": "name",
+  "nickname": "thunderclap"
+ },
+ "item-wicked-smile": {
+  "front": "tts_en/cards/150-10.png",
+  "score": 0.954,
+  "margin": 0.077,
+  "by": "name",
+  "nickname": "wicked smile"
+ },
+ "item-will-carver": {
+  "front": "tts_en/cards/150-20.png",
+  "score": 0.989,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "will carver"
+ },
+ "item-world-root": {
+  "front": "tts_en/cards/150-13.png",
+  "score": 0.927,
+  "margin": -0.021,
+  "by": "name",
+  "nickname": "world root"
+ },
+ "item-world-s-burden": {
+  "front": "tts_en/cards/150-33.png",
+  "score": 0.789,
+  "margin": 0.097,
+  "by": "name",
+  "nickname": "world s burden"
+ },
+ "item-worm-s-tooth": {
+  "front": "tts_en/cards/150-01.png",
+  "score": 0.987,
+  "margin": 0.024,
+  "by": "name",
+  "nickname": "worm s tooth"
+ },
+ "item-banner": {
+  "front": "tts_en/cards/12-01.png",
+  "score": 0.983,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "banner"
+ },
+ "item-hatchet": {
+  "front": "tts_en/cards/130-27.png",
+  "score": 0.966,
+  "margin": 0.004,
+  "by": "name",
+  "nickname": "hatchet"
+ },
+ "item-knife-did": {
+  "front": "tts_en/cards/130-19.png",
+  "score": 0.973,
+  "margin": 0.027,
+  "by": "name",
+  "nickname": "knife"
+ },
+ "item-knife-sp": {
+  "front": "tts_en/cards/130-19.png",
+  "score": 0.973,
+  "margin": 0.027,
+  "by": "name",
+  "nickname": "knife"
+ },
+ "item-harp": {
+  "front": "tts_en/cards/12-06.png",
+  "score": 0.973,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "harp"
+ },
+ "item-mace": {
+  "front": "tts_en/cards/150-09.png",
+  "score": 0.977,
+  "margin": 0.05,
+  "by": "name",
+  "nickname": "mace"
+ },
+ "item-dagger": {
+  "front": "tts_en/cards/12-28.png",
+  "score": 0.978,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "dagger"
+ },
+ "item-sling": {
+  "front": "tts_en/cards/130-15.png",
+  "score": 0.97,
+  "margin": 0.013,
+  "by": "name",
+  "nickname": "sling"
+ },
+ "item-walking-stick": {
+  "front": "tts_en/cards/130-07.png",
+  "score": 0.94,
+  "margin": 0.011,
+  "by": "name",
+  "nickname": "walking stick"
+ },
+ "item-shield-sp": {
+  "front": "tts_en/cards/150-12.png",
+  "score": 0.982,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "shield"
+ },
+ "item-shield-sw": {
+  "front": "tts_en/cards/150-12.png",
+  "score": 0.982,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "shield"
+ },
+ "item-sword-core": {
+  "front": "tts_en/cards/12-19.png",
+  "score": 0.989,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "sword"
+ },
+ "item-sword-sp": {
+  "front": "tts_en/cards/12-19.png",
+  "score": 0.989,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "sword"
+ },
+ "item-sword-sw": {
+  "front": "tts_en/cards/12-19.png",
+  "score": 0.989,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "sword"
+ },
+ "item-staff-core": {
+  "front": "tts_en/cards/12-16.png",
+  "score": 0.974,
+  "margin": 0.017,
+  "by": "name",
+  "nickname": "staff"
+ },
+ "item-staff-sp": {
+  "front": "tts_en/cards/12-16.png",
+  "score": 0.974,
+  "margin": 0.017,
+  "by": "name",
+  "nickname": "staff"
+ },
+ "item-spear": {
+  "front": "tts_en/cards/150-36.png",
+  "score": 0.955,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "spear"
+ },
+ "item-horn-sp": {
+  "front": "tts_en/cards/130-21.png",
+  "score": 0.973,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "horn"
+ },
+ "item-horn-sw": {
+  "front": "tts_en/cards/130-21.png",
+  "score": 0.973,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "horn"
+ },
+ "item-short-bow": {
+  "front": "tts_en/cards/150-31.png",
+  "score": 0.963,
+  "margin": -0.004,
+  "by": "name",
+  "nickname": "short bow"
+ },
+ "item-great-bow": {
+  "front": "tts_en/cards/12-14.png",
+  "score": 0.94,
+  "margin": -0.014,
+  "by": "name",
+  "nickname": "great bow"
+ },
+ "item-hammer": {
+  "front": "tts_en/cards/130-03.png",
+  "score": 0.972,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "hammer"
+ },
+ "item-short-sword": {
+  "front": "tts_en/cards/177-03.png",
+  "score": 0.92,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "short sword"
+ },
+ "item-battle-axe": {
+  "front": "tts_en/cards/12-10.png",
+  "score": 0.99,
+  "margin": 0.0,
+  "by": "name",
+  "nickname": "battle axe"
+ },
+ "item-leathern-sling": {
+  "front": "tts_en/cards/130-14.png",
+  "score": 0.965,
+  "margin": -0.004,
+  "by": "name",
+  "nickname": "leathern sling"
+ },
+ "item-hunting-knife": {
+  "front": "tts_en/cards/130-18.png",
+  "score": 0.989,
+  "margin": 0.017,
+  "by": "name",
+  "nickname": "hunting knife"
+ },
+ "item-lindish-knife": {
+  "front": "tts_en/cards/140-02.png",
+  "score": 0.988,
+  "margin": 0.0,
+  "by": "name",
+  "nickname": "lindish knife"
+ },
+ "item-deft-mace": {
+  "front": "tts_en/cards/150-08.png",
+  "score": 0.979,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "deft mace"
+ },
+ "item-wanderer-s-hatchet": {
+  "front": "tts_en/cards/130-26.png",
+  "score": 0.947,
+  "margin": -0.012,
+  "by": "name",
+  "nickname": "wanderer s hatchet"
+ },
+ "item-ered-luin-dagger": {
+  "front": "tts_en/cards/12-27.png",
+  "score": 0.991,
+  "margin": 0.008,
+  "by": "name",
+  "nickname": "ered luin dagger"
+ },
+ "item-gondolin-dagger": {
+  "front": "tts_en/cards/12-25.png",
+  "score": 0.992,
+  "margin": 0.006,
+  "by": "name",
+  "nickname": "gondolin dager"
+ },
+ "item-trusted-walking-stick": {
+  "front": "tts_en/cards/130-06.png",
+  "score": 0.877,
+  "margin": -0.05,
+  "by": "name",
+  "nickname": "trusted walking stick"
+ },
+ "item-duelling-sword": {
+  "front": "tts_en/cards/130-34.png",
+  "score": 0.899,
+  "margin": -0.047,
+  "by": "name",
+  "nickname": "duelling sword"
+ },
+ "item-elf-forged-sword": {
+  "front": "tts_en/cards/130-28.png",
+  "score": 0.9,
+  "margin": -0.059,
+  "by": "name",
+  "nickname": "elf forged sword"
+ },
+ "item-forlindon-harp": {
+  "front": "tts_en/cards/12-03.png",
+  "score": 0.914,
+  "margin": -0.024,
+  "by": "name",
+  "nickname": "forlindon harp"
+ },
+ "item-northern-blade": {
+  "front": "tts_en/cards/150-22.png",
+  "score": 0.989,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "northern blade"
+ },
+ "item-numenorean-sword": {
+  "front": "tts_en/cards/12-20.png",
+  "score": 0.934,
+  "margin": -0.022,
+  "by": "name",
+  "nickname": "numenorean sword"
+ },
+ "item-gondorian-horn": {
+  "front": "tts_en/cards/130-20.png",
+  "score": 0.936,
+  "margin": 0.02,
+  "by": "name",
+  "nickname": "gondorian horn"
+ },
+ "item-lone-land-staff": {
+  "front": "tts_en/cards/12-15.png",
+  "score": 0.866,
+  "margin": -0.066,
+  "by": "name",
+  "nickname": "lone land staff"
+ },
+ "item-sentry-s-horn": {
+  "front": "tts_en/cards/150-05.png",
+  "score": 0.961,
+  "margin": -0.015,
+  "by": "name",
+  "nickname": "sentry s horn"
+ },
+ "item-bossed-shield": {
+  "front": "tts_en/cards/150-19.png",
+  "score": 0.929,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "bossed shield"
+ },
+ "item-dunedain-banner": {
+  "front": "tts_en/cards/12-11.png",
+  "score": 0.993,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "dunedain banner"
+ },
+ "item-reinforced-shield": {
+  "front": "tts_en/cards/130-10.png",
+  "score": 0.889,
+  "margin": -0.079,
+  "by": "name",
+  "nickname": "reinforced shield"
+ },
+ "item-cavalry-bow": {
+  "front": "tts_en/cards/150-30.png",
+  "score": 0.992,
+  "margin": 0.038,
+  "by": "name",
+  "nickname": "cavalry bow"
+ },
+ "item-staff-of-the-flame": {
+  "front": "tts_en/cards/130-36.png",
+  "score": 0.841,
+  "margin": -0.103,
+  "by": "name",
+  "nickname": "staff of the flame"
+ },
+ "item-eredain-short-sword": {
+  "front": "tts_en/cards/177-02.png",
+  "score": 0.937,
+  "margin": 0.001,
+  "by": "name",
+  "nickname": "eredain short sword"
+ },
+ "item-hollowbold-hammer": {
+  "front": "tts_en/cards/130-02.png",
+  "score": 0.985,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "hollowbold hammer"
+ },
+ "item-hunting-great-bow": {
+  "front": "tts_en/cards/130-25.png",
+  "score": 0.988,
+  "margin": 0.049,
+  "by": "name",
+  "nickname": "hunting great bonw"
+ },
+ "item-mirkwood-great-bow": {
+  "front": "tts_en/cards/12-23.png",
+  "score": 0.99,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "mirkwood great bow"
+ },
+ "item-long-spear": {
+  "front": "tts_en/cards/150-34.png",
+  "score": 0.962,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "long spear"
+ },
+ "item-rohirric-spear": {
+  "front": "tts_en/cards/150-38.png",
+  "score": 0.935,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "rohirric spear"
+ },
+ "item-ered-luin-battle-axe": {
+  "front": "tts_en/cards/130-24.png",
+  "score": 0.955,
+  "margin": -0.008,
+  "by": "name",
+  "nickname": "ered luin battle axe"
+ },
+ "item-iron-hills-battle-axe": {
+  "front": "tts_en/cards/12-08.png",
+  "score": 0.985,
+  "margin": 0.002,
+  "by": "name",
+  "nickname": "iron hills battle axe"
+ },
+ "item-clarion-call": {
+  "front": "tts_en/cards/150-04.png",
+  "score": 0.927,
+  "margin": 0.012,
+  "by": "name",
+  "nickname": "clarion call"
+ },
+ "item-lassemaica": {
+  "front": "tts_en/cards/140-01.png",
+  "score": 0.926,
+  "margin": -0.002,
+  "by": "name",
+  "nickname": "lassemaica"
+ },
+ "item-ringing-glory": {
+  "front": "tts_en/cards/130-23.png",
+  "score": 0.899,
+  "margin": 0.005,
+  "by": "name",
+  "nickname": "ringing glory"
+ },
+ "item-skinner": {
+  "front": "tts_en/cards/130-17.png",
+  "score": 0.993,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "skinner"
+ },
+ "item-star-swift": {
+  "front": "tts_en/cards/130-16.png",
+  "score": 0.975,
+  "margin": 0.015,
+  "by": "name",
+  "nickname": "star swift"
+ },
+ "item-starsong": {
+  "front": "tts_en/cards/130-22.png",
+  "score": 0.979,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "starsong"
+ },
+ "item-flame-guard": {
+  "front": "tts_en/cards/130-09.png",
+  "score": 0.928,
+  "margin": -0.01,
+  "by": "name",
+  "nickname": "flame guard"
+ },
+ "item-foe-blind": {
+  "front": "tts_en/cards/150-18.png",
+  "score": 0.963,
+  "margin": 0.036,
+  "by": "name",
+  "nickname": "foe blind"
+ },
+ "item-ironhide": {
+  "front": "tts_en/cards/130-08.png",
+  "score": 0.89,
+  "margin": -0.075,
+  "by": "name",
+  "nickname": "ironhide"
+ },
+ "item-bolger-s-pride": {
+  "front": "tts_en/cards/150-15.png",
+  "score": 0.984,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "bolger s pride"
+ },
+ "item-hobbler": {
+  "front": "tts_en/cards/150-14.png",
+  "score": 0.982,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "hobbler"
+ },
+ "item-blood-wright": {
+  "front": "tts_en/cards/12-26.png",
+  "score": 0.992,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "blood wright"
+ },
+ "item-constant-companion": {
+  "front": "tts_en/cards/130-05.png",
+  "score": 0.942,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "constant companion"
+ },
+ "item-giantsbane": {
+  "front": "tts_en/cards/130-12.png",
+  "score": 0.97,
+  "margin": 0.017,
+  "by": "name",
+  "nickname": "giantsbane"
+ },
+ "item-quick-nick": {
+  "front": "tts_en/cards/130-04.png",
+  "score": 0.854,
+  "margin": -0.11,
+  "by": "name",
+  "nickname": "quick nick"
+ },
+ "item-shade-breaker": {
+  "front": "tts_en/cards/12-24.png",
+  "score": 0.871,
+  "margin": -0.019,
+  "by": "name",
+  "nickname": "shade breaker"
+ },
+ "item-whistler": {
+  "front": "tts_en/cards/130-13.png",
+  "score": 0.898,
+  "margin": -0.071,
+  "by": "name",
+  "nickname": "whistler"
+ },
+ "item-widow-s-warning": {
+  "front": "tts_en/cards/12-30.png",
+  "score": 0.993,
+  "margin": 0.01,
+  "by": "name",
+  "nickname": "widow s warning"
+ },
+ "item-drake-tooth": {
+  "front": "tts_en/cards/130-31.png",
+  "score": 0.926,
+  "margin": 0.001,
+  "by": "name",
+  "nickname": "drake tooth"
+ },
+ "item-throat-seeker": {
+  "front": "tts_en/cards/130-30.png",
+  "score": 0.956,
+  "margin": -0.008,
+  "by": "name",
+  "nickname": "throat seeker"
+ },
+ "item-dancer-on-the-wind": {
+  "front": "tts_en/cards/177-00.png",
+  "score": 0.959,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "dancer on the wind"
+ },
+ "item-fate-bender": {
+  "front": "tts_en/cards/12-22.png",
+  "score": 0.972,
+  "margin": -0.0,
+  "by": "name",
+  "nickname": "fate bender"
+ },
+ "item-heart-s-rest": {
+  "front": "tts_en/cards/12-04.png",
+  "score": 0.968,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "heart s rest"
+ },
+ "item-iron-render": {
+  "front": "tts_en/cards/130-33.png",
+  "score": 0.957,
+  "margin": -0.009,
+  "by": "name",
+  "nickname": "iron render"
+ },
+ "item-moon-caller": {
+  "front": "tts_en/cards/150-21.png",
+  "score": 0.715,
+  "margin": -0.088,
+  "by": "name",
+  "nickname": "moon caller"
+ },
+ "item-revenant": {
+  "front": "tts_en/cards/177-01.png",
+  "score": 0.964,
+  "margin": 0.028,
+  "by": "name",
+  "nickname": "revenant"
+ },
+ "item-river-calling": {
+  "front": "tts_en/cards/12-05.png",
+  "score": 0.911,
+  "margin": -0.02,
+  "by": "name",
+  "nickname": "river calling"
+ },
+ "item-sun-silver": {
+  "front": "tts_en/cards/12-21.png",
+  "score": 0.975,
+  "margin": 0.006,
+  "by": "name",
+  "nickname": "sun silver"
+ },
+ "item-ent-crook": {
+  "front": "tts_en/cards/12-18.png",
+  "score": 0.796,
+  "margin": -0.059,
+  "by": "name",
+  "nickname": "ent crook"
+ },
+ "item-maiden-wrath": {
+  "front": "tts_en/cards/12-17.png",
+  "score": 0.775,
+  "margin": -0.088,
+  "by": "name",
+  "nickname": "maiden wrath"
+ },
+ "item-maranwe": {
+  "front": "tts_en/cards/130-35.png",
+  "score": 0.764,
+  "margin": -0.133,
+  "by": "name",
+  "nickname": "maranwe"
+ },
+ "item-war-haven": {
+  "front": "tts_en/cards/12-02.png",
+  "score": 0.946,
+  "margin": 0.023,
+  "by": "name",
+  "nickname": "war haven"
+ },
+ "item-war-maker": {
+  "front": "tts_en/cards/12-00.png",
+  "score": 0.876,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "war maker"
+ },
+ "item-foe-blood": {
+  "front": "tts_en/cards/150-28.png",
+  "score": 0.966,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "foe blood"
+ },
+ "item-rain-of-stars": {
+  "front": "tts_en/cards/150-29.png",
+  "score": 0.876,
+  "margin": -0.075,
+  "by": "name",
+  "nickname": "rain of stars"
+ },
+ "item-bough-of-the-white-tree": {
+  "front": "tts_en/cards/150-40.png",
+  "score": 0.972,
+  "margin": 0.022,
+  "by": "name",
+  "nickname": "bough of the white tree"
+ },
+ "item-dancing-steel": {
+  "front": "tts_en/cards/150-41.png",
+  "score": 0.94,
+  "margin": -0.0,
+  "by": "name",
+  "nickname": "dancing steel"
+ },
+ "item-faengwyr": {
+  "front": "tts_en/cards/150-39.png",
+  "score": 0.967,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "faengwyr"
+ },
+ "item-mountain-fall": {
+  "front": "tts_en/cards/130-00.png",
+  "score": 0.985,
+  "margin": 0.001,
+  "by": "name",
+  "nickname": "mountain fall"
+ },
+ "item-mourning-song": {
+  "front": "tts_en/cards/12-12.png",
+  "score": 0.993,
+  "margin": 0.029,
+  "by": "name",
+  "nickname": "morning song"
+ },
+ "item-silver-fall": {
+  "front": "tts_en/cards/12-13.png",
+  "score": 0.957,
+  "margin": 0.017,
+  "by": "name",
+  "nickname": "silver fall"
+ },
+ "item-sleeping-bell": {
+  "front": "tts_en/cards/130-01.png",
+  "score": 0.994,
+  "margin": 0.017,
+  "by": "name",
+  "nickname": "sleeping bell"
+ },
+ "item-grief-bearer": {
+  "front": "tts_en/cards/12-07.png",
+  "score": 0.987,
+  "margin": 0.001,
+  "by": "name",
+  "nickname": "grief bearer"
+ },
+ "item-honor-knell": {
+  "front": "tts_en/cards/12-09.png",
+  "score": 0.831,
+  "margin": -0.03,
+  "by": "name",
+  "nickname": "honor knell"
+ },
+ "item-friendly-pony": {
+  "front": "tts_en/cards/152-06.png",
+  "score": 0.953,
+  "margin": 0.09,
+  "by": "name",
+  "nickname": "friendly pony"
+ },
+ "item-grumble-bum": {
+  "front": "tts_en/cards/152-03.png",
+  "score": 0.99,
+  "margin": 0.085,
+  "by": "name",
+  "nickname": "grumble bum"
+ },
+ "item-meadow-heart": {
+  "front": "tts_en/cards/152-08.png",
+  "score": 0.989,
+  "margin": 0.131,
+  "by": "name",
+  "nickname": "meadow heart"
+ },
+ "item-pack-mule": {
+  "front": "tts_en/cards/152-07.png",
+  "score": 0.935,
+  "margin": 0.113,
+  "by": "name",
+  "nickname": "pack mule"
+ },
+ "item-quickbeam": {
+  "front": "tts_en/cards/152-02.png",
+  "score": 0.849,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "quickbeam"
+ },
+ "item-swift-steed": {
+  "front": "tts_en/cards/152-09.png",
+  "score": 0.918,
+  "margin": 0.148,
+  "by": "name",
+  "nickname": "swift steed"
+ },
+ "item-traveller-s-horse": {
+  "front": "tts_en/cards/152-00.png",
+  "score": 0.924,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "traveller s horse"
+ },
+ "item-war-charger": {
+  "front": "tts_en/cards/152-05.png",
+  "score": 0.933,
+  "margin": 0.089,
+  "by": "name",
+  "nickname": "war charger"
+ },
+ "item-witness-of-maranwe": {
+  "front": "tts_en/cards/152-01.png",
+  "score": 0.919,
+  "margin": 0.073,
+  "by": "name",
+  "nickname": "witness of maranwe"
+ },
+ "item-hammer-and-tongs": {
+  "front": "tts_en/cards/124-09.png",
+  "score": 0.953,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "hammer and tongs"
+ },
+ "item-the-crown-of-shadows": {
+  "front": "tts_en/cards/124-10.png",
+  "score": 0.819,
+  "margin": -0.02,
+  "by": "name",
+  "nickname": "the crown of the shadows"
+ },
+ "item-old-scepter": {
+  "front": "tts_en/cards/21-05.png",
+  "score": 0.966,
+  "margin": -0.001,
+  "by": "name",
+  "nickname": "old scepter"
+ },
+ "item-handkerchief": {
+  "front": "tts_en/cards/10-22.png",
+  "score": 0.949,
+  "margin": 0.012,
+  "by": "name",
+  "nickname": "handkerchief"
+ },
+ "item-old-map": {
+  "front": "tts_en/cards/10-08.png",
+  "score": 0.961,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "old map"
+ },
+ "item-boots": {
+  "front": "tts_en/cards/10-32.png",
+  "score": 0.926,
+  "margin": 0.026,
+  "by": "name",
+  "nickname": "boots"
+ },
+ "item-helmet": {
+  "front": "tts_en/cards/10-16.png",
+  "score": 0.851,
+  "margin": -0.031,
+  "by": "name",
+  "nickname": "helmet"
+ },
+ "item-waterskin": {
+  "front": "tts_en/cards/154-03.png",
+  "score": 0.946,
+  "margin": 0.008,
+  "by": "name",
+  "nickname": "waterskin"
+ },
+ "item-extra-rations": {
+  "front": "tts_en/cards/10-06.png",
+  "score": 0.963,
+  "margin": 0.007,
+  "by": "name",
+  "nickname": "extra rations"
+ },
+ "item-old-pipe": {
+  "front": "tts_en/cards/10-20.png",
+  "score": 0.873,
+  "margin": -0.009,
+  "by": "name",
+  "nickname": "old pipe"
+ },
+ "item-brooch": {
+  "front": "tts_en/cards/10-13.png",
+  "score": 0.944,
+  "margin": -0.0,
+  "by": "name",
+  "nickname": "brooch"
+ },
+ "item-provisions": {
+  "front": "tts_en/cards/154-02.png",
+  "score": 0.873,
+  "margin": -0.026,
+  "by": "name",
+  "nickname": "provisions"
+ },
+ "item-tome": {
+  "front": "tts_en/cards/10-09.png",
+  "score": 0.931,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "tome"
+ },
+ "item-rope": {
+  "front": "tts_en/cards/10-27.png",
+  "score": 0.978,
+  "margin": 0.037,
+  "by": "name",
+  "nickname": "rope"
+ },
+ "item-fang-pendant": {
+  "front": "tts_en/cards/21-00.png",
+  "score": 0.879,
+  "margin": -0.021,
+  "by": "name",
+  "nickname": "fang pendant"
+ },
+ "item-silver-scepter": {
+  "front": "tts_en/cards/21-04.png",
+  "score": 0.959,
+  "margin": 0.025,
+  "by": "name",
+  "nickname": "silver scepter"
+ },
+ "item-torch": {
+  "front": "tts_en/cards/10-31.png",
+  "score": 0.955,
+  "margin": -0.001,
+  "by": "name",
+  "nickname": "torch"
+ },
+ "item-circlet": {
+  "front": "tts_en/cards/140-00.png",
+  "score": 0.974,
+  "margin": 0.01,
+  "by": "name",
+  "nickname": "circlet"
+ },
+ "item-breeland-rations": {
+  "front": "tts_en/cards/10-01.png",
+  "score": 0.96,
+  "margin": -0.003,
+  "by": "name",
+  "nickname": "breeland rations"
+ },
+ "item-greenway-boots": {
+  "front": "tts_en/cards/10-26.png",
+  "score": 0.901,
+  "margin": 0.018,
+  "by": "name",
+  "nickname": "greenway boots"
+ },
+ "item-hobbit-rations": {
+  "front": "tts_en/cards/10-05.png",
+  "score": 0.896,
+  "margin": -0.018,
+  "by": "name",
+  "nickname": "hobbit rations"
+ },
+ "item-elven-waterskin": {
+  "front": "tts_en/cards/154-05.png",
+  "score": 0.941,
+  "margin": -0.012,
+  "by": "name",
+  "nickname": "elven waterskin"
+ },
+ "item-heirloom-handkerchief": {
+  "front": "tts_en/cards/10-21.png",
+  "score": 0.934,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "heirloom handkerchief"
+ },
+ "item-dwarf-forged-helmet": {
+  "front": "tts_en/cards/10-15.png",
+  "score": 0.964,
+  "margin": -0.014,
+  "by": "name",
+  "nickname": "dwarf forged helmet"
+ },
+ "item-eriador-brooch": {
+  "front": "tts_en/cards/10-12.png",
+  "score": 0.917,
+  "margin": -0.025,
+  "by": "name",
+  "nickname": "eriador brooch"
+ },
+ "item-wayfarer-s-provisions": {
+  "front": "tts_en/cards/154-01.png",
+  "score": 0.981,
+  "margin": 0.005,
+  "by": "name",
+  "nickname": "wayfarer s provisions"
+ },
+ "item-silver-circlet": {
+  "front": "tts_en/cards/140-07.png",
+  "score": 0.935,
+  "margin": -0.002,
+  "by": "name",
+  "nickname": "silver circlet"
+ },
+ "item-tome-of-battle": {
+  "front": "tts_en/cards/10-03.png",
+  "score": 0.932,
+  "margin": 0.001,
+  "by": "name",
+  "nickname": "tome of battle"
+ },
+ "item-bounder-s-map": {
+  "front": "tts_en/cards/10-10.png",
+  "score": 0.948,
+  "margin": 0.028,
+  "by": "name",
+  "nickname": "bounder s map"
+ },
+ "item-weathertop-torch": {
+  "front": "tts_en/cards/10-30.png",
+  "score": 0.993,
+  "margin": 0.008,
+  "by": "name",
+  "nickname": "weathertop torch"
+ },
+ "item-long-stemmed-pipe": {
+  "front": "tts_en/cards/10-18.png",
+  "score": 0.899,
+  "margin": 0.012,
+  "by": "name",
+  "nickname": "lond stemmed pipe"
+ },
+ "item-the-silent-scepter": {
+  "front": "tts_en/cards/21-03.png",
+  "score": 0.961,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "the silent scepter"
+ },
+ "item-warg-fang-pendant": {
+  "front": "tts_en/cards/21-02.png",
+  "score": 0.92,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "warg fang pendent"
+ },
+ "item-hobson-rope": {
+  "front": "tts_en/cards/10-28.png",
+  "score": 0.96,
+  "margin": 0.021,
+  "by": "name",
+  "nickname": "hobson rope"
+ },
+ "item-clear-water": {
+  "front": "tts_en/cards/154-04.png",
+  "score": 0.861,
+  "margin": -0.02,
+  "by": "name",
+  "nickname": "clear water"
+ },
+ "item-butterbur-biscuits": {
+  "front": "tts_en/cards/10-00.png",
+  "score": 0.977,
+  "margin": 0.009,
+  "by": "name",
+  "nickname": "butterbur biscuits"
+ },
+ "item-tookish-apple-cakes": {
+  "front": "tts_en/cards/10-11.png",
+  "score": 0.925,
+  "margin": -0.009,
+  "by": "name",
+  "nickname": "tookish apple cakes"
+ },
+ "item-dusk-treaders": {
+  "front": "tts_en/cards/10-24.png",
+  "score": 0.911,
+  "margin": -0.003,
+  "by": "name",
+  "nickname": "dusk treaders"
+ },
+ "item-fire-scale": {
+  "front": "tts_en/cards/10-14.png",
+  "score": 0.979,
+  "margin": 0.034,
+  "by": "name",
+  "nickname": "fire scale"
+ },
+ "item-vengeance-s-bite": {
+  "front": "tts_en/cards/21-01.png",
+  "score": 0.983,
+  "margin": 0.039,
+  "by": "name",
+  "nickname": "vengeance s bite"
+ },
+ "item-horselord-supply": {
+  "front": "tts_en/cards/154-00.png",
+  "score": 0.965,
+  "margin": 0.003,
+  "by": "name",
+  "nickname": "horselord supply"
+ },
+ "item-mark-of-arnor": {
+  "front": "tts_en/cards/10-23.png",
+  "score": 0.988,
+  "margin": 0.02,
+  "by": "name",
+  "nickname": "mark of arnor"
+ },
+ "item-forget-me-never": {
+  "front": "tts_en/cards/10-19.png",
+  "score": 0.988,
+  "margin": 0.033,
+  "by": "name",
+  "nickname": "forget me never"
+ },
+ "item-under-sun": {
+  "front": "tts_en/cards/10-29.png",
+  "score": 0.985,
+  "margin": 0.013,
+  "by": "name",
+  "nickname": "under sun"
+ },
+ "item-bullroarer-s-course": {
+  "front": "tts_en/cards/10-07.png",
+  "score": 0.849,
+  "margin": -0.026,
+  "by": "name",
+  "nickname": "bullroarer s course"
+ },
+ "item-storm-maker": {
+  "front": "tts_en/cards/10-17.png",
+  "score": 0.858,
+  "margin": -0.007,
+  "by": "name",
+  "nickname": "storm maker"
+ },
+ "item-legendarium-of-thror": {
+  "front": "tts_en/cards/10-04.png",
+  "score": 0.936,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "legendarium of thror"
+ },
+ "item-ninnyhammer-braid": {
+  "front": "tts_en/cards/10-25.png",
+  "score": 0.963,
+  "margin": -0.002,
+  "by": "name",
+  "nickname": "ninnyhammer braid"
+ },
+ "item-seven-flame-crown": {
+  "front": "tts_en/cards/140-06.png",
+  "score": 0.925,
+  "margin": -0.012,
+  "by": "name",
+  "nickname": "seven flame crown"
+ },
+ "terrain-barrels": {
+  "front": "tts_en/cards/123-00.png",
+  "score": 0.971,
+  "margin": 0.041,
+  "by": "name",
+  "nickname": "barrels"
+ },
+ "terrain-barricade": {
+  "front": "tts_en/cards/153-02.png",
+  "score": 0.962,
+  "margin": 0.051,
+  "by": "name",
+  "nickname": "barricade"
+ },
+ "terrain-boulder": {
+  "front": "tts_en/cards/20-02.png",
+  "score": 0.972,
+  "margin": 0.095,
+  "by": "name",
+  "nickname": "boulder"
+ },
+ "terrain-bush": {
+  "front": "tts_en/cards/20-00.png",
+  "score": 0.961,
+  "margin": 0.006,
+  "by": "name",
+  "nickname": "bush"
+ },
+ "terrain-chest": {
+  "front": "tts_en/cards/153-01.png",
+  "score": 0.948,
+  "margin": 0.016,
+  "by": "name",
+  "nickname": "chest"
+ },
+ "terrain-elevation": {
+  "front": "tts_en/cards/124-00.png",
+  "score": 0.955,
+  "margin": 0.058,
+  "by": "name",
+  "nickname": "elevation"
+ },
+ "terrain-fence": {
+  "front": "tts_en/cards/153-05.png",
+  "score": 0.871,
+  "margin": 0.013,
+  "by": "name",
+  "nickname": "fence"
+ },
+ "terrain-fire-pit": {
+  "front": "tts_en/cards/20-09.png",
+  "score": 0.909,
+  "margin": 0.065,
+  "by": "name",
+  "nickname": "fire pit"
+ },
+ "terrain-fountain": {
+  "front": "tts_en/cards/153-04.png",
+  "score": 0.96,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "fountain"
+ },
+ "terrain-log": {
+  "front": "tts_en/cards/124-02.png",
+  "score": 0.938,
+  "margin": 0.014,
+  "by": "name",
+  "nickname": "log"
+ },
+ "terrain-mist": {
+  "front": "tts_en/cards/20-04.png",
+  "score": 0.845,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "mist"
+ },
+ "terrain-pit": {
+  "front": "tts_en/cards/20-06.png",
+  "score": 0.959,
+  "margin": 0.046,
+  "by": "name",
+  "nickname": "pit"
+ },
+ "terrain-pond": {
+  "front": "tts_en/cards/153-03.png",
+  "score": 0.977,
+  "margin": 0.055,
+  "by": "name",
+  "nickname": "pond"
+ },
+ "terrain-rubble": {
+  "front": "tts_en/cards/124-03.png",
+  "score": 0.969,
+  "margin": 0.053,
+  "by": "name",
+  "nickname": "rubble"
+ },
+ "terrain-statue": {
+  "front": "tts_en/cards/20-01.png",
+  "score": 0.949,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "statue"
+ },
+ "terrain-stream": {
+  "front": "tts_en/cards/20-07.png",
+  "score": 0.97,
+  "margin": 0.075,
+  "by": "name",
+  "nickname": "stream"
+ },
+ "terrain-table": {
+  "front": "tts_en/cards/20-03.png",
+  "score": 0.958,
+  "margin": 0.022,
+  "by": "name",
+  "nickname": "table"
+ },
+ "terrain-trench": {
+  "front": "tts_en/cards/153-00.png",
+  "score": 0.992,
+  "margin": 0.063,
+  "by": "name",
+  "nickname": "trench"
+ },
+ "terrain-wall": {
+  "front": "tts_en/cards/20-08.png",
+  "score": 0.971,
+  "margin": 0.078,
+  "by": "name",
+  "nickname": "wall"
+ },
+ "terrain-web": {
+  "front": "tts_en/cards/124-01.png",
+  "score": 0.968,
+  "margin": 0.053,
+  "by": "name",
+  "nickname": "web"
+ },
+ "damage-concussion": {
+  "front": "tts_en/cards/6-13.png",
+  "score": 0.972,
+  "margin": 0.112,
+  "by": "name",
+  "nickname": "at the end of your turn fip"
+ },
+ "damage-crushed": {
+  "front": "tts_en/cards/6-01.png",
+  "score": 0.95,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "crushed"
+ },
+ "damage-cursed-injury": {
+  "front": "tts_en/cards/6-15.png",
+  "score": 0.95,
+  "margin": 0.112,
+  "by": "name",
+  "nickname": "cursed injury"
+ },
+ "damage-dazed": {
+  "front": "tts_en/cards/6-14.png",
+  "score": 0.971,
+  "margin": 0.101,
+  "by": "name",
+  "nickname": "1 inspiration"
+ },
+ "damage-deep-bruise": {
+  "front": "tts_en/cards/6-05.png",
+  "score": 0.975,
+  "margin": 0.086,
+  "by": "name",
+  "nickname": "deep bruise"
+ },
+ "damage-entangled": {
+  "front": "tts_en/cards/6-11.png",
+  "score": 0.969,
+  "margin": 0.157,
+  "by": "name",
+  "nickname": "action move 1 fewer space"
+ },
+ "damage-exhaustion": {
+  "front": "tts_en/cards/6-12.png",
+  "score": 0.951,
+  "margin": 0.096,
+  "by": "name",
+  "nickname": "exhaustion"
+ },
+ "damage-feeble": {
+  "front": "tts_en/cards/6-16.png",
+  "score": 0.991,
+  "margin": 0.114,
+  "by": "name",
+  "nickname": "feeble"
+ },
+ "damage-fever": {
+  "front": "tts_en/cards/6-06.png",
+  "score": 0.987,
+  "margin": 0.126,
+  "by": "name",
+  "nickname": "discard 1 inspiration"
+ },
+ "damage-knocked-prone": {
+  "front": "tts_en/cards/7-00.png",
+  "score": 0.962,
+  "margin": 0.081,
+  "by": "name",
+  "nickname": "deplete 1 of your without"
+ },
+ "damage-laceration": {
+  "front": "tts_en/cards/6-03.png",
+  "score": 0.946,
+  "margin": 0.154,
+  "by": "name",
+  "nickname": "flip 1 faceup"
+ },
+ "damage-poison": {
+  "front": "tts_en/cards/6-04.png",
+  "score": 0.972,
+  "margin": 0.107,
+  "by": "name",
+  "nickname": "gain i weakness and shuffle"
+ },
+ "damage-putrid-boils": {
+  "front": "tts_en/cards/6-02.png",
+  "score": 0.964,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "each nearby hero fips"
+ },
+ "damage-shaken": {
+  "front": "tts_en/cards/6-10.png",
+  "score": 0.988,
+  "margin": 0.118,
+  "by": "name",
+  "nickname": "flip 1 faceup"
+ },
+ "damage-short-of-breath": {
+  "front": "tts_en/cards/6-08.png",
+  "score": 0.974,
+  "margin": 0.132,
+  "by": "name",
+  "nickname": "discard all of your boons"
+ },
+ "damage-stunned": {
+  "front": "tts_en/cards/6-00.png",
+  "score": 0.908,
+  "margin": 0.087,
+  "by": "name",
+  "nickname": "flip 1 and 1 faceup"
+ },
+ "damage-sudden-sickness": {
+  "front": "tts_en/cards/6-09.png",
+  "score": 0.952,
+  "margin": 0.096,
+  "by": "name",
+  "nickname": "discard all of your inspiration"
+ },
+ "damage-weariness": {
+  "front": "tts_en/cards/6-07.png",
+  "score": 0.924,
+  "margin": 0.289,
+  "by": "name",
+  "nickname": "flip this card facedown"
+ },
+ "fear-anxiety": {
+  "front": "tts_en/cards/8-12.png",
+  "score": 0.953,
+  "margin": 0.059,
+  "by": "name",
+  "nickname": "anxiety"
+ },
+ "fear-cower": {
+  "front": "tts_en/cards/8-11.png",
+  "score": 0.961,
+  "margin": 0.078,
+  "by": "name",
+  "nickname": "1 fewer card"
+ },
+ "fear-dark-whispers": {
+  "front": "tts_en/cards/8-15.png",
+  "score": 0.984,
+  "margin": 0.076,
+  "by": "name",
+  "nickname": "add 1"
+ },
+ "fear-delusions": {
+  "front": "tts_en/cards/8-02.png",
+  "score": 0.96,
+  "margin": 0.121,
+  "by": "name",
+  "nickname": "delusions"
+ },
+ "fear-gloom": {
+  "front": "tts_en/cards/8-16.png",
+  "score": 0.981,
+  "margin": 0.116,
+  "by": "name",
+  "nickname": "flip this card facedown"
+ },
+ "fear-greed": {
+  "front": "tts_en/cards/8-13.png",
+  "score": 0.897,
+  "margin": 0.106,
+  "by": "name",
+  "nickname": "1 facedown s"
+ },
+ "fear-hopelessness": {
+  "front": "tts_en/cards/8-14.png",
+  "score": 0.975,
+  "margin": 0.097,
+  "by": "name",
+  "nickname": "discard 2 prepared cards or"
+ },
+ "fear-hysteria": {
+  "front": "tts_en/cards/8-05.png",
+  "score": 0.963,
+  "margin": 0.056,
+  "by": "name",
+  "nickname": "hysteria"
+ },
+ "fear-ill-will": {
+  "front": "tts_en/cards/8-00.png",
+  "score": 0.933,
+  "margin": 0.072,
+  "by": "name",
+  "nickname": "1 facedown s"
+ },
+ "fear-impending-doom": {
+  "front": "tts_en/cards/8-10.png",
+  "score": 0.962,
+  "margin": 0.104,
+  "by": "name",
+  "nickname": "discard 1 prepared card or"
+ },
+ "fear-infighting": {
+  "front": "tts_en/cards/8-07.png",
+  "score": 0.983,
+  "margin": 0.107,
+  "by": "name",
+  "nickname": "1 faceup"
+ },
+ "fear-looming-shadows": {
+  "front": "tts_en/cards/8-06.png",
+  "score": 0.985,
+  "margin": 0.124,
+  "by": "name",
+  "nickname": "darkness suffer 1 s"
+ },
+ "fear-overcome": {
+  "front": "tts_en/cards/8-08.png",
+  "score": 0.973,
+  "margin": 0.154,
+  "by": "name",
+  "nickname": "overcome"
+ },
+ "fear-paranoia": {
+  "front": "tts_en/cards/8-01.png",
+  "score": 0.969,
+  "margin": 0.148,
+  "by": "name",
+  "nickname": "discard 1 prepared card"
+ },
+ "fear-rage": {
+  "front": "tts_en/cards/8-09.png",
+  "score": 0.952,
+  "margin": 0.057,
+  "by": "name",
+  "nickname": "including negate tests"
+ },
+ "fear-surrender": {
+  "front": "tts_en/cards/8-03.png",
+  "score": 0.97,
+  "margin": 0.119,
+  "by": "name",
+  "nickname": "fip it facedown instead"
+ },
+ "fear-tormented": {
+  "front": "tts_en/cards/8-04.png",
+  "score": 0.947,
+  "margin": 0.07,
+  "by": "name",
+  "nickname": "flip 1 w faceup"
+ },
+ "fear-troubled": {
+  "front": "tts_en/cards/8-17.png",
+  "score": 0.974,
+  "margin": 0.092,
+  "by": "name",
+  "nickname": "1 additional"
+ },
+ "bane-captured": {
+  "front": "tts_en/cards/155-00.png",
+  "score": 0.872,
+  "margin": 0.051,
+  "by": "name",
+  "nickname": "captured"
+ },
+ "bane-despondent": {
+  "front": "tts_en/cards/155-02.png",
+  "score": 0.984,
+  "margin": 0.1,
+  "by": "name",
+  "nickname": "despondent"
+ },
+ "bane-terrified": {
+  "front": "tts_en/cards/155-01.png",
+  "score": 0.976,
+  "margin": 0.122,
+  "by": "name",
+  "nickname": "terrified"
+ },
+ "boon-determined": {
+  "front": "tts_en/cards/5-02.png",
+  "score": 0.979,
+  "margin": 0.122,
+  "by": "name",
+  "nickname": "determined"
+ },
+ "boon-emboldened": {
+  "front": "tts_en/cards/5-01.png",
+  "score": 0.971,
+  "margin": 0.066,
+  "by": "name",
+  "nickname": "emboldened"
+ },
+ "boon-hidden": {
+  "front": "tts_en/cards/5-00.png",
+  "score": 0.978,
+  "margin": 0.125,
+  "by": "name",
+  "nickname": "hidden"
+ }
+}

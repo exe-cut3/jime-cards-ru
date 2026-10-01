@@ -469,6 +469,25 @@ def main():
                 c["todo"].append("verify_ru" if t.get("proofread") else "proofread_ru")
         report["notes"].append(f"translations applied to {n_tr} cards from {tr_path.name}")
 
+    # ------------------------------------------------------------------ English scans from the TTS mod (data/en_images.json)
+    # Better English scans (scripts/tts_en_fetch.py + match_en_images.py) replace the Google Site
+    # ones; the old path stays in image.front_site / back_site.
+    en_img_path = ROOT / "data" / "en_images.json"
+    if en_img_path.exists():
+        en_img = json.loads(en_img_path.read_text(encoding="utf-8"))
+        n_en = 0
+        for c in cards:
+            m = en_img.get(c["id"])
+            if not m:
+                continue
+            n_en += 1
+            c["image"]["front_site"] = c["image"].get("front")
+            c["image"]["front"] = m["front"]
+            if m.get("back"):
+                c["image"]["back_site"] = c["image"].get("back")
+                c["image"]["back"] = m["back"]
+        report["notes"].append(f"English TTS scans used for {n_en} cards from {en_img_path.name}")
+
     # ------------------------------------------------------------------ English OCR fixes (data/fixes_en.json)
     # Hero backgrounds are not in the spreadsheet: they come from OCR of the English backs and are
     # corrected by hand here (b/h confusion, lost paragraphs, the "Suggested start" block glued on).

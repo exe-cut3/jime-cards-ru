@@ -36,20 +36,35 @@ def make_thumb(src: Path, dst: Path) -> None:
     im.save(dst, "WEBP", quality=THUMB_QUALITY, method=6)
 
 
+def referenced_images(cards: list[dict]) -> list[tuple[Path, Path]]:
+    """(source png, path under img/) for every scan the site shows: English front/back
+    (Google Site or TTS mod, relative to data/raw) and Russian front/back (data/raw/tts -> ru/)."""
+    out: dict[Path, Path] = {}
+    for c in cards:
+        im = c.get("image") or {}
+        for key in ("front", "back"):
+            if im.get(key):
+                out[Path(im[key])] = RAW / im[key]
+        for key in ("front_ru", "back_ru"):
+            if im.get(key):
+                out[Path("ru") / im[key]] = RAW / "tts" / im[key]
+    return [(src, rel) for rel, src in sorted(out.items())]
+
+
+def prune(root: Path, keep: set[Path]) -> int:
+    """Delete generated webp files that no card refers to any more."""
+    n = 0
+    for f in root.rglob("*.webp"):
+        if f.relative_to(root) not in keep:
+            f.unlink()
+            n += 1
+    return n
+
+
 def main():
-    manifest = json.loads((RAW / "manifest.json").read_text(encoding="utf-8"))
-    files = [(RAW / im["file"], Path(im["file"])) for im in manifest["images"] if im.get("file")]
-    # Russian scans referenced by translations.json -> app/public/img/ru/...
-    tr_path = ROOT / "data" / "translations.json"
-    if tr_path.exists():
-        tr = json.loads(tr_path.read_text(encoding="utf-8"))["cards"]
-        ru_files = set()
-        for t in tr.values():
-            for key in ("image_ru", "image_ru_back"):
-                if t.get(key):
-                    ru_files.add(t[key])
-            ru_files.update(t.get("image_ru_alternates", []))
-        files += [(RAW / "tts" / f, Path("ru") / f) for f in sorted(ru_files)]
+    cards = json.loads(CARDS.read_text(encoding="utf-8"))["cards"]
+    files = referenced_images(cards)
+    keep = {rel.with_suffix(".webp") for _, rel in files}
     done = skipped = thumbs = 0
     src_bytes = dst_bytes = thumb_bytes = 0
     t0 = time.time()
@@ -69,6 +84,9 @@ def main():
             make_thumb(src, th)
             thumbs += 1
         thumb_bytes += th.stat().st_size
+    pruned = prune(IMG, keep) + prune(THUMB, keep)
+    if pruned:
+        print(f"removed {pruned} webp files no card refers to")
     (PUBLIC / "data").mkdir(parents=True, exist_ok=True)
     shutil.copyfile(CARDS, PUBLIC / "data" / "cards.json")
     print(f"images: {done} converted, {skipped} up to date; "

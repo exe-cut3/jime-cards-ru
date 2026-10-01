@@ -133,6 +133,25 @@ python scripts/build_cards.py                               # подмешива
 - Иконки в русском тексте записываются токенами `{success}`, `{fate}`, `{fear}`, `{damage}`,
   `{might}` … — приложение рисует их глифами.
 
+## Английские сканы получше (мод TTS)
+
+Сканы с сайта-оригинала маленькие (330×510) и сохранены с палитрой в 256 цветов, поэтому
+выглядят блёкло. Английские картинки берутся из мода Tabletop Simulator
+«Lord of the Rings: Journeys in Middle Earth (ALL CURRENT EXPANSIONS)» (Steam Workshop 2166579047):
+642×1000, полный цвет; планшеты героев с оборотами.
+
+```bash
+uv run --with pillow --with pymongo python scripts/tts_en_fetch.py           # листы -> data/raw/tts_en/cards/*.png (герои разворачиваются)
+uv run --with rapidocr-onnxruntime --with pillow python scripts/ocr_en_names.py  # названия неподписанных карт (урон, страх, слабости)
+uv run --with pillow --with numpy python scripts/match_en_images.py           # -> data/en_images.json + data/en_images_report.md
+python scripts/build_cards.py                                                 # image.front/back -> скан мода, старый в front_site
+```
+
+Карты сопоставляются по названию (подпись в моде или OCR, с допуском на опечатки), картинка
+служит проверкой. Без уверенного совпадения карта остаётся со старым сканом (сейчас 6 карт:
+пять «Побег!» и «Ill Omen»). `prepare_app.py` конвертирует только сканы, на которые ссылается
+`cards.json`, и удаляет устаревшие webp.
+
 ## Приложение (`app/`)
 
 Статический сайт без бэкенда (PWA): Vite + React + TypeScript, поиск через MiniSearch,
