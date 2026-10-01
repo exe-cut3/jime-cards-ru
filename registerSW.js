@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/jime-cards-ru/sw.js', { scope: '/jime-cards-ru/' })})}
