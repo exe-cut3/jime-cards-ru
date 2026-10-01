@@ -1,3 +1,4 @@
+import type { Dict, Lang } from './i18n';
 import type { Card, Db, Filters, Kind } from './types';
 
 export const BASE = import.meta.env.BASE_URL;
@@ -14,16 +15,36 @@ export function imageUrl(path: string | null | undefined, ru = false, thumb = fa
   return `${BASE}${thumb ? 'thumb' : 'img'}/${ru ? 'ru/' : ''}${path.replace(/\.png$/i, '.webp')}`;
 }
 
-/** Preferred scan for a card: the Russian edition when it exists, else the English one. */
-export function primaryImage(c: Card, side: 'front' | 'back' = 'front', thumb = false): string | null {
+/** Preferred scan for a card in the interface language; falls back to the other edition. */
+export function primaryImage(c: Card, side: 'front' | 'back' = 'front', thumb = false, lang: Lang = 'ru'): string | null {
   const ru = side === 'front' ? c.image.front_ru : c.image.back_ru;
-  if (ru) return imageUrl(ru, true, thumb);
-  return imageUrl(side === 'front' ? c.image.front : c.image.back, false, thumb);
+  const en = side === 'front' ? c.image.front : c.image.back;
+  if (lang === 'en') return en ? imageUrl(en, false, thumb) : imageUrl(ru, true, thumb);
+  return ru ? imageUrl(ru, true, thumb) : imageUrl(en, false, thumb);
 }
 
-export function displayName(c: Card): { main: string; sub: string | null } {
+/**
+ * Card name in the interface language. In Russian the English original comes along as a quiet
+ * second line (`sub`); the English interface shows English only.
+ */
+export function displayName(c: Card, lang: Lang = 'ru'): { main: string; sub: string | null } {
+  if (lang === 'en') return { main: c.name_en ?? c.name_ru ?? '—', sub: null };
   if (c.name_ru) return { main: c.name_ru, sub: c.name_en };
   return { main: c.name_en ?? '—', sub: null };
+}
+
+/** Trait line ("Тактика • Тень" / "Tactic • Shadow"). */
+export function traitLine(c: Card, lang: Lang, t: Dict): string | null {
+  if (lang === 'ru' && c.traits_ru) return c.traits_ru;
+  const list = (c.traits ?? []).filter((x) => x !== 'Wild');
+  if (!list.length) return null;
+  return list.map((x) => (lang === 'ru' ? t.trait[x] ?? x : x)).join(' • ');
+}
+
+/** English trait line, for the "original" block of the Russian interface. */
+export function traitLineEn(c: Card): string | null {
+  const list = (c.traits ?? []).filter((x) => x !== 'Wild');
+  return list.length ? list.join(' • ') : null;
 }
 
 export function expansions(c: Card): string[] {

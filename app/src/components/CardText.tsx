@@ -5,7 +5,7 @@ import { CardIcon } from './Icons';
 
 const KEYWORD_RE = /^(Strike|Sprint|Hide|Guard|Rest|Scout|Удар|Рывок|Укрытие|Защита|Отдых|Разведка)( \d+| X| Х)?\b/;
 // EN sheet spells icons out ("2 Fate"); RU texts use {tokens} that stand for the printed glyphs
-const ICON_RE = /(\d) (Success|Successes|Fate|Fear)\b|\{(success|fate|fear|damage|might|wisdom|agility|spirit|wit|inspiration|lore|trinket|armor|hand|hands|ranged|mount|action)\}/g;
+const ICON_RE = /(\d) (Success|Successes|success(?=:)|successes(?=:)|Fate|Fear)\b|\{(success|fate|fear|damage|might|wisdom|agility|spirit|wit|inspiration|lore|trinket|armor|hand|hands|ranged|mount|action)\}/g;
 
 function renderLine(line: string) {
   const parts: (string | JSX.Element)[] = [];

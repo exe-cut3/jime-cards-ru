@@ -7,10 +7,10 @@ import { DeckMain } from './components/deck/DeckMain';
 import { DeckSetup } from './components/deck/DeckSetup';
 import { applyFilters, buildFacets, countByKind, displayName, loadDb, loadFavs, saveFavs } from './data';
 import { type Build, allRoles, decodeBuild, loadBuilds, loadCurrentId, newBuild, playableHeroes, saveBuilds, saveCurrentId, uid } from './deck';
-import { UI } from './i18n';
+import { DICT, type Lang, LangContext, detectLang, saveLang } from './i18n';
 import { buildIndex, searchIds } from './search';
 import type { Card, Db, Filters } from './types';
-import { type View, isEmptyFilters, readCardId, readFilters, readSharedBuild, readView, writeUrl } from './url';
+import { type View, isEmptyFilters, readCardId, readFilters, readSharedBuild, readView, setUrlLang, writeUrl } from './url';
 
 const PAGE = 120;
 
@@ -26,6 +26,12 @@ export default function App() {
   const [builds, setBuilds] = useState<Build[]>(() => loadBuilds());
   const [buildId, setBuildId] = useState<string | null>(() => loadCurrentId());
   const [online, setOnline] = useState<boolean>(() => navigator.onLine);
+  const [lang, setLang] = useState<Lang>(() => {
+    const l = detectLang();
+    setUrlLang(l);
+    return l;
+  });
+  const t = DICT[lang];
   const imported = useRef(false);
   const sentinel = useRef<HTMLDivElement>(null);
 
@@ -52,7 +58,7 @@ export default function App() {
     if (!s) return;
     const b = decodeBuild(s);
     if (b) {
-      if (!b.name.endsWith('(по ссылке)')) b.name += ' (по ссылке)';
+      if (!b.name.endsWith(t.deck.sharedSuffix)) b.name += t.deck.sharedSuffix;
       setBuilds((prev) => {
         const next = [...prev, b];
         saveBuilds(next);
@@ -68,13 +74,13 @@ export default function App() {
   // the planner always has at least one build to show
   useEffect(() => {
     if (view === 'deck' && builds.length === 0) {
-      const b = newBuild('Мой билд');
+      const b = newBuild(t.deck.defaultName);
       setBuilds([b]);
       saveBuilds([b]);
       setBuildId(b.id);
       saveCurrentId(b.id);
     }
-  }, [view, builds.length]);
+  }, [view, builds.length, t]);
 
   // back / forward buttons
   useEffect(() => {
@@ -180,30 +186,30 @@ export default function App() {
   }, []);
 
   const createBuild = useCallback(() => {
-    const b = newBuild(`Билд ${builds.length + 1}`);
+    const b = newBuild(t.deck.nth(builds.length + 1));
     const next = [...builds, b];
     setBuilds(next);
     saveBuilds(next);
     selectBuild(b.id);
-  }, [builds, selectBuild]);
+  }, [builds, selectBuild, t]);
 
   const duplicateBuild = useCallback(() => {
     if (!build) return;
-    const b: Build = { ...build, id: uid(), name: `${build.name} (копия)`, updated: Date.now() };
+    const b: Build = { ...build, id: uid(), name: t.deck.copyOf(build.name), updated: Date.now() };
     const next = [...builds, b];
     setBuilds(next);
     saveBuilds(next);
     selectBuild(b.id);
-  }, [build, builds, selectBuild]);
+  }, [build, builds, selectBuild, t]);
 
   const deleteBuild = useCallback(() => {
     if (!build) return;
-    if (!window.confirm(`Удалить билд «${build.name}»?`)) return;
+    if (!window.confirm(t.deck.confirmDelete(build.name))) return;
     const next = builds.filter((b) => b.id !== build.id);
     setBuilds(next);
     saveBuilds(next);
     selectBuild(next[0]?.id ?? '');
-  }, [build, builds, selectBuild]);
+  }, [build, builds, selectBuild, t]);
 
   const current = cardId ? byId.get(cardId) ?? null : null;
   const related = useMemo(() => (current ? relatedCards(current, cards) : []), [current, cards]);
@@ -223,9 +229,27 @@ export default function App() {
   }, [nextCard, navIndex, limit, openCard]);
 
   useEffect(() => {
-    const site = UI.title;
-    document.title = current ? `${displayName(current).main} — ${site}` : isDeck && build ? `${build.name} · ${UI.viewDeck} — ${site}` : `${site} — ${UI.subtitle}`;
-  }, [current, isDeck, build]);
+    const site = t.title;
+    document.title = current ? `${displayName(current, lang).main} — ${site}` : isDeck && build ? `${build.name} · ${t.viewDeck} — ${site}` : `${site} — ${t.subtitle}`;
+    document.documentElement.lang = lang;
+  }, [current, isDeck, build, lang, t]);
+
+  const changeLang = (l: Lang) => {
+    if (l === lang) return;
+    setLang(l);
+    saveLang(l);
+    setUrlLang(l);
+    writeUrl(filters, cardId, true, view);
+  };
+  const langSwitch = (extra: string) => (
+    <div className={`langswitch ${extra}`} role="group" aria-label={t.language}>
+      {(['ru', 'en'] as Lang[]).map((l) => (
+        <button key={l} className={l === lang ? 'is-on' : ''} aria-pressed={l === lang} onClick={() => changeLang(l)} lang={l}>
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
 
   const showBookmarks = () => {
     if (isDeck) switchView('cards');
@@ -239,14 +263,16 @@ export default function App() {
   };
 
   return (
+    <LangContext.Provider value={lang}>
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <h1>{UI.title}</h1>
-          <span className="brand-sub">{UI.subtitle}</span>
+          <h1>{t.title}</h1>
+          <span className="brand-sub">{t.subtitle}</span>
+          {langSwitch('only-mobile')}
           {!online && (
-            <span className="online-badge" title="Нет сети: показываются сохранённые данные">
-              {UI.offline}
+            <span className="online-badge" title={t.offlineTitle}>
+              {t.offline}
             </span>
           )}
         </div>
@@ -255,27 +281,28 @@ export default function App() {
             <input
               type="search"
               value={filters.q}
-              placeholder={UI.search}
+              placeholder={t.search}
               onChange={(e) => updateFilters({ ...filters, q: e.target.value }, true)}
-              aria-label={UI.search}
+              aria-label={t.search}
             />
           )}
         </div>
         <div className="topbar-actions">
+          {langSwitch('')}
           <div className="viewswitch" role="tablist">
-            <button role="tab" className={!isDeck ? 'is-on' : ''} aria-selected={!isDeck} onClick={() => switchView('cards')} title={UI.viewCards}>
+            <button role="tab" className={!isDeck ? 'is-on' : ''} aria-selected={!isDeck} onClick={() => switchView('cards')} title={t.viewCards}>
               <CardsIcon size={16} />
-              <span className="btn-label">{UI.viewCards}</span>
+              <span className="btn-label">{t.viewCards}</span>
             </button>
-            <button role="tab" className={isDeck ? 'is-on' : ''} aria-selected={isDeck} onClick={() => switchView('deck')} title={UI.viewDeck}>
+            <button role="tab" className={isDeck ? 'is-on' : ''} aria-selected={isDeck} onClick={() => switchView('deck')} title={t.viewDeck}>
               <DeckIcon size={16} />
-              <span className="btn-label">{UI.viewDeck}</span>
+              <span className="btn-label">{t.viewDeck}</span>
             </button>
           </div>
           {!isDeck && (
-            <button className={`btn btn-icon ${filters.fav ? 'is-on' : ''}`} onClick={() => updateFilters({ ...filters, fav: !filters.fav })} aria-pressed={filters.fav} title={UI.bookmarks}>
+            <button className={`btn btn-icon ${filters.fav ? 'is-on' : ''}`} onClick={() => updateFilters({ ...filters, fav: !filters.fav })} aria-pressed={filters.fav} title={t.bookmarks}>
               <BookmarkIcon filled={filters.fav} />
-              <span className="btn-label">{UI.bookmarks}</span>
+              <span className="btn-label">{t.bookmarks}</span>
               {favs.size > 0 && <span className="count">{favs.size}</span>}
             </button>
           )}
@@ -317,17 +344,17 @@ export default function App() {
         </aside>
 
         <main className="content">
-          {error && <div className="error">Не удалось загрузить данные: {error}</div>}
-          {!db && !error && <div className="loading">Загрузка…</div>}
+          {error && <div className="error">{t.loadError}: {error}</div>}
+          {!db && !error && <div className="loading">{t.loading}</div>}
           {db && isDeck && build && <DeckMain build={build} cards={cards} byId={byId} roles={roles} heroes={heroes} onChange={updateBuild} onOpen={openCard} />}
           {db && !isDeck && (
             <>
               <div className="resultbar">
-                <span className="resultbar-n">{UI.found(visible.length)}</span>
+                <span className="resultbar-n">{t.found(visible.length)}</span>
                 {dirty && <ActiveFilters f={filters} onChange={(n) => updateFilters(n)} onReset={() => updateFilters({ ...readFilters(''), q: '' })} />}
               </div>
               {visible.length === 0 ? (
-                <div className="empty">{UI.nothing}</div>
+                <div className="empty">{t.nothing}</div>
               ) : (
                 <div className="grid">
                   {visible.slice(0, limit).map((c) => (
@@ -339,33 +366,33 @@ export default function App() {
                 <div className="more">
                   <div className="sentinel" ref={sentinel} aria-hidden="true" />
                   <button className="btn" onClick={() => setLimit((l) => l + PAGE)}>
-                    Показать ещё ({visible.length - limit})
+                    {t.showMore(visible.length - limit)}
                   </button>
                 </div>
               )}
             </>
           )}
-          <footer className="disclaimer">{UI.disclaimer}</footer>
+          <footer className="disclaimer">{t.disclaimer}</footer>
         </main>
       </div>
 
-      <nav className="bottomnav" aria-label="Разделы">
+      <nav className="bottomnav" aria-label={t.sections}>
         <button className={!isDeck && !showFilters ? 'is-on' : ''} onClick={() => switchView('cards')}>
           <CardsIcon size={22} />
-          {UI.viewCards}
+          {t.viewCards}
         </button>
         <button className={isDeck ? 'is-on' : ''} onClick={() => switchView('deck')}>
           <DeckIcon size={22} />
-          {UI.viewDeck}
+          {t.viewDeck}
         </button>
         <button className={showFilters ? 'is-on' : ''} onClick={showFiltersDrawer} aria-expanded={showFilters}>
           <FilterIcon size={22} />
-          {UI.filters}
+          {t.filters}
           {activeCount > 0 && <span className="count">{activeCount}</span>}
         </button>
         <button className={!isDeck && filters.fav ? 'is-on' : ''} onClick={showBookmarks} aria-pressed={!isDeck && filters.fav}>
           <BookmarkIcon filled={!isDeck && filters.fav} size={22} />
-          {UI.bookmarks}
+          {t.bookmarks}
           {favs.size > 0 && <span className="count">{favs.size}</span>}
         </button>
       </nav>
@@ -384,6 +411,7 @@ export default function App() {
         />
       )}
     </div>
+    </LangContext.Provider>
   );
 }
 

@@ -1,7 +1,7 @@
 // Deck planner: a "build" is one hero's skill deck (rules: reference guide §34.1, §52.3, §57, §76)
 // plus experience per role, planned purchases and equipment. Builds live in localStorage and can
 // be shared as a link (?view=deck&b=…).
-import { OWNER_LABEL } from './i18n';
+import { DICT, type Dict, type Lang } from './i18n';
 import type { Card } from './types';
 
 export interface Build {
@@ -29,7 +29,7 @@ export function uid(): string {
   return Math.random().toString(36).slice(2, 10);
 }
 
-export function newBuild(name = 'Новый билд'): Build {
+export function newBuild(name: string): Build {
   return { id: uid(), name, hero: null, role: null, xp: {}, bought: [], plan: [], weakness: [], titles: [], prepared: [], gear: [], notes: '', updated: Date.now() };
 }
 
@@ -104,8 +104,8 @@ export function saveCurrentId(id: string | null): void {
 
 export const ROLE_ORDER = ['Burglar', 'Captain', 'Guardian', 'Hunter', 'Musician', 'Pathfinder', 'Delver', 'Herbalist', 'Meddler', 'Smith', 'Traveller', 'Guide', 'Lorekeeper', 'Provisioner', 'Shieldmaiden', 'Soldier', 'Trickster', 'Beast-Friend'];
 
-export function roleLabel(role: string): string {
-  return OWNER_LABEL[role] ?? role;
+export function roleLabel(role: string, lang: Lang = 'ru'): string {
+  return DICT[lang].owner(role);
 }
 
 /** Playable heroes: hero cards that own hero skills (The Great Bear is Beorn's alternate form). */
@@ -316,12 +316,14 @@ export function familyOptions(item: Card, cards: Card[]): Card[] {
 
 // ---- equipment limits (§37.4; mounts: Spreading War rules)
 
+export type GearProblem = 'armor' | 'hands' | 'trinket' | 'mount';
+
 export interface GearCheck {
   armor: number;
   hands: number;
   trinkets: number;
   mounts: number;
-  problems: string[];
+  problems: GearProblem[];
 }
 
 export function handsOf(c: Card): number {
@@ -338,10 +340,10 @@ export function checkGear(items: Card[]): GearCheck {
     else if (c.subtype === 'Mount') g.mounts++;
     else g.hands += handsOf(c);
   }
-  if (g.armor > 1) g.problems.push('Не более одной карты брони');
-  if (g.hands > 2) g.problems.push(`Снаряжение занимает ${g.hands} руки из двух`);
-  if (g.trinkets > 1) g.problems.push('Не более одной вещи');
-  if (g.mounts > 1) g.problems.push('Не более одного верхового животного');
+  if (g.armor > 1) g.problems.push('armor');
+  if (g.hands > 2) g.problems.push('hands');
+  if (g.trinkets > 1) g.problems.push('trinket');
+  if (g.mounts > 1) g.problems.push('mount');
   return g;
 }
 
@@ -436,24 +438,28 @@ export function decodeBuild(s: string): Build | null {
 
 // ---- plain-text export for chats and notes
 
-export function buildText(b: Build, g: DeckGroups, gear: Card[], xp: RoleXp[], plan: Card[], byId: Map<string, Card>): string {
+export function buildText(b: Build, g: DeckGroups, gear: Card[], xp: RoleXp[], plan: Card[], byId: Map<string, Card>, lang: Lang): string {
+  const t: Dict = DICT[lang];
+  const w = t.deck.text;
   const hero = b.hero ? byId.get(b.hero) : null;
-  const name = (c: Card) => c.name_ru ?? c.name_en ?? c.id;
+  const name = (c: Card) => (lang === 'en' ? c.name_en ?? c.name_ru : c.name_ru ?? c.name_en) ?? c.id;
+  const q = (s: string) => (lang === 'en' ? `“${s}”` : `«${s}»`);
+  const role = (r: string) => roleLabel(r, lang);
   const num = (c: Card) => (c.number != null ? `${c.number}. ` : '');
   const all = allDeckCards(g);
   const lines: string[] = [];
-  lines.push(`${b.name} — ${hero ? name(hero) : 'герой не выбран'}${b.role ? ', ' + roleLabel(b.role) : ''} · ${all.length} карт`);
-  if (xp.length) lines.push('Опыт: ' + xp.map((r) => `${roleLabel(r.role)} ${r.earned} (потрачено ${r.spent}, осталось ${r.left})`).join('; '));
-  lines.push('Базовые: ' + g.basic.map((c) => num(c) + name(c)).join(', '));
+  lines.push(`${b.name} — ${hero ? name(hero) : t.deck.noHero}${b.role ? ', ' + role(b.role) : ''} · ${all.length} ${w.cards}`);
+  if (xp.length) lines.push(`${w.xp}: ` + xp.map((r) => `${role(r.role)} ${r.earned} (${w.spent} ${r.spent}, ${w.left} ${r.left})`).join('; '));
+  lines.push(`${w.basic}: ` + g.basic.map((c) => num(c) + name(c)).join(', '));
   if (hero && g.hero.length) lines.push(`${name(hero)}: ` + g.hero.map((c) => num(c) + name(c)).join(', '));
-  if (b.role && g.role.length) lines.push(`${roleLabel(b.role)}: ` + g.role.map((c) => num(c) + name(c)).join(', '));
-  if (g.bought.length) lines.push('Приобретённые: ' + g.bought.map((c) => `${roleLabel(c.owner ?? '')} ${c.number} «${name(c)}» (${c.cost})`).join(', '));
-  if (g.titles.length) lines.push('Прозвища: ' + g.titles.map(name).join(', '));
-  if (g.weakness.length) lines.push('Слабости: ' + g.weakness.map(name).join(', '));
+  if (b.role && g.role.length) lines.push(`${role(b.role)}: ` + g.role.map((c) => num(c) + name(c)).join(', '));
+  if (g.bought.length) lines.push(`${w.bought}: ` + g.bought.map((c) => `${role(c.owner ?? '')} ${c.number} ${q(name(c))} (${c.cost})`).join(', '));
+  if (g.titles.length) lines.push(`${w.titles}: ` + g.titles.map(name).join(', '));
+  if (g.weakness.length) lines.push(`${w.weaknesses}: ` + g.weakness.map(name).join(', '));
   const prepared = b.prepared.map((id) => byId.get(id)).filter((c): c is Card => Boolean(c));
-  if (prepared.length) lines.push('Подготовлены: ' + prepared.map(name).join(', '));
-  if (gear.length) lines.push('Снаряжение: ' + gear.map((c) => `${name(c)}${c.tier ? ' (' + c.tier + ')' : ''}`).join(', '));
-  if (plan.length) lines.push('План: ' + plan.map((c) => `${roleLabel(c.owner ?? '')} ${c.number} «${name(c)}» (${c.cost})`).join(', '));
-  if (b.notes.trim()) lines.push('Заметки: ' + b.notes.trim());
+  if (prepared.length) lines.push(`${w.prepared}: ` + prepared.map(name).join(', '));
+  if (gear.length) lines.push(`${w.gear}: ` + gear.map((c) => `${name(c)}${c.tier ? ' (' + c.tier + ')' : ''}`).join(', '));
+  if (plan.length) lines.push(`${w.plan}: ` + plan.map((c) => `${role(c.owner ?? '')} ${c.number} ${q(name(c))} (${c.cost})`).join(', '));
+  if (b.notes.trim()) lines.push(`${w.notes}: ` + b.notes.trim());
   return lines.join('\n');
 }

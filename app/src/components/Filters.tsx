@@ -1,5 +1,5 @@
 import type { Facets } from '../data';
-import { EXPANSION_LABEL, ICON_LABEL, KIND_LABEL, KIND_ORDER, OWNER_LABEL, STAT_LABEL_EN, SUBTYPE_LABEL, TRAIT_LABEL, UI } from '../i18n';
+import { type Dict, KIND_ORDER, useI18n } from '../i18n';
 import type { Filters as F, Kind } from '../types';
 import { CardIcon, CloseIcon } from './Icons';
 
@@ -21,24 +21,27 @@ export function countActive(f: F): number {
   return (f.q ? 1 : 0) + (f.kind ? 1 : 0) + (f.fav ? 1 : 0) + LIST_KEYS.reduce((n, k) => n + f[k].length, 0);
 }
 
-function valueLabel(key: string, v: string): string {
+// test stats are stored with English keys ("Might")
+const statKey = (v: string) => v.toLowerCase() as keyof Dict['stat'];
+
+function valueLabel(key: string, v: string, t: Dict): string {
   switch (key) {
     case 'sub':
-      return SUBTYPE_LABEL[v] ?? v;
+      return t.subtype[v] ?? v;
     case 'owner':
-      return OWNER_LABEL[v] ?? v;
+      return t.owner(v);
     case 'exp':
-      return EXPANSION_LABEL[v] ?? v;
+      return t.exp[v] ?? v;
     case 'cost':
-      return v === '0' ? UI.starting : `${v} опыта`;
+      return v === '0' ? t.starting : t.xp(v);
     case 'icon':
-      return ICON_LABEL[v] ?? v;
+      return t.icon[v] ?? v;
     case 'trait':
-      return TRAIT_LABEL[v] ?? v;
+      return t.trait[v] ?? v;
     case 'tier':
-      return `ранг ${v}`;
+      return t.rank(v);
     case 'test':
-      return STAT_LABEL_EN[v] ?? v;
+      return t.stat[statKey(v)] ?? v;
     default:
       return v;
   }
@@ -46,27 +49,28 @@ function valueLabel(key: string, v: string): string {
 
 /** The active filters as removable chips above the grid. */
 export function ActiveFilters({ f, onChange, onReset }: { f: F; onChange: (next: F) => void; onReset: () => void }) {
+  const { t } = useI18n();
   const chips: { key: string; label: string; remove: () => void }[] = [];
-  if (f.q) chips.push({ key: 'q', label: `«${f.q}»`, remove: () => onChange({ ...f, q: '' }) });
-  if (f.kind) chips.push({ key: 'kind', label: KIND_LABEL[f.kind], remove: () => onChange({ ...f, kind: '', sub: [], owner: [], cost: [], icon: [], tier: [], test: [] }) });
+  if (f.q) chips.push({ key: 'q', label: t.lang === 'en' ? `“${f.q}”` : `«${f.q}»`, remove: () => onChange({ ...f, q: '' }) });
+  if (f.kind) chips.push({ key: 'kind', label: t.kind[f.kind], remove: () => onChange({ ...f, kind: '', sub: [], owner: [], cost: [], icon: [], tier: [], test: [] }) });
   for (const k of LIST_KEYS) {
-    for (const v of f[k]) chips.push({ key: `${k}:${v}`, label: valueLabel(k, v), remove: () => onChange({ ...f, [k]: f[k].filter((x) => x !== v) }) });
+    for (const v of f[k]) chips.push({ key: `${k}:${v}`, label: valueLabel(k, v, t), remove: () => onChange({ ...f, [k]: f[k].filter((x) => x !== v) }) });
   }
-  if (f.fav) chips.push({ key: 'fav', label: UI.bookmarks, remove: () => onChange({ ...f, fav: false }) });
+  if (f.fav) chips.push({ key: 'fav', label: t.bookmarks, remove: () => onChange({ ...f, fav: false }) });
   if (!chips.length) return null;
   return (
-    <div className="active-filters" aria-label="Активные фильтры">
+    <div className="active-filters" aria-label={t.activeFilters}>
       {chips.map((c) => (
         <span key={c.key} className="afchip">
           {c.label}
-          <button onClick={c.remove} aria-label={`Убрать фильтр ${c.label}`}>
+          <button onClick={c.remove} aria-label={t.removeFilter(c.label)}>
             ×
           </button>
         </span>
       ))}
       {chips.length > 1 && (
         <button className="linklike afreset" onClick={onReset}>
-          {UI.reset}
+          {t.reset}
         </button>
       )}
     </div>
@@ -82,6 +86,7 @@ function toggle(list: string[], v: string): string[] {
 }
 
 export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty, count, onClose }: Props) {
+  const { t } = useI18n();
   const set = (patch: Partial<F>) => onChange({ ...f, ...patch });
 
   function setKind(k: Kind | '') {
@@ -97,27 +102,27 @@ export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty, coun
   return (
     <div className="filters">
       <div className="filters-head">
-        <h2>{UI.filters}</h2>
+        <h2>{t.filters}</h2>
         {dirty && (
           <button className="linklike" onClick={onReset}>
-            {UI.reset}
+            {t.reset}
           </button>
         )}
         {onClose && (
-          <button className="filters-close" onClick={onClose} aria-label={UI.close}>
+          <button className="filters-close" onClick={onClose} aria-label={t.close}>
             <CloseIcon size={18} />
           </button>
         )}
       </div>
 
-      <Group label={UI.section}>
+      <Group label={t.section}>
         <div className="kindlist">
           <button className={`kind ${f.kind === '' ? 'is-on' : ''}`} onClick={() => setKind('')}>
-            {UI.all}
+            {t.all}
           </button>
           {KIND_ORDER.map((k) => (
             <button key={k} className={`kind t-${k} ${f.kind === k ? 'is-on' : ''}`} onClick={() => setKind(k)}>
-              <span>{KIND_LABEL[k]}</span>
+              <span>{t.kind[k]}</span>
               <span className="kind-n">{counts[k]}</span>
             </button>
           ))}
@@ -125,34 +130,34 @@ export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty, coun
       </Group>
 
       {subs.length > 0 && (
-        <Group label={f.kind === 'skill' ? UI.skillType : f.kind === 'item' ? UI.itemType : 'Тип'}>
-          <Chips values={subs} selected={f.sub} label={(v) => SUBTYPE_LABEL[v] ?? v} onToggle={(v) => set({ sub: toggle(f.sub, v) })} />
+        <Group label={f.kind === 'skill' ? t.skillType : f.kind === 'item' ? t.itemType : t.type}>
+          <Chips values={subs} selected={f.sub} label={(v) => t.subtype[v] ?? v} onToggle={(v) => set({ sub: toggle(f.sub, v) })} />
         </Group>
       )}
 
       {showHeroes && (
-        <Group label={UI.hero}>
-          <Chips values={facets.heroes} selected={f.owner} label={(v) => OWNER_LABEL[v] ?? v} onToggle={(v) => set({ owner: toggle(f.owner, v) })} />
+        <Group label={t.hero}>
+          <Chips values={facets.heroes} selected={f.owner} label={(v) => t.owner(v)} onToggle={(v) => set({ owner: toggle(f.owner, v) })} />
         </Group>
       )}
       {showRoles && (
-        <Group label={UI.role}>
-          <Chips values={facets.roles} selected={f.owner} label={(v) => OWNER_LABEL[v] ?? v} onToggle={(v) => set({ owner: toggle(f.owner, v) })} />
+        <Group label={t.role}>
+          <Chips values={facets.roles} selected={f.owner} label={(v) => t.owner(v)} onToggle={(v) => set({ owner: toggle(f.owner, v) })} />
         </Group>
       )}
 
       {f.kind === 'skill' && (
         <>
-          <Group label={UI.cost}>
-            <Chips values={facets.costs} selected={f.cost} label={(v) => (v === '0' ? UI.starting : v)} onToggle={(v) => set({ cost: toggle(f.cost, v) })} />
+          <Group label={t.cost}>
+            <Chips values={facets.costs} selected={f.cost} label={(v) => (v === '0' ? t.starting : v)} onToggle={(v) => set({ cost: toggle(f.cost, v) })} />
           </Group>
-          <Group label={UI.icons}>
+          <Group label={t.icons}>
             <Chips
               values={['success', 'fate', 'fear']}
               selected={f.icon}
               label={(v) => (
                 <>
-                  <CardIcon name={v} /> {ICON_LABEL[v]}
+                  <CardIcon name={v} /> {t.icon[v]}
                 </>
               )}
               onToggle={(v) => set({ icon: toggle(f.icon, v) })}
@@ -163,29 +168,29 @@ export function FiltersPanel({ f, facets, counts, onChange, onReset, dirty, coun
 
       {f.kind === 'item' && (
         <>
-          <Group label={UI.tier}>
+          <Group label={t.tier}>
             <Chips values={facets.tiers} selected={f.tier} onToggle={(v) => set({ tier: toggle(f.tier, v) })} />
           </Group>
-          <Group label={UI.test}>
-            <Chips values={facets.tests} selected={f.test} label={(v) => STAT_LABEL_EN[v] ?? v} onToggle={(v) => set({ test: toggle(f.test, v) })} />
+          <Group label={t.test}>
+            <Chips values={facets.tests} selected={f.test} label={(v) => t.stat[statKey(v)] ?? v} onToggle={(v) => set({ test: toggle(f.test, v) })} />
           </Group>
         </>
       )}
 
       {(f.kind === 'skill' || f.kind === 'item') && (
-        <Group label={UI.traits}>
-          <Chips values={facets.traits} selected={f.trait} label={(v) => TRAIT_LABEL[v] ?? v} onToggle={(v) => set({ trait: toggle(f.trait, v) })} />
+        <Group label={t.traits}>
+          <Chips values={facets.traits} selected={f.trait} label={(v) => t.trait[v] ?? v} onToggle={(v) => set({ trait: toggle(f.trait, v) })} />
         </Group>
       )}
 
-      <Group label={UI.expansion}>
-        <Chips values={facets.expansions} selected={f.exp} label={(v) => EXPANSION_LABEL[v] ?? v} onToggle={(v) => set({ exp: toggle(f.exp, v) })} />
+      <Group label={t.expansion}>
+        <Chips values={facets.expansions} selected={f.exp} label={(v) => t.exp[v] ?? v} onToggle={(v) => set({ exp: toggle(f.exp, v) })} />
       </Group>
 
       {onClose && count != null && (
         <div className="filters-foot">
           <button className="btn btn-primary" onClick={onClose}>
-            {UI.show(count)}
+            {t.show(count)}
           </button>
         </div>
       )}

@@ -1,6 +1,6 @@
 // Main column of the deck planner: the skill deck, the camp shop, the upgrade plan, gear and statistics.
 import { useState } from 'react';
-import { displayName, primaryImage } from '../../data';
+import { displayName, primaryImage, traitLine } from '../../data';
 import {
   type Build,
   MAX_PREPARED,
@@ -13,7 +13,6 @@ import {
   groupDeck,
   handsOf,
   matchRole,
-  roleLabel,
   roleShopCards,
   startingGear,
   toggleIn,
@@ -26,7 +25,7 @@ import {
   type RoleXp,
 } from '../../deck';
 import { CardText } from '../CardText';
-import { EXPANSION_SHORT, STAT_KEYS, STAT_LABEL, STAT_LABEL_EN, SUBTYPE_LABEL, TRAIT_LABEL } from '../../i18n';
+import { type Dict, type Lang, STAT_KEYS, useI18n } from '../../i18n';
 import type { Card, StatKey } from '../../types';
 import { CostChip, IconRow, OwnerBadge, TierChip, TypeBadge, typeClass } from '../Badges';
 import { CardIcon, LinkIcon, StatIcon } from '../Icons';
@@ -44,6 +43,9 @@ interface Props {
 const ITEM_SUBS = ['Weapon', 'Support', 'Trinket', 'Armor', 'Mount'];
 
 export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }: Props) {
+  const { lang, t } = useI18n();
+  const d = t.deck;
+  const roleLabel = (r: string) => t.owner(r);
   const hero = build.hero ? byId.get(build.hero) ?? null : null;
   const groups = groupDeck(build, cards, byId);
   const all = allDeckCards(groups);
@@ -98,13 +100,13 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
     const text =
       kind === 'link'
         ? `${window.location.origin}${window.location.pathname}?view=deck&b=${encodeBuild(build)}`
-        : buildText(build, groups, gear, xp, plan, byId);
+        : buildText(build, groups, gear, xp, plan, byId, lang);
     try {
       await navigator.clipboard.writeText(text);
       setCopied(kind);
       setTimeout(() => setCopied(null), 1500);
     } catch {
-      window.prompt('Скопируйте вручную:', text);
+      window.prompt(d.copyManually, text);
     }
   }
 
@@ -124,23 +126,23 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
   return (
     <div className="deck">
       <div className="deck-head">
-        <input className="deck-name" value={build.name} onChange={(e) => set({ name: e.target.value })} aria-label="Название билда" />
+        <input className="deck-name" value={build.name} onChange={(e) => set({ name: e.target.value })} aria-label={d.buildName} />
         <div className="deck-actions">
           <button className="btn btn-sm" onClick={() => copy('link')}>
-            <LinkIcon /> {copied === 'link' ? 'Скопировано' : 'Ссылка на билд'}
+            <LinkIcon /> {copied === 'link' ? t.copied : d.linkToBuild}
           </button>
           <button className="btn btn-sm" onClick={() => copy('text')}>
-            {copied === 'text' ? 'Скопировано' : 'Скопировать текстом'}
+            {copied === 'text' ? t.copied : d.copyAsText}
           </button>
         </div>
       </div>
       <div className="deck-sum">
         <span>
-          <b>{hero ? displayName(hero).main : 'герой не выбран'}</b>
+          <b>{hero ? displayName(hero, lang).main : d.noHero}</b>
           {build.role && <> · {roleLabel(build.role)}</>}
         </span>
         <span>
-          <b>{all.length}</b> карт в колоде
+          <b>{all.length}</b> {d.cardsInDeck(all.length)}
         </span>
         <span>
           <CardIcon name="success" /> <b>{stats.success}</b>
@@ -149,8 +151,8 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           <CardIcon name="fate" /> <b>{stats.fate}</b>
         </span>
         {xp.map((r) => (
-          <span key={r.role} title={`${roleLabel(r.role)}: получено ${r.earned}, потрачено ${r.spent}`}>
-            опыт {roleLabel(r.role)} <b className={r.left < 0 ? 'neg' : ''}>{r.left}</b>
+          <span key={r.role} title={d.xpTitle(roleLabel(r.role), r.earned, r.spent)}>
+            {d.xpRole(roleLabel(r.role))} <b className={r.left < 0 ? 'neg' : ''}>{r.left}</b>
             <span className="dim"> / {r.earned}</span>
           </span>
         ))}
@@ -158,15 +160,15 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
 
       {!hero && (
         <section className="dsec">
-          <h3>Выберите героя</h3>
+          <h3>{d.pickHero}</h3>
           <div className="hero-pick">
             {heroes.map((h) => {
-              const img = primaryImage(h, 'front', true);
+              const img = primaryImage(h, 'front', true, lang);
               const sug = matchRole(h.suggested_role, roles);
               return (
                 <button key={h.id} className="hero-card" onClick={() => onChange((b) => withHero(b, h.id, cards, byId, roles))}>
-                  {img ? <img src={img} alt="" loading="lazy" /> : <span className="tile-noimg">нет скана</span>}
-                  <span className="hero-card-name">{displayName(h).main}</span>
+                  {img ? <img src={img} alt="" loading="lazy" /> : <span className="tile-noimg">{t.noScan}</span>}
+                  <span className="hero-card-name">{displayName(h, lang).main}</span>
                   {sug && <span className="hero-card-sub">{roleLabel(sug)}</span>}
                 </button>
               );
@@ -177,66 +179,64 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
 
       <section className="dsec">
         <h3>
-          Колода навыков
-          <span className="n">
-            {all.length} карт · подготовлено {build.prepared.length}/{MAX_PREPARED}
-          </span>
+          {d.skillDeck}
+          <span className="n">{d.deckCount(all.length, build.prepared.length, MAX_PREPARED)}</span>
         </h3>
-        <DeckGroup title="Базовые" cards={groups.basic} prepared={preparedSet} canPrepare={canPrepare} onPrepare={togglePrepared} onOpen={onOpen} />
+        <DeckGroup title={d.basic} cards={groups.basic} prepared={preparedSet} canPrepare={canPrepare} onPrepare={togglePrepared} onOpen={onOpen} />
         <DeckGroup
-          title={hero ? `Навыки героя · ${displayName(hero).main}` : 'Навыки героя'}
+          title={hero ? `${d.heroSkills} · ${displayName(hero, lang).main}` : d.heroSkills}
           cards={groups.hero}
-          empty="выберите героя"
+          empty={d.pickHeroEmpty}
           prepared={preparedSet}
           canPrepare={canPrepare}
           onPrepare={togglePrepared}
           onOpen={onOpen}
         />
         <DeckGroup
-          title={build.role ? `Навыки роли · ${roleLabel(build.role)}` : 'Навыки роли'}
+          title={build.role ? `${d.roleSkills} · ${roleLabel(build.role)}` : d.roleSkills}
           cards={groups.role}
-          empty="выберите роль"
+          empty={d.pickRoleEmpty}
           prepared={preparedSet}
           canPrepare={canPrepare}
           onPrepare={togglePrepared}
           onOpen={onOpen}
         />
         <DeckGroup
-          title="Приобретённые"
+          title={d.bought}
           cards={groups.bought}
-          empty="пока ничего — покупки ниже, в разделе «Приобретение навыков»"
+          empty={d.boughtEmpty}
           prepared={preparedSet}
           canPrepare={canPrepare}
           onPrepare={togglePrepared}
           onOpen={onOpen}
-          action={(c) => ({ label: `Продать +${c.cost}`, onClick: () => sell(c.id) })}
+          action={(c) => ({ label: d.sell(c.cost), onClick: () => sell(c.id) })}
         />
         <DeckGroup
-          title="Прозвища"
+          title={d.titles}
           cards={groups.titles}
-          empty="получаются по ходу кампании"
+          empty={d.titlesEmpty}
           prepared={preparedSet}
           canPrepare={canPrepare}
           onPrepare={togglePrepared}
           onOpen={onOpen}
-          action={(c) => ({ label: 'Убрать', onClick: () => set({ titles: build.titles.filter((x) => x !== c.id), prepared: build.prepared.filter((x) => x !== c.id) }) })}
-          extra={<AddSelect placeholder="+ добавить прозвище…" options={titles} onPick={(id) => set({ titles: [...build.titles, id] })} />}
+          action={(c) => ({ label: d.removeCard, onClick: () => set({ titles: build.titles.filter((x) => x !== c.id), prepared: build.prepared.filter((x) => x !== c.id) }) })}
+          extra={<AddSelect placeholder={d.addTitle} options={titles} onPick={(id) => set({ titles: [...build.titles, id] })} />}
         />
         <DeckGroup
-          title="Слабости"
+          title={d.weaknesses}
           cards={groups.weakness}
-          empty="при сборке колоды герой берёт одну карту с верха колоды слабостей (34.1)"
+          empty={d.weaknessesEmpty}
           prepared={preparedSet}
           canPrepare={false}
           onOpen={onOpen}
-          action={(c) => ({ label: 'Убрать', onClick: () => set({ weakness: build.weakness.filter((x) => x !== c.id) }) })}
-          extra={<AddSelect placeholder="+ добавить слабость…" options={weaknesses} onPick={(id) => set({ weakness: [...build.weakness, id] })} />}
+          action={(c) => ({ label: d.removeCard, onClick: () => set({ weakness: build.weakness.filter((x) => x !== c.id) }) })}
+          extra={<AddSelect placeholder={d.addWeakness} options={weaknesses} onPick={(id) => set({ weakness: [...build.weakness, id] })} />}
         />
       </section>
 
       <section className="dsec">
         <h3>
-          Приобретение навыков <span className="n">экран лагеря между приключениями</span>
+          {d.shop} <span className="n">{d.shopSub}</span>
         </h3>
         <div className="chips roletabs">
           {roles.map((r) => {
@@ -254,7 +254,7 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           <>
             <div className="shop-head">
               <label>
-                Получено опыта · {roleLabel(activeShop)}
+                {d.xpEarned(roleLabel(activeShop))}
                 <input
                   type="number"
                   min={0}
@@ -267,7 +267,7 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
                 />
               </label>
               <span>
-                потрачено {shopXp.spent} · осталось <b className={shopXp.left < 0 ? 'neg' : ''}>{shopXp.left}</b>
+                {d.spentLeft(shopXp.spent)} <b className={shopXp.left < 0 ? 'neg' : ''}>{shopXp.left}</b>
               </span>
             </div>
             <div className="drows">
@@ -280,15 +280,15 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
                   <SkillRow key={c.id} card={c} onOpen={onOpen} status={bought ? 'bought' : planned ? 'plan' : null}>
                     {bought ? (
                       <button className="btn btn-sm" onClick={() => sell(c.id)}>
-                        Продать +{c.cost}
+                        {d.sell(c.cost)}
                       </button>
                     ) : (
                       <>
-                        <button className="btn btn-sm is-buy" disabled={!ok} title={ok ? '' : `не хватает ${short} опыта`} onClick={() => buy(c.id)}>
-                          Купить
+                        <button className="btn btn-sm is-buy" disabled={!ok} title={ok ? '' : d.short(short)} onClick={() => buy(c.id)}>
+                          {d.buy}
                         </button>
                         <button className={`btn btn-sm ${planned ? 'is-on' : ''}`} onClick={() => togglePlan(c.id)}>
-                          {planned ? 'Из плана' : 'В план'}
+                          {planned ? d.fromPlan : d.toPlan}
                         </button>
                       </>
                     )}
@@ -298,18 +298,14 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
             </div>
           </>
         )}
-        <p className="hint">
-          Стоимость в левом нижнем углу карты — столько опыта нужно для покупки и столько же вернётся при продаже (52.4). Купленные карты остаются в колоде и после смены роли (76.6).
-        </p>
+        <p className="hint">{d.shopHint}</p>
       </section>
 
       {plan.length > 0 && (
         <section className="dsec">
           <h3>
-            План прокачки
-            <span className="n">
-              {plan.length} карт · {plan.reduce((s, c) => s + (c.cost ?? 0), 0)} опыта
-            </span>
+            {d.plan}
+            <span className="n">{d.planCount(plan.length, plan.reduce((s, c) => s + (c.cost ?? 0), 0))}</span>
           </h3>
           {[...planByRole.entries()].map(([role, list]) => {
             const x = xpOf(role);
@@ -318,17 +314,17 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
               <div key={role} className="dgroup">
                 <h4>
                   {roleLabel(role)}
-                  <span className="dim">нужно {x.planned} · осталось {Math.max(x.left, 0)}</span>
-                  {deficit > 0 ? <span className="neg">не хватает {deficit}</span> : <span className="pos">хватает на всё</span>}
+                  <span className="dim">{d.planNeed(x.planned, Math.max(x.left, 0))}</span>
+                  {deficit > 0 ? <span className="neg">{d.planShort(deficit)}</span> : <span className="pos">{d.planEnough}</span>}
                 </h4>
                 <div className="drows">
                   {list.map((c) => (
                     <SkillRow key={c.id} card={c} onOpen={onOpen} status="plan">
                       <button className="btn btn-sm is-buy" disabled={!affordable(c)} onClick={() => buy(c.id)}>
-                        Купить
+                        {d.buy}
                       </button>
                       <button className="btn btn-sm" onClick={() => togglePlan(c.id)}>
-                        Убрать
+                        {d.removeCard}
                       </button>
                     </SkillRow>
                   ))}
@@ -338,34 +334,34 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
           })}
           <div className="row-actions">
             <button className="btn" disabled={!anyAffordable} onClick={buyAffordable}>
-              Купить всё, на что хватает опыта
+              {d.buyAffordable}
             </button>
           </div>
-          <p className="hint">Чтобы смоделировать прокачку, впишите ожидаемый опыт роли — план покажет, чего не хватает. Опыт другой роли на эти карты потратить нельзя (76.7).</p>
+          <p className="hint">{d.planHint}</p>
         </section>
       )}
 
       <section className="dsec">
         <h3>
-          Снаряжение <span className="n">{gear.length} карт</span>
+          {d.gear} <span className="n">{d.gearCount(gear.length)}</span>
         </h3>
         <div className="slots">
           <span className={gearCheck.armor > 1 ? 'neg' : ''}>
-            <CardIcon name="armor" /> Броня {gearCheck.armor}/1
+            <CardIcon name="armor" /> {d.slotArmor} {gearCheck.armor}/1
           </span>
           <span className={gearCheck.hands > 2 ? 'neg' : ''}>
-            <CardIcon name="hands" /> Руки {gearCheck.hands}/2
+            <CardIcon name="hands" /> {d.slotHands} {gearCheck.hands}/2
           </span>
           <span className={gearCheck.trinkets > 1 ? 'neg' : ''}>
-            <CardIcon name="trinket" /> Вещь {gearCheck.trinkets}/1
+            <CardIcon name="trinket" /> {d.slotTrinket} {gearCheck.trinkets}/1
           </span>
           <span className={gearCheck.mounts > 1 ? 'neg' : ''}>
-            <CardIcon name="mount" /> Верховое животное {gearCheck.mounts}/1
+            <CardIcon name="mount" /> {d.slotMount} {gearCheck.mounts}/1
           </span>
         </div>
         {gearCheck.problems.map((p) => (
           <div key={p} className="problem">
-            {p}
+            {d.problem[p](gearCheck.hands)}
           </div>
         ))}
         <div className="drows">
@@ -378,7 +374,8 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
                 <ItemRow card={c} onOpen={onOpen}>
                   {options.length > 0 && (
                     <button className={`btn btn-sm ${open ? 'is-on' : ''}`} onClick={() => setUpgradeAt(open ? null : i)} aria-expanded={open}>
-                      Улучшить{better > 0 && ` · ${better}`}
+                      {d.upgrade}
+                      {better > 0 && ` · ${better}`}
                     </button>
                   )}
                   <button
@@ -388,7 +385,7 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
                       set({ gear: build.gear.filter((_, j) => j !== i) });
                     }}
                   >
-                    Снять
+                    {d.unequip}
                   </button>
                 </ItemRow>
                 {open && (
@@ -408,37 +405,35 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
         </div>
         <div className="row-actions">
           <AddSelect
-            placeholder="+ добавить снаряжение…"
-            groups={ITEM_SUBS.map((s) => [SUBTYPE_LABEL[s] ?? s, cards.filter((c) => c.kind === 'item' && c.subtype === s).sort(itemOrder)] as [string, Card[]])}
-            label={itemOptionLabel}
+            placeholder={d.addGear}
+            groups={ITEM_SUBS.map((s) => [t.subtype[s] ?? s, cards.filter((c) => c.kind === 'item' && c.subtype === s).sort(itemOrder)] as [string, Card[]])}
+            label={(c) => itemOptionLabel(c, lang, t)}
             onPick={(id) => set({ gear: [...build.gear, id] })}
           />
           {hero && (
             <button className="btn btn-sm" onClick={() => set({ gear: startingGear(hero, cards) })}>
-              Стартовое снаряжение
+              {d.startingGear}
             </button>
           )}
         </div>
-        <p className="hint">
-          Герой может быть экипирован не более чем одной бронёй, снаряжением не более чем на две руки и одной вещью (37.4); верховое животное — одно, после экипировки вещами («Ветер войны»). Всё стартовое снаряжение имеет ранг I.
-          «Улучшить» показывает карты той же линейки: приложение предлагает их на выбор, когда показатель сведений отряда достигает числа на карте.
-        </p>
+        <p className="hint">{d.gearHint}</p>
       </section>
 
       <section className="dsec">
-        <h3>Статистика колоды</h3>
+        <h3>{d.stats}</h3>
         <div className="deck-sum">
           <span>
-            <b>{stats.inDeck}</b> карт в колоде{build.prepared.length > 0 && <span className="dim"> (+{build.prepared.length} подготовлено)</span>}
+            <b>{stats.inDeck}</b> {d.inDeckN(stats.inDeck)}
+            {build.prepared.length > 0 && <span className="dim">{d.plusPrepared(build.prepared.length)}</span>}
           </span>
           <span>
-            <CardIcon name="success" /> <b>{stats.successInDeck}</b> успехов
+            <CardIcon name="success" /> <b>{stats.successInDeck}</b> {d.successes}
           </span>
           <span>
-            <CardIcon name="fate" /> <b>{stats.fateInDeck}</b> судьбы
+            <CardIcon name="fate" /> <b>{stats.fateInDeck}</b> {d.fates}
           </span>
           <span>
-            карт с успехом <b>{withSuccess}</b> из {stats.inDeck} ({stats.inDeck ? pct(withSuccess / stats.inDeck) : '—'})
+            {d.withSuccess} <b>{withSuccess}</b> {d.of} {stats.inDeck} ({stats.inDeck ? pct(withSuccess / stats.inDeck) : '—'})
           </span>
         </div>
         {hero && hero.stats && (
@@ -446,11 +441,11 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
             <table className="stats-table">
               <thead>
                 <tr>
-                  <th>Характеристика</th>
-                  <th title="Столько карт берётся при проверке">Карт</th>
-                  <th>Хотя бы 1 успех</th>
-                  <th>Хотя бы 2</th>
-                  <th>Ожидаемо</th>
+                  <th>{d.thStat}</th>
+                  <th title={d.thCardsTitle}>{d.thCards}</th>
+                  <th>{d.thAtLeast1}</th>
+                  <th>{d.thAtLeast2}</th>
+                  <th>{d.thExpected}</th>
                 </tr>
               </thead>
               <tbody>
@@ -462,7 +457,7 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
                   return (
                     <tr key={k}>
                       <td>
-                        <StatIcon stat={k} size={16} title={STAT_LABEL[k]} /> {STAT_LABEL[k]}
+                        <StatIcon stat={k} size={16} title={t.stat[k]} /> {t.stat[k]}
                       </td>
                       <td>{n}</td>
                       <td>
@@ -483,16 +478,14 @@ export function DeckMain({ build, cards, byId, roles, heroes, onChange, onOpen }
         )}
         {stats.traits.length > 0 && (
           <div className="chips">
-            {stats.traits.map(([t, n]) => (
-              <span key={t} className="chip">
-                {TRAIT_LABEL[t] ?? t} <b>{n}</b>
+            {stats.traits.map(([tr, n]) => (
+              <span key={tr} className="chip">
+                {t.trait[tr] ?? tr} <b>{n}</b>
               </span>
             ))}
           </div>
         )}
-        <p className="hint">
-          При проверке герой берёт с верха колоды столько карт, сколько у него значение характеристики, и считает символы успеха. Проценты — вероятность набрать столько успехов с одной попытки, без учёта эффектов карт. Подготовленные карты лежат под планшетом и в колоде не участвуют; их символы игнорируются (57.6).
-        </p>
+        <p className="hint">{d.statsHint}</p>
       </section>
     </div>
   );
@@ -526,6 +519,8 @@ function DeckGroup({
   action?: (c: Card) => RowAction;
   extra?: React.ReactNode;
 }) {
+  const { t } = useI18n();
+  const d = t.deck;
   return (
     <div className="dgroup">
       <h4>
@@ -542,11 +537,11 @@ function DeckGroup({
                 <button
                   className={`prep ${isPrep ? 'is-on' : ''}`}
                   disabled={!isPrep && !canPrepare}
-                  title={isPrep ? 'Убрать из подготовленных' : canPrepare ? 'Подготовить (положить под планшет)' : `Не более ${MAX_PREPARED} подготовленных карт`}
+                  title={isPrep ? d.unprepareTitle : canPrepare ? d.prepareTitle : d.maxPrepared(MAX_PREPARED)}
                   onClick={() => onPrepare(c.id)}
                   aria-pressed={isPrep}
                 >
-                  {isPrep ? '✓ подготовлена' : 'подготовить'}
+                  {isPrep ? d.prepared : d.prepare}
                 </button>
               )}
               {a && (
@@ -564,19 +559,20 @@ function DeckGroup({
 }
 
 function SkillRow({ card, onOpen, prepared, status, children }: { card: Card; onOpen: (id: string) => void; prepared?: boolean; status?: 'bought' | 'plan' | null; children?: React.ReactNode }) {
-  const { main, sub } = displayName(card);
+  const { lang, t } = useI18n();
+  const { main } = displayName(card, lang);
+  const traits = traitLine(card, lang, t);
   return (
     <div className={`drow ${typeClass(card)} ${prepared ? 'is-prepared' : ''}`}>
       <span className="drow-n">{card.number ?? '·'}</span>
       <button className="drow-name linklike" onClick={() => onOpen(card.id)}>
         <b>{main}</b>
-        {sub && <span className="drow-sub">{sub}</span>}
       </button>
       <span className="drow-meta">
-        {status === 'bought' && <span className="st st-bought">в колоде</span>}
-        {status === 'plan' && <span className="st st-plan">в плане</span>}
+        {status === 'bought' && <span className="st st-bought">{t.deck.statusBought}</span>}
+        {status === 'plan' && <span className="st st-plan">{t.deck.statusPlan}</span>}
         <OwnerBadge c={card} />
-        {card.traits_ru && <span className="drow-traits">{card.traits_ru}</span>}
+        {traits && <span className="drow-traits">{traits}</span>}
         <IconRow c={card} />
         <CostChip c={card} />
       </span>
@@ -586,7 +582,11 @@ function SkillRow({ card, onOpen, prepared, status, children }: { card: Card; on
 }
 
 function ItemRow({ card, onOpen, text, children }: { card: Card; onOpen: (id: string) => void; text?: boolean; children?: React.ReactNode }) {
-  const { main, sub } = displayName(card);
+  const { lang, t } = useI18n();
+  const { main } = displayName(card, lang);
+  const traits = traitLine(card, lang, t);
+  const body = lang === 'en' ? card.text_en : card.text_ru ?? card.text_en;
+  const stat = (x: string) => t.stat[x.toLowerCase() as StatKey] ?? x;
   const hands = handsOf(card);
   const test = card.test ?? [];
   return (
@@ -596,26 +596,25 @@ function ItemRow({ card, onOpen, text, children }: { card: Card; onOpen: (id: st
       </span>
       <button className="drow-name linklike" onClick={() => onOpen(card.id)}>
         <b>{main}</b>
-        {sub && <span className="drow-sub">{sub}</span>}
       </button>
       <span className="drow-meta">
         <TypeBadge c={card} />
-        {hands > 0 && <CardIcon name={hands > 1 ? 'hands' : 'hand'} title={`${hands}-hand`} />}
-        {card.ranged && <CardIcon name="ranged" title="дальняя атака" />}
-        {test.map((t) => (
-          <StatIcon key={t} stat={t.toLowerCase() as StatKey} size={15} title={STAT_LABEL_EN[t] ?? t} />
+        {hands > 0 && <CardIcon name={hands > 1 ? 'hands' : 'hand'} title={t.hands(hands)} />}
+        {card.ranged && <CardIcon name="ranged" title={t.ranged} />}
+        {test.map((x) => (
+          <StatIcon key={x} stat={x.toLowerCase() as StatKey} size={15} title={stat(x)} />
         ))}
         {card.number != null && (
-          <span className="drow-lore" title="Показатель сведений">
+          <span className="drow-lore" title={t.lore}>
             <CardIcon name="lore" /> {card.number}
           </span>
         )}
       </span>
       <span className="drow-actions">{children}</span>
-      {text && (card.text_ru || card.text_en) && (
+      {text && body && (
         <div className="drow-text">
-          {card.traits_ru && <div className="drow-traits">{card.traits_ru}</div>}
-          <CardText text={card.text_ru ?? card.text_en} className="small" />
+          {traits && <div className="drow-traits">{traits}</div>}
+          <CardText text={body} className="small" />
         </div>
       )}
     </div>
@@ -624,6 +623,8 @@ function ItemRow({ card, onOpen, text, children }: { card: Card; onOpen: (id: st
 
 /** Other cards of an item's upgrade line, with the lore thresholds the app uses to offer them. */
 function UpgradeList({ current, options, onOpen, onPick }: { current: Card; options: Card[]; onOpen: (id: string) => void; onPick: (id: string) => void }) {
+  const { lang, t } = useI18n();
+  const d = t.deck;
   const base = current.tier === 'I' ? current : options.find((o) => o.tier === 'I') ?? current;
   const lore = TIERS.map((t) => {
     const o = [current, ...options].find((x) => x.tier === t && x.number != null);
@@ -632,15 +633,16 @@ function UpgradeList({ current, options, onOpen, onPick }: { current: Card; opti
   return (
     <div className="upgrade">
       <div className="upgrade-head">
-        Линейка «{displayName(base).main}»{lore.length > 0 && <> · показатель сведений: {lore.join(', ')}</>}
+        {d.line(displayName(base, lang).main)}
+        {lore.length > 0 && <> · {d.loreLine(lore.join(', '))}</>}
       </div>
       <div className="drows">
         {options.map((o) => {
-          const d = tierIndex(o) - tierIndex(current);
+          const diff = tierIndex(o) - tierIndex(current);
           return (
             <ItemRow key={o.id} card={o} onOpen={onOpen} text>
-              <button className={`btn btn-sm ${d > 0 ? 'is-buy' : ''}`} onClick={() => onPick(o.id)}>
-                {d > 0 ? 'Улучшить' : d === 0 ? 'Заменить' : 'Вернуть'}
+              <button className={`btn btn-sm ${diff > 0 ? 'is-buy' : ''}`} onClick={() => onPick(o.id)}>
+                {diff > 0 ? d.doUpgrade : diff === 0 ? d.replace : d.revert}
               </button>
             </ItemRow>
           );
@@ -675,7 +677,8 @@ function AddSelect({
   label?: (c: Card) => string;
   onPick: (id: string) => void;
 }) {
-  const lab = label ?? ((c: Card) => displayName(c).main);
+  const { lang } = useI18n();
+  const lab = label ?? ((c: Card) => displayName(c, lang).main);
   return (
     <select
       className="addselect"
@@ -711,14 +714,14 @@ function itemOrder(a: Card, b: Card): number {
   return (a.family ?? a.name_en ?? '').localeCompare(b.family ?? b.name_en ?? '') || TIERS.indexOf(a.tier ?? '') - TIERS.indexOf(b.tier ?? '') || (a.name_en ?? '').localeCompare(b.name_en ?? '');
 }
 
-function itemOptionLabel(c: Card): string {
-  const { main, sub } = displayName(c);
+function itemOptionLabel(c: Card, lang: Lang, t: Dict): string {
+  const { main, sub } = displayName(c, lang);
   const parts = [main];
   if (c.tier) parts.push(c.tier);
   const hands = handsOf(c);
-  if (hands) parts.push(`${hands} р.`);
-  if (c.number != null) parts.push(`сведения ${c.number}`);
+  if (hands) parts.push(t.deck.handsShort(hands));
+  if (c.number != null) parts.push(t.deck.loreShort(c.number));
   const exp = Array.isArray(c.expansion) ? c.expansion[0] : c.expansion;
-  if (exp) parts.push(EXPANSION_SHORT[exp] ?? exp);
+  if (exp) parts.push(t.expShort[exp] ?? exp);
   return parts.join(' · ') + (sub && sub !== main ? ` (${sub})` : '');
 }

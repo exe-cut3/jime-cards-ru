@@ -1,8 +1,16 @@
 // Filters live in the URL query string so a view can be shared as a link.
 // ?view=deck opens the deck planner; ?view=deck&b=… imports a shared build.
+import type { Lang } from './i18n';
 import { EMPTY_FILTERS, type Filters, type Kind } from './types';
 
 export type View = 'cards' | 'deck';
+
+// The English interface is carried in links (?lang=en) so a shared card opens in English;
+// Russian is the default and is not written.
+let urlLang: Lang = 'ru';
+export function setUrlLang(lang: Lang): void {
+  urlLang = lang;
+}
 
 const LIST_KEYS = ['sub', 'owner', 'exp', 'cost', 'icon', 'trait', 'tier', 'test'] as const;
 
@@ -42,6 +50,7 @@ export function writeUrl(f: Filters, cardId: string | null, replace = false, vie
     if (f.fav) p.set('fav', '1');
   }
   if (cardId) p.set('card', cardId);
+  if (urlLang === 'en') p.set('lang', 'en');
   const qs = p.toString();
   const url = `${window.location.pathname}${qs ? '?' + qs : ''}`;
   if (url === window.location.pathname + window.location.search) return;

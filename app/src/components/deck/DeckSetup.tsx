@@ -1,8 +1,8 @@
 // Sidebar of the deck planner: saved builds, hero, role, experience per role, notes.
 import { useMemo } from 'react';
 import { displayName, expansions, primaryImage } from '../../data';
-import { type Build, matchRole, roleLabel, withHero, withRole, xpByRole } from '../../deck';
-import { EXPANSION_LABEL, STAT_KEYS, STAT_LABEL } from '../../i18n';
+import { type Build, matchRole, withHero, withRole, xpByRole } from '../../deck';
+import { STAT_KEYS, useI18n } from '../../i18n';
 import type { Card } from '../../types';
 import { StatIcon } from '../Icons';
 
@@ -23,6 +23,9 @@ interface Props {
 const EXP_ORDER = ['core', 'sp', 'sw', 'did', 'voe', 'sotw'];
 
 export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange, onSelect, onCreate, onDuplicate, onDelete }: Props) {
+  const { lang, t } = useI18n();
+  const d = t.deck;
+  const roleLabel = (r: string) => t.owner(r);
   const hero = build.hero ? byId.get(build.hero) ?? null : null;
   const suggested = matchRole(hero?.suggested_role, roles);
   const xp = useMemo(() => xpByRole(build, byId), [build, byId]);
@@ -53,16 +56,16 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
 
   const subtitle = (b: Build) => {
     const h = b.hero ? byId.get(b.hero) : null;
-    const parts = [h ? displayName(h).main : null, b.role ? roleLabel(b.role) : null].filter(Boolean);
-    return parts.length ? parts.join(' · ') : 'герой не выбран';
+    const parts = [h ? displayName(h, lang).main : null, b.role ? roleLabel(b.role) : null].filter(Boolean);
+    return parts.length ? parts.join(' · ') : d.noHero;
   };
 
   return (
     <div className="filters deck-setup">
       <div className="filters-head">
-        <h2>Билды</h2>
+        <h2>{d.builds}</h2>
         <button className="linklike" onClick={onCreate}>
-          + новый
+          {d.newBuild}
         </button>
       </div>
       <div className="builds">
@@ -75,21 +78,21 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
       </div>
       <div className="build-actions">
         <button className="btn btn-sm" onClick={onDuplicate}>
-          Дублировать
+          {d.duplicate}
         </button>
         <button className="btn btn-sm" onClick={onDelete}>
-          Удалить
+          {d.remove}
         </button>
       </div>
 
-      <Group label="Герой">
-        <select value={build.hero ?? ''} onChange={(e) => onChange((b) => withHero(b, e.target.value || null, cards, byId, roles))} aria-label="Герой">
-          <option value="">— выберите героя —</option>
+      <Group label={t.hero}>
+        <select value={build.hero ?? ''} onChange={(e) => onChange((b) => withHero(b, e.target.value || null, cards, byId, roles))} aria-label={t.hero}>
+          <option value="">{d.chooseHero}</option>
           {heroGroups.map(([e, hs]) => (
-            <optgroup key={e} label={EXPANSION_LABEL[e] ?? e}>
+            <optgroup key={e} label={t.exp[e] ?? e}>
               {hs.map((h) => (
                 <option key={h.id} value={h.id}>
-                  {displayName(h).main}
+                  {displayName(h, lang).main}
                 </option>
               ))}
             </optgroup>
@@ -97,11 +100,11 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
         </select>
         {hero && (
           <div className="hero-mini">
-            {primaryImage(hero, 'front', true) && <img src={primaryImage(hero, 'front', true)!} alt="" />}
+            {primaryImage(hero, 'front', true, lang) && <img src={primaryImage(hero, 'front', true, lang)!} alt="" />}
             <div className="hero-mini-stats">
               {STAT_KEYS.map((k) => (
-                <span key={k} className="stat" title={STAT_LABEL[k]}>
-                  <StatIcon stat={k} size={14} title={STAT_LABEL[k]} />
+                <span key={k} className="stat" title={t.stat[k]}>
+                  <StatIcon stat={k} size={14} title={t.stat[k]} />
                   <span className="stat-n small">{hero.stats?.[k] ?? '—'}</span>
                 </span>
               ))}
@@ -110,21 +113,21 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
         )}
       </Group>
 
-      <Group label="Роль">
-        <select value={build.role ?? ''} onChange={(e) => onChange((b) => withRole(b, e.target.value || null, cards))} aria-label="Роль">
-          <option value="">— выберите роль —</option>
+      <Group label={t.role}>
+        <select value={build.role ?? ''} onChange={(e) => onChange((b) => withRole(b, e.target.value || null, cards))} aria-label={t.role}>
+          <option value="">{d.chooseRole}</option>
           {roles.map((r) => (
             <option key={r} value={r}>
               {roleLabel(r)}
-              {r === suggested ? ' · рекомендуемая' : ''}
+              {r === suggested ? d.suggestedMark : ''}
             </option>
           ))}
         </select>
-        <p className="hint">Роль можно менять перед каждым приключением: карты роли 1–3 меняются, а купленные карты остаются в колоде (справочник, 76.4).</p>
+        <p className="hint">{d.roleHint}</p>
       </Group>
 
-      <Group label="Опыт по ролям">
-        {xp.length === 0 && <p className="hint">Выберите роль или добавьте её ниже.</p>}
+      <Group label={d.xpByRole}>
+        {xp.length === 0 && <p className="hint">{d.xpEmpty}</p>}
         {xp.map((r) => {
           const removable = r.role !== build.role && r.spent === 0 && r.planned === 0;
           return (
@@ -132,10 +135,10 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
               <label htmlFor={`xp-${r.role}`}>{roleLabel(r.role)}</label>
               <input id={`xp-${r.role}`} type="number" min={0} inputMode="numeric" value={r.earned} onChange={(e) => setXp(r.role, e.target.value)} />
               <span className="xp-sub">
-                потрачено {r.spent} · осталось <b className={r.left < 0 ? 'neg' : ''}>{r.left}</b>
+                {d.spentLeft(r.spent)} <b className={r.left < 0 ? 'neg' : ''}>{r.left}</b>
                 {removable && (
-                  <button className="linklike xp-drop" onClick={() => dropXpRole(r.role)} title="Убрать роль из списка">
-                    убрать
+                  <button className="linklike xp-drop" onClick={() => dropXpRole(r.role)} title={d.dropRoleTitle}>
+                    {d.dropRole}
                   </button>
                 )}
               </span>
@@ -143,8 +146,8 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
           );
         })}
         {spareRoles.length > 0 && (
-          <select value="" onChange={(e) => e.target.value && setXp(e.target.value, '0')} aria-label="Добавить роль">
-            <option value="">+ добавить роль…</option>
+          <select value="" onChange={(e) => e.target.value && setXp(e.target.value, '0')} aria-label={d.addRole}>
+            <option value="">{d.addRole}</option>
             {spareRoles.map((r) => (
               <option key={r} value={r}>
                 {roleLabel(r)}
@@ -152,11 +155,11 @@ export function DeckSetup({ build, builds, heroes, roles, cards, byId, onChange,
             ))}
           </select>
         )}
-        <p className="hint">Опыт начисляется отдельно за каждую роль и тратится только на её карты (76.7). Впишите сюда ожидаемый опыт, чтобы прикинуть прокачку.</p>
+        <p className="hint">{d.xpHint}</p>
       </Group>
 
-      <Group label="Заметки">
-        <textarea rows={3} value={build.notes} placeholder="Идея билда, что качать дальше…" onChange={(e) => onChange((b) => ({ ...b, notes: e.target.value, updated: Date.now() }))} />
+      <Group label={d.notes}>
+        <textarea rows={3} value={build.notes} placeholder={d.notesPlaceholder} onChange={(e) => onChange((b) => ({ ...b, notes: e.target.value, updated: Date.now() }))} />
       </Group>
     </div>
   );
